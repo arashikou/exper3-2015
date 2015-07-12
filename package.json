@@ -1,0 +1,28 @@
+{
+  "name": "exper3-2015",
+  "version": "0.0.1",
+  "description": "QBN created for the 2015 EXPER3 jam.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arashikou/exper3-2015.git"
+  },
+  "keywords": [
+    "exper3",
+    "quality",
+    "narrative",
+    "interactive",
+    "fiction",
+    "qbn",
+    "cyoa"
+  ],
+  "author": "John W. Bruce <arashikou@gmail.com>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/arashikou/exper3-2015/issues"
+  },
+  "homepage": "https://github.com/arashikou/exper3-2015#readme"
+}
