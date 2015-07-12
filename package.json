@@ -2,10 +2,6 @@
   "name": "exper3-2015",
   "version": "0.0.1",
   "description": "QBN created for the 2015 EXPER3 jam.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arashikou/exper3-2015.git"
