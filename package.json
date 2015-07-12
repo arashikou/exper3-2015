@@ -23,6 +23,7 @@
   "homepage": "https://github.com/arashikou/exper3-2015#readme",
   "devDependencies": {
     "coffee-script": "^1.9.3",
+    "del": "^1.2.0",
     "gulp": "^3.9.0"
   }
 }
