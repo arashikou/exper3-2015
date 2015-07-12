@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/arashikou/exper3-2015/issues"
   },
-  "homepage": "https://github.com/arashikou/exper3-2015#readme"
+  "homepage": "https://github.com/arashikou/exper3-2015#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
 }
