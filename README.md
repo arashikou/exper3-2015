@@ -14,4 +14,4 @@ Unfortunately, every QBN engine out there has been formally or effectively aband
 
 # Technologies at Work
 
-I am using [AngularJS 1.4](https://angularjs.org/) as a framework. I am coding in [CoffeeScript](http://coffeescript.org/). And instead of HTML, I am using [HAML](http://haml.info/). I won't be using its advanced templating ability, but it will make the HTML more pleasant to write.
+I am using [AngularJS 1.4](https://angularjs.org/) as a framework. I am coding in [CoffeeScript](http://coffeescript.org/). And instead of HTML, I am using [Jade](http://jade-lang.com/). I won't be using its advanced templating ability, but it will make the HTML more pleasant to write.
