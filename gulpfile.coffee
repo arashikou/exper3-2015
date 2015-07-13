@@ -35,6 +35,7 @@ gulp.task 'clean', (callback) ->
 gulp.task 'watch', ['haml', 'coffee'], ->
   gulp.watch HAML_PATH, ['haml']
   gulp.watch COFFEE_PATH, ['coffee']
+  return
 
 gulp.task 'serve', ->
   serve DEST
