@@ -1,9 +1,10 @@
-gulp       = require 'gulp'
-del        = require 'del'
-jade       = require 'gulp-jade'
-sourcemaps = require 'gulp-sourcemaps'
-coffee     = require 'gulp-coffee'
-serve      = require './serve.coffee'
+gulp        = require 'gulp'
+del         = require 'del'
+deleteLines = require 'gulp-delete-lines'
+jade        = require 'gulp-jade'
+sourcemaps  = require 'gulp-sourcemaps'
+coffee      = require 'gulp-coffee'
+serve       = require './serve.coffee'
 
 SRC = 'src'
 DEST = 'out'
@@ -15,6 +16,7 @@ gulp.task 'build', ['jade', 'coffee']
 
 gulp.task 'jade', ->
   gulp.src JADE_PATH
+    .pipe deleteLines filters: [/^doctype/]
     .pipe jade
       doctype: 'html'
       pretty: false
