@@ -25,7 +25,7 @@ gulp.task 'coffee', ->
 
 gulp.task 'bower', ->
   gulp.src bower()
-    .pipe gulp.dest "#{DEST}/scripts/external"
+    .pipe gulp.dest "#{DEST}/external"
 
 gulp.task 'clean', (callback) ->
   del DEST, callback
