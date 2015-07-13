@@ -4,19 +4,22 @@ haml       = require 'gulp-haml'
 sourcemaps = require 'gulp-sourcemaps'
 coffee     = require 'gulp-coffee'
 
+SRC = 'src'
+DEST = 'out'
+
 gulp.task 'default', ['haml', 'coffee']
 
 gulp.task 'haml', ->
-  gulp.src 'src/haml/**/*.haml'
+  gulp.src "#{SRC}/haml/**/*.haml"
     .pipe haml compiler: 'visionmedia'
-    .pipe gulp.dest 'out'
+    .pipe gulp.dest DEST
 
 gulp.task 'coffee', ->
-  gulp.src 'src/coffee/**/*.coffee'
+  gulp.src "#{SRC}/coffee/**/*.coffee"
     .pipe sourcemaps.init()
     .pipe coffee()
     .pipe sourcemaps.write()
-    .pipe gulp.dest 'out/scripts'
+    .pipe gulp.dest "#{DEST}/scripts"
 
 gulp.task 'clean', (callback) ->
-  del 'out', callback
+  del DEST, callback
