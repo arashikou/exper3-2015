@@ -7,8 +7,9 @@ serve      = require './serve.coffee'
 
 SRC = 'src'
 DEST = 'out'
-JADE_PATH = "#{SRC}/jade/**/*.jade"
-COFFEE_PATH = "#{SRC}/coffee/**/*.coffee"
+pathTo = (ext) -> "#{SRC}/#{ext}/**/*.#{ext}"
+JADE_PATH = pathTo 'jade'
+COFFEE_PATH = pathTo 'coffee'
 
 gulp.task 'build', ['jade', 'coffee']
 
