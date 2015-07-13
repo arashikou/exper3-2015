@@ -11,7 +11,7 @@ gulp.task 'default', ['haml', 'coffee']
 
 gulp.task 'haml', ->
   gulp.src "#{SRC}/haml/**/*.haml"
-    .pipe haml compiler: 'visionmedia'
+    .pipe haml()
     .pipe gulp.dest DEST
 
 gulp.task 'coffee', ->
