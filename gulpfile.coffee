@@ -11,7 +11,7 @@ DEST = 'out'
 HAML_PATH = "#{SRC}/haml/**/*.haml"
 COFFEE_PATH = "#{SRC}/coffee/**/*.coffee"
 
-gulp.task 'default', ['haml', 'coffee', 'bower']
+gulp.task 'build', ['haml', 'coffee', 'bower']
 
 gulp.task 'haml', ->
   gulp.src HAML_PATH
@@ -32,10 +32,12 @@ gulp.task 'bower', ->
 gulp.task 'clean', (callback) ->
   del DEST, callback
 
-gulp.task 'watch', ['haml', 'coffee'], ->
+gulp.task 'watch', ['build'], ->
   gulp.watch HAML_PATH, ['haml']
   gulp.watch COFFEE_PATH, ['coffee']
   return
 
 gulp.task 'serve', ->
   serve DEST
+
+gulp.task 'default', ['watch', 'serve']
