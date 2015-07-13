@@ -3,6 +3,7 @@ del        = require 'del'
 haml       = require 'gulp-haml'
 sourcemaps = require 'gulp-sourcemaps'
 coffee     = require 'gulp-coffee'
+serve      = require './serve.coffee'
 
 SRC = 'src'
 DEST = 'out'
@@ -23,3 +24,6 @@ gulp.task 'coffee', ->
 
 gulp.task 'clean', (callback) ->
   del DEST, callback
+
+gulp.task 'serve', ->
+  serve DEST
