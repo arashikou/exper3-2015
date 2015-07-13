@@ -1,6 +1,5 @@
 gulp       = require 'gulp'
 del        = require 'del'
-haml       = require 'gulp-haml'
 jade       = require 'gulp-jade'
 sourcemaps = require 'gulp-sourcemaps'
 coffee     = require 'gulp-coffee'
@@ -8,16 +7,10 @@ serve      = require './serve.coffee'
 
 SRC = 'src'
 DEST = 'out'
-HAML_PATH = "#{SRC}/haml/**/*.haml"
 JADE_PATH = "#{SRC}/jade/**/*.jade"
 COFFEE_PATH = "#{SRC}/coffee/**/*.coffee"
 
-gulp.task 'build', ['haml', 'coffee']
-
-gulp.task 'haml', ->
-  gulp.src HAML_PATH
-    .pipe haml()
-    .pipe gulp.dest DEST
+gulp.task 'build', ['jade', 'coffee']
 
 gulp.task 'jade', ->
   gulp.src JADE_PATH
@@ -37,7 +30,7 @@ gulp.task 'clean', (callback) ->
   del DEST, callback
 
 gulp.task 'watch', ['build'], ->
-  gulp.watch HAML_PATH, ['haml']
+  gulp.watch JADE_PATH, ['jade']
   gulp.watch COFFEE_PATH, ['coffee']
   return
 
