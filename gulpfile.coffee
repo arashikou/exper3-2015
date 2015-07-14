@@ -4,6 +4,7 @@ deleteLines = require 'gulp-delete-lines'
 jade        = require 'gulp-jade'
 sourcemaps  = require 'gulp-sourcemaps'
 less        = require 'gulp-less'
+prefixer    = require 'gulp-autoprefixer'
 coffee      = require 'gulp-coffee'
 uglify      = require 'gulp-uglify'
 concat      = require 'gulp-concat'
@@ -30,6 +31,12 @@ gulp.task 'less', ->
   gulp.src LESS_PATH
     .pipe sourcemaps.init()
     .pipe less()
+    .pipe prefixer browsers: [
+      'last 2 Chrome versions'
+      'last 2 Firefox versions'
+      'last 2 Explorer versions'
+      'last 2 Safari versions'
+    ]
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/styles"
 
