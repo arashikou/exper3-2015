@@ -16,7 +16,7 @@ JADE_PATH = pathTo 'jade'
 LESS_PATH = pathTo 'less'
 COFFEE_PATH = pathTo 'coffee'
 
-gulp.task 'build', ['jade', 'coffee']
+gulp.task 'build', ['jade', 'less', 'coffee']
 
 gulp.task 'jade', ->
   gulp.src JADE_PATH
@@ -45,6 +45,7 @@ gulp.task 'clean', (callback) ->
 
 gulp.task 'watch', ['build'], ->
   gulp.watch JADE_PATH, ['jade']
+  gulp.watch LESS_PATH, ['less']
   gulp.watch COFFEE_PATH, ['coffee']
   return
 
