@@ -1,0 +1,1 @@
+@qbnAp = angular.module 'qbnApp', []
