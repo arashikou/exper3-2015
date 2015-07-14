@@ -4,6 +4,7 @@ deleteLines = require 'gulp-delete-lines'
 jade        = require 'gulp-jade'
 sourcemaps  = require 'gulp-sourcemaps'
 coffee      = require 'gulp-coffee'
+uglify      = require 'gulp-uglify'
 serve       = require './serve.coffee'
 
 SRC = 'src'
@@ -26,6 +27,7 @@ gulp.task 'coffee', ->
   gulp.src COFFEE_PATH
     .pipe sourcemaps.init()
     .pipe coffee()
+    .pipe uglify mangle: false
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/scripts"
 

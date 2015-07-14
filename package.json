@@ -30,6 +30,7 @@
     "gulp-delete-lines": "0.0.7",
     "gulp-jade": "^1.0.1",
     "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
     "serve-static": "^1.10.0"
   }
 }
