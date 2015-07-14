@@ -46,8 +46,8 @@ gulp.task 'coffee', ->
   gulp.src COFFEE_PATH
     .pipe sourcemaps.init()
     .pipe coffee()
-    .pipe uglify mangle: false
     .pipe concat 'app.js'
+    .pipe uglify mangle: false
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/scripts"
 
