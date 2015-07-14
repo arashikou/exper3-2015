@@ -5,6 +5,7 @@ jade        = require 'gulp-jade'
 sourcemaps  = require 'gulp-sourcemaps'
 less        = require 'gulp-less'
 prefixer    = require 'gulp-autoprefixer'
+minifyCss   = require 'gulp-minify-css'
 coffee      = require 'gulp-coffee'
 uglify      = require 'gulp-uglify'
 concat      = require 'gulp-concat'
@@ -37,6 +38,7 @@ gulp.task 'less', ->
       'last 2 Explorer versions'
       'last 2 Safari versions'
     ]
+    .pipe minifyCss()
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/styles"
 
