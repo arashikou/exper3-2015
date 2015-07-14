@@ -1,1 +1,1 @@
-@qbnAp = angular.module 'qbnApp', []
+qbnAp = angular.module 'qbnApp', []
