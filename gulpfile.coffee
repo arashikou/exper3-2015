@@ -38,6 +38,7 @@ gulp.task 'less', ->
       'last 2 Explorer versions'
       'last 2 Safari versions'
     ]
+    .pipe concat 'app.css'
     .pipe minifyCss()
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/styles"
