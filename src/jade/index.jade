@@ -11,6 +11,8 @@ html
   script(src="scripts/app.js")
 
   body(ng-app="qbnApp")
-    div(ng-controller="QBN")
-      div Punchiness = {{qualities.punchiness}}
-      div Thinkyness = {{qualities.thinkyness}}
+    .outer-frame(ng-controller="QBN")
+      .qualities
+        .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
+      .cards
+      .always
