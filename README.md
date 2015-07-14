@@ -18,6 +18,7 @@ The game is written in the following languages:
 
 * [CoffeeScript](http://coffeescript.org/)
 * [Jade](http://jade-lang.com/)
+* [Less](http://lesscss.org/)
 
 It uses the following libraries:
 
