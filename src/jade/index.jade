@@ -11,4 +11,6 @@ html
   script(src="scripts/app.js")
 
   body(ng-app="qbnApp")
-    div Placeholder {{'for ' + 'now!'}}
+    div(ng-controller="QBN")
+      div Punchiness = {{qualities.punchiness}}
+      div Thinkyness = {{qualities.thinkyness}}
