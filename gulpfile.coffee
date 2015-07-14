@@ -28,7 +28,9 @@ gulp.task 'jade', ->
 
 gulp.task 'less', ->
   gulp.src LESS_PATH
+    .pipe sourcemaps.init()
     .pipe less()
+    .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/styles"
 
 gulp.task 'coffee', ->
