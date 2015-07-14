@@ -48,6 +48,6 @@ to compile all source code to the out/ directory.
 gulp serve
 ```
 
-to serve up the results from a local webserver that can be connected to on [localhost:8080](http://localhost:8080/). Note that this task will not terminate on its own and much be terminated (usually with CTRL-C or your OS's variant) when you are done.
+to serve up the results from a local webserver that can be connected to on [localhost:8080](http://localhost:8080/). Note that this task will not terminate on its own and must be terminated (usually with CTRL-C or your OS's variant) when you are done.
 
 Lastly, the default gulp task will build all sources and then serve them up while also watching for changes and rebuilding as necessary. Very useful for development, not so useful for just trying out the game.
