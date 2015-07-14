@@ -14,4 +14,40 @@ Unfortunately, every QBN engine out there has been formally or effectively aband
 
 # Technologies at Work
 
-I am using [AngularJS 1.4](https://angularjs.org/) as a framework. I am coding in [CoffeeScript](http://coffeescript.org/). And instead of HTML, I am using [Jade](http://jade-lang.com/). I won't be using its advanced templating ability, but it will make the HTML more pleasant to write.
+The game is written in the following languages:
+
+* [CoffeeScript](http://coffeescript.org/)
+* [Jade](http://jade-lang.com/)
+
+It uses the following libraries:
+
+* [AngularJS 1.4](https://angularjs.org/)
+* [normalize.css 3.0.3](https://necolas.github.io/normalize.css/)
+
+Dependency management is handled by [npm](https://www.npmjs.com/) and task running is handled by [gulp](http://gulpjs.com/), which both run on [node.js](https://nodejs.org/).
+
+# How Can I Run It?
+
+There's not much to see right now, but if you want to try it out, you'll need to have node.js, npm, and gulp installed globally. (or at least somewhere your PATH can find them) All other dependencies will be downloaded to the project folder by npm and will not affect your system configuration. These steps should work on any operating system that has a node.js implementation.
+
+After checking out the code, you'll want to use npm to install the dev-dependencies needed for compilation, which are numerous.
+
+```bash
+npm install
+```
+
+With that complete, you're all ready to compile! There are several gulp tasks configured, but the relevant ones are
+
+```bash
+gulp build
+```
+
+to compile all source code to the out/ directory.
+
+```bash
+gulp serve
+```
+
+to serve up the results from a local webserver that can be connected to on [localhost:8080](http://localhost:8080/). Note that this task will not terminate on its own and much be terminated (usually with CTRL-C or your OS's variant) when you are done.
+
+Lastly, the default gulp task will build all sources and then serve them up while also watching for changes and rebuilding as necessary. Very useful for development, not so useful for just trying out the game.
