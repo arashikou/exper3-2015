@@ -1,7 +1,15 @@
 qbnApp = angular.module 'qbnApp', []
 
 class Quality
-  constructor: (@name, @value) ->
+  constructor: (@name, @defaultValue) ->
+
+  initInstance: () ->
+    @value = @defaultValue
+
+instantiate = (proto) ->
+  instance = Object.create proto
+  instance.initInstance()
+  return instance
 
 class Storylet
   constructor: (@title, @text, @choices) ->
@@ -11,8 +19,8 @@ class Choice
 
 qbnApp.controller 'QBN', ($scope) ->
   $scope.qualities = [
-    new Quality 'Punchiness', 7
-    new Quality 'Thinkyness', 2
+    instantiate new Quality 'Punchiness', 7
+    instantiate new Quality 'Thinkyness', 2
   ]
   $scope.storylets = [
     new Storylet 'The Thinker\'s Apprentice', 'You do some thinking.'
