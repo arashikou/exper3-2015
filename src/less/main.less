@@ -1,13 +1,16 @@
 @dominant: rgb(255, 200, 0);
-@recessive: lighten(@dominant, 47%);
+@accent1: spin(darken(@dominant, 25%), 120);
+@accent2: spin(darken(@dominant, 25%), -120);
 @edge: black;
-@text: spin(darken(@dominant, 40%), 50);
+@fill: white;
+@text-bg: rgb(255, 250, 230);
+@text-fg: rgb(0, 50, 0);
 
 html {
   background-color: @dominant;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
-  color: @text;
+  color: @text-fg;
   line-height: 1.33;
 }
 
@@ -17,7 +20,7 @@ html {
   width: 50rem;
   margin: 2rem auto;
   padding: @spacing;
-  background-color: @recessive;
+  background-color: @fill;
   border: 0.2rem solid @edge;
   border-radius: @spacing;
   box-shadow: @spacing @spacing @edge;
@@ -25,6 +28,7 @@ html {
 
 .inner-frame() {
   padding: @spacing;
+  background-color: @text-bg;
   border: 0.1rem solid @edge;
   border-radius: @spacing / 2;
 }
