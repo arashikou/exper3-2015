@@ -3,12 +3,12 @@ qbnApp = angular.module 'qbnApp', []
 class Quality
   constructor: (@name, @defaultValue) ->
 
-  initInstance: () ->
-    @value = @defaultValue
-
 instantiate = (proto) ->
   instance = Object.create proto
-  instance.initInstance()
+  for key, value of proto when /^default\w{2}/.test(key)
+    [_, first, rest] = /^default(\w)(\w*)/.exec(key)
+    newName = first.toLowerCase() + rest
+    instance[newName] = value
   return instance
 
 class Storylet
