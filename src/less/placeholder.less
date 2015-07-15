@@ -22,12 +22,26 @@ html {
   box-shadow: 1rem 1rem @edge;
 }
 
-.qualities {
-  width: 25%;
-  float: left;
+.inner-frame() {
   padding: 1rem;
   border: 0.1rem solid @edge;
   border-radius: 0.5rem;
+}
+
+.qualities {
+  .inner-frame();
+  width: 20%;
+  float: left;
+}
+
+.cards {
+  .inner-frame();
+  margin-left: 25%;
+}
+
+.always {
+  .inner-frame();
+  margin-left: 25%;
 }
 
 .dash-banner {
