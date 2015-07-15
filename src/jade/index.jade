@@ -17,8 +17,9 @@ html
       #chooser(ng-hide="currentStorylet")
         #qualities
           .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
-        #cards Cards
-        #always Always
+        #storylets
+          #cards Cards
+          #always Always
       #player(ng-show="currentStorylet")
         #event-text {{eventText}}
         .choice(ng-repeat="choice in choices")

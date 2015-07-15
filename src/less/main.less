@@ -14,7 +14,6 @@ html {
 #outer-frame {
   width: 60rem;
   margin: 2rem auto 0 auto;
-  overflow: auto;
   background-color: @recessive;
   border: 0.2rem solid @edge;
   border-radius: 1rem;
@@ -28,20 +27,27 @@ html {
   border-radius: 0.5rem;
 }
 
+#chooser {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+}
+
 #qualities {
   .inner-frame();
-  width: 20%;
-  float: left;
+  flex: 1;
+}
+
+#storylets {
+  flex: 3;
 }
 
 #cards {
   .inner-frame();
-  margin-left: 30%;
 }
 
 #always {
   .inner-frame();
-  margin-left: 30%;
 }
 
 #event-text {
