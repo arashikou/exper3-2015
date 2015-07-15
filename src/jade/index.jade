@@ -18,8 +18,7 @@ html
         #qualities
           .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
         #storylets
-          #cards Cards
-          #always Always
+          .storylet(ng-repeat="storylet in storylets") {{storylet.title}}
       #player(ng-show="currentStorylet")
         #event-text {{eventText}}
         .choice(ng-repeat="choice in choices")
