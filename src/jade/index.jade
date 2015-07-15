@@ -20,9 +20,9 @@ html
         #storylets
           .storylet(ng-repeat="storylet in storylets") {{storylet.title}}
       #player(ng-show="currentStorylet")
-        #event-text {{eventText}}
-        .choice(ng-repeat="choice in choices")
+        #event-text {{currentStorylet.eventText}}
+        .choice(ng-repeat="choice in currentStorylet.choices")
           .text {{choice.text}}
           .requirements {{choice.requirements}}
-        #end.choice(ng-hide="choices") And the story goes on…
+        #end.choice(ng-hide="currentStorylet.choices") And the story goes on…
     .dash-banner LEVEL UP!!
