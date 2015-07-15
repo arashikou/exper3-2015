@@ -21,7 +21,7 @@ html
           a.storylet(ng-repeat="storylet in storylets" href="") {{storylet.title}}
       #player(ng-show="currentStorylet")
         #event-text {{currentStorylet.eventText}}
-        .choice(ng-repeat="choice in currentStorylet.choices")
+        a.choice(ng-repeat="choice in currentStorylet.choices")
           .text {{choice.text}}
           .requirements {{choice.requirements}}
         #end.choice(ng-hide="currentStorylet.choices") And the story goes on…
