@@ -24,5 +24,6 @@ html
         a.choice(ng-repeat="choice in currentStorylet.choices")
           .text {{choice.text}}
           .requirements {{choice.requirements}}
+        #retreat.choice(ng-show="currentStorylet.canRetreat") On second thought, maybe not.
         #end.choice(ng-hide="currentStorylet.choices") And the story goes on…
     .dash-banner LEVEL UP!!
