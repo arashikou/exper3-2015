@@ -19,3 +19,9 @@ html
       .cards Cards
       .always Always
     .dash-banner LEVEL UP!!
+
+    .outer-frame(ng-controller="QBN")
+      .event-text {{eventText}}
+      .choice(ng-repeat="choice in choices")
+        .text {{choice.text}}
+        .requirements {{choice.requirements}}
