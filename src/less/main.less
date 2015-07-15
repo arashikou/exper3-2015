@@ -33,6 +33,12 @@ html {
   border-radius: @spacing / 2;
 }
 
+.a-div() {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 #chooser {
   display: flex;
   flex-flow: row nowrap;
@@ -50,9 +56,7 @@ html {
 }
 
 a.storylet {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+  .a-div();
   .inner-frame();
   margin-bottom: @spacing;
 }
