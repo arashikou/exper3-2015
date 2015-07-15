@@ -20,7 +20,7 @@ html
         #storylets
           a.storylet(ng-repeat="storylet in storylets" href="") {{storylet.title}}
       #player(ng-show="currentStorylet")
-        #event-text {{currentStorylet.eventText}}
+        #event-text {{currentStorylet.text}}
         a.choice(ng-repeat="choice in currentStorylet.choices")
           .text {{choice.text}}
           .requirements {{choice.requirements}}

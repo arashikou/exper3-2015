@@ -4,10 +4,10 @@ class Quality
   constructor: (@name, @value) ->
 
 class Storylet
-  constructor: (@title) ->
+  constructor: (@title, @text, @choices) ->
 
 class Choice
-  constructor: (@text, @requirements) ->
+  constructor: (@text, @requirements, @nextStorylet) ->
 
 qbnApp.controller 'QBN', ($scope) ->
   $scope.qualities = [
@@ -15,9 +15,9 @@ qbnApp.controller 'QBN', ($scope) ->
     new Quality 'Thinkyness', 2
   ]
   $scope.storylets = [
-    new Storylet 'The Thinker\'s Apprentice'
-    new Storylet 'Change Location'
-    new Storylet 'A Mysterious Occurrence'
+    new Storylet 'The Thinker\'s Apprentice', 'You do some thinking.'
+    new Storylet 'Change Location', 'Yeah, but where to go?'
+    new Storylet 'A Mysterious Occurrence', 'So mysterious, you don\'t even know about it.'
   ]
   $scope.eventText = 'Event'
   $scope.choices = [
