@@ -18,7 +18,7 @@ html
         #qualities
           .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
         #storylets
-          .storylet(ng-repeat="storylet in storylets") {{storylet.title}}
+          a.storylet(ng-repeat="storylet in storylets" href="") {{storylet.title}}
       #player(ng-show="currentStorylet")
         #event-text {{currentStorylet.eventText}}
         .choice(ng-repeat="choice in currentStorylet.choices")
