@@ -16,4 +16,5 @@ qbnApp.controller 'QBN', ($scope) ->
     new Choice 'Choice A', 'Requires Punchiness 7'
     new Choice 'Choice B', 'Requires Thinkyness 5'
   ]
+  $scope.currentStorylet = null;
   return
