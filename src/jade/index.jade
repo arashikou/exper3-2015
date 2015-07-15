@@ -13,14 +13,14 @@ html
   script(src="scripts/app.js")
 
   body(ng-app="qbnApp")
-    .outer-frame(ng-controller="QBN")
+    #outer-frame(ng-controller="QBN")
       #chooser(ng-hide="currentStorylet")
-        .qualities
+        #qualities
           .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
-        .cards Cards
-        .always Always
+        #cards Cards
+        #always Always
       #player(ng-show="currentStorylet")
-        .event-text {{eventText}}
+        #event-text {{eventText}}
         .choice(ng-repeat="choice in choices")
           .text {{choice.text}}
           .requirements {{choice.requirements}}
