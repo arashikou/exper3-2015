@@ -26,8 +26,8 @@ class Choice
 
 qbnApp.controller 'QBN', ($scope) ->
   $scope.qualities = [
-    instantiate new Quality 'Punchiness', 7
-    instantiate new Quality 'Thinkyness', 2
+    instantiate new Quality 'Punchiness', '', 7
+    instantiate new Quality 'Thinkyness', '', 2
   ]
   $scope.storylets = [
     new Storylet 'The Thinker\'s Apprentice', 'You do some thinking.'
