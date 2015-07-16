@@ -38,7 +38,7 @@ gulp.task 'less', ->
       'last 2 Explorer versions'
       'last 2 Safari versions'
     ]
-    .pipe concat 'app.css'
+    .pipe concat 'qbn.css'
     .pipe minifyCss()
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/styles"
@@ -47,7 +47,7 @@ gulp.task 'coffee', ->
   gulp.src COFFEE_PATH
     .pipe sourcemaps.init()
     .pipe coffee()
-    .pipe concat 'app.js'
+    .pipe concat 'qbn.js'
     .pipe uglify mangle: false
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/scripts"
