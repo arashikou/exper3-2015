@@ -16,7 +16,7 @@ instantiate = (proto) ->
   return instance
 
 class Quality
-  constructor: (@name, @defaultValue) ->
+  constructor: (@name, @description, @defaultValue, @defaultProgress, @maxProgress) ->
 
 class Storylet
   constructor: (@title, @text, @choices) ->
