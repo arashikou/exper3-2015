@@ -15,9 +15,6 @@ instantiate = (proto) ->
     instance[newName] = value
   return instance
 
-class Storylet
-  constructor: (@title, @text, @choices) ->
-
 class Choice
   constructor: (@name, @text, @seeReq, @chooseReq, @next) ->
 
