@@ -15,9 +15,6 @@ instantiate = (proto) ->
     instance[newName] = value
   return instance
 
-class Choice
-  constructor: (@name, @text, @seeReq, @chooseReq, @next) ->
-
 qbnApp.controller 'QBN', ($scope) ->
   $scope.qualities = [
     instantiate new Quality 'Punchiness', '', 7
