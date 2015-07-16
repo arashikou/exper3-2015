@@ -1,1 +1,1 @@
-angular.module 'qbnApp', ['qbn.engine', 'gameDefinition']
+angular.module 'qbn', ['qbn.engine', 'gameDefinition']
