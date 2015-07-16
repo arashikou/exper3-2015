@@ -15,9 +15,6 @@ instantiate = (proto) ->
     instance[newName] = value
   return instance
 
-class Quality
-  constructor: (@name, @description, @defaultValue, @defaultProgress, @maxProgress) ->
-
 class Storylet
   constructor: (@title, @text, @choices) ->
 
