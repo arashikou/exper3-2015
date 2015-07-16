@@ -9,7 +9,7 @@ qbnApp = angular.module 'qbnApp', []
 # values.
 instantiate = (proto) ->
   instance = Object.create proto
-  for key, value of proto when /^default\w{2}/.test(key)
+  for key, value of proto when /^default\w/.test(key)
     [_, first, rest] = /^default(\w)(\w*)/.exec(key)
     newName = first.toLowerCase() + rest
     instance[newName] = value
