@@ -1,5 +1,3 @@
-qbnApp = angular.module 'qbnApp', []
-
 # The immutable objects that make up the game itself serve as prototypes for the objects that make
 # up the mutable game state. This function takes a game definition object and makes a state
 # instance of it.
