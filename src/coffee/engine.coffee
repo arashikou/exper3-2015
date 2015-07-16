@@ -14,7 +14,5 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet']
         newName = first.toLowerCase() + rest
         instance[newName] = value
       return instance
-  .factory 'storyletFilter', (qualityLibrary, storyletLibrary) ->
-    () ->
-  .controller 'QBN', ($scope, storyletFilter) ->
+  .controller 'QBN', ($scope, qualityLibrary, storyletLibrary, instantiator) ->
     return

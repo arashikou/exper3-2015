@@ -1,6 +1,8 @@
 class Storylet
   constructor: (@title, @text, @choices) ->
 
+  isVisibleWith: (qualities) ->
+
 angular.module 'qbn.storylet', []
   .factory 'storyletLibrary', () ->
     library = {}
@@ -14,4 +16,6 @@ angular.module 'qbn.storylet', []
           q
         else
           library[q.toString()]
+      filterVisible: (qualities) ->
+        storylet for _, storylet of library when storylet.isVisibleWith(qualities)
     return Object.freeze(api)
