@@ -1,8 +1,12 @@
 qbnApp = angular.module 'qbnApp', []
 
-class Quality
-  constructor: (@name, @defaultValue) ->
-
+# The immutable objects that make up the game itself serve as prototypes for the objects that make
+# up the mutable game state. This function takes a game definition object and makes a state
+# instance of it.
+#
+# By convention, any property on the prototype of the form "defaultThing" will be copied on the
+# instance as a property called "thing". This is to allow easy instantiation of default, starting
+# values.
 instantiate = (proto) ->
   instance = Object.create proto
   for key, value of proto when /^default\w{2}/.test(key)
@@ -10,6 +14,9 @@ instantiate = (proto) ->
     newName = first.toLowerCase() + rest
     instance[newName] = value
   return instance
+
+class Quality
+  constructor: (@name, @defaultValue) ->
 
 class Storylet
   constructor: (@title, @text, @choices) ->
