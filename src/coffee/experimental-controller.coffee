@@ -22,7 +22,7 @@ class Storylet
   constructor: (@title, @text, @choices) ->
 
 class Choice
-  constructor: (@text, @requirements, @nextStorylet) ->
+  constructor: (@name, @text, @seeReq, @chooseReq, @next) ->
 
 qbnApp.controller 'QBN', ($scope) ->
   $scope.qualities = [
