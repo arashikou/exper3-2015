@@ -14,7 +14,9 @@ instantiate = (proto) ->
   return instance
 
 angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet']
-  .controller 'QBN', ($scope) ->
+  .factory 'storyletFilter', (qualityLibrary, storyletLibrary) ->
+    () ->
+  .controller 'QBN', ($scope, storyletFilter) ->
     $scope.qualities = [
       instantiate new Quality 'Punchiness', '', 7
       instantiate new Quality 'Thinkyness', '', 2
