@@ -47,7 +47,7 @@ gulp.task 'coffee', ->
   gulp.src COFFEE_PATH
     .pipe sourcemaps.init()
     .pipe coffee()
-    .pipe concat 'app.js'
+    #TODO(juce): Use Browserify to concatenate scripts
     .pipe uglify mangle: false
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/scripts"
