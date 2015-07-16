@@ -12,6 +12,8 @@ html {
   font-size: 18px;
   color: @text-fg;
   line-height: 1.33;
+  user-select: none;
+  cursor: default;
 }
 
 @spacing: 1rem;
@@ -31,6 +33,11 @@ html {
   background-color: @text-bg;
   border: 0.1rem solid @edge;
   border-radius: @spacing / 2;
+}
+
+.prose-text() {
+  user-select: all;
+  cursor: auto;
 }
 
 .a-div() {
@@ -67,6 +74,7 @@ a.storylet {
 
 #event-text {
   .inner-frame();
+  .prose-text();
 }
 
 a.choice {
