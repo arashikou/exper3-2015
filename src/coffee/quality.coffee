@@ -1,13 +1,13 @@
 class Quality
   constructor: (@name, @description, @defaultValue, @defaultProgress, @maxProgress) ->
 
-angular.module 'qbn.quality', ['qbn.instantiator']
-  .factory 'qualityLibrary', (instantiator) ->
+angular.module 'qbn.quality', ['qbn.state']
+  .factory 'qualityLibrary', (makeGameState) ->
     library = {}
     api =
       register: (id, name, options) ->
         quality = Object.freeze new Quality()
-        library[id] = instantiator quality
+        library[id] = makeGameState quality
         return this # Allow Chaining
       resolve: (q) ->
         if q instanceof Quality
