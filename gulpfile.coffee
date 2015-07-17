@@ -7,6 +7,7 @@ less        = require 'gulp-less'
 prefixer    = require 'gulp-autoprefixer'
 minifyCss   = require 'gulp-minify-css'
 coffee      = require 'gulp-coffee'
+add         = require 'gulp-add'
 uglify      = require 'gulp-uglify'
 concat      = require 'gulp-concat'
 serve       = require './serve.coffee'
@@ -47,6 +48,7 @@ gulp.task 'coffee', ->
   gulp.src COFFEE_PATH
     .pipe sourcemaps.init()
     .pipe coffee()
+    .pipe add 'strict.js', '"use strict";', true
     .pipe concat 'qbn.js'
     .pipe uglify mangle: false
     .pipe sourcemaps.write()
