@@ -1,15 +1,32 @@
 edsl = (id, name, description, args = {}) ->
-  {defaultValue, defaultProgress, maxProgress, hasProgress, visible} = args
+  {defaultValue, defaultProgress, maxProgress, hasProgress, progressEscalation, visible} = args
   defaultValue ?= 0
   defaultProgress ?= 0
   maxProgress ?= if hasProgress then 100 else 0
+  progressEscalation ?= 0.10
   visible ?= true
-  Object.freeze new Quality(id, name, description, defaultValue, defaultProgress, maxProgress,
+  Object.freeze new Quality(id, name, description, defaultValue,
+                            defaultProgress, maxProgress, progressEscalation,
                             visible)
 
 class Quality
-  constructor: (@id, @name, @description, @defaultValue, @defaultProgress, @maxProgress,
+  constructor: (@id, @name, @description, @defaultValue,
+                @defaultProgress, @maxProgress, @progressEscalation,
                 @visible) ->
+
+  increase: (whole, partial = 0) ->
+    levelUp = () =>
+      @value++
+      @maxProgress += @maxProgress * @progressEscalation
+      return
+
+    levelUp() for [1..whole]
+
+    @progress += partial
+    while @progress > @maxProgress
+      @progress -= @maxProgress
+      levelUp()
+    return
 
 angular.module 'qbn.quality', ['qbn.state']
   .factory 'qualityLibrary', (makeGameState) ->
