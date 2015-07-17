@@ -14,7 +14,7 @@ angular.module 'qbn.quality', ['qbn.state']
     api =
       register: (args...) ->
         quality = edsl args...
-        library[id] = makeGameState quality # Qualities are stored in state form.
+        library[quality.id] = makeGameState quality # Qualities are stored in state form.
         return this # Allow Chaining
       resolve: (q) ->
         if q instanceof Quality
@@ -22,5 +22,5 @@ angular.module 'qbn.quality', ['qbn.state']
         else
           library[q.toString()]
       getAll: () ->
-        quality for quality of library
+        quality for _, quality of library
     return Object.freeze api
