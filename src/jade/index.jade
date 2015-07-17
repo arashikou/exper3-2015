@@ -18,7 +18,9 @@ html
         #qualities
           .quality(ng-repeat="quality in qualities track by quality.id") {{quality.name}} is {{quality.value}}
         #frontalChoices
-          a.choice(ng-repeat="choice in choices track by choice.id" href="") {{choice.title}}
+          a.choice(ng-repeat="choice in choices track by choice.id" href="")
+            .title {{choice.title}}
+            .text {{choice.text}}
       #player(ng-show="currentStorylet")
         #event-text {{currentStorylet.text}}
         a.choice(ng-repeat="choice in currentStorylet.choices track by choice.id")
