@@ -1,12 +1,15 @@
 edsl = (id, name, description, args = {}) ->
-  {defaultValue, defaultProgress, maxProgress, hasProgress} = args
+  {defaultValue, defaultProgress, maxProgress, hasProgress, visible} = args
   defaultValue ?= 0
   defaultProgress ?= 0
   maxProgress ?= if hasProgress then 100 else 0
-  Object.freeze new Quality(id, name, description, defaultValue, defaultProgress, maxProgress)
+  visible ?= true
+  Object.freeze new Quality(id, name, description, defaultValue, defaultProgress, maxProgress,
+                            visible)
 
 class Quality
-  constructor: (@id, @name, @description, @defaultValue, @defaultProgress, @maxProgress) ->
+  constructor: (@id, @name, @description, @defaultValue, @defaultProgress, @maxProgress,
+                @visible) ->
 
 angular.module 'qbn.quality', ['qbn.state']
   .factory 'qualityLibrary', (makeGameState) ->
@@ -22,5 +25,5 @@ angular.module 'qbn.quality', ['qbn.state']
         else
           library[q.toString()]
       getAll: () ->
-        quality for _, quality of library
+        quality for _, quality of library when quality.visible
     return Object.freeze api
