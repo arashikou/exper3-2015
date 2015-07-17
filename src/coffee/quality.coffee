@@ -6,8 +6,8 @@ angular.module 'qbn.quality', ['qbn.instantiator']
     library = {}
     api =
       register: (id, name, options) ->
-        quality = instantiator new Quality()
-        library[id] = Object.freeze(quality)
+        quality = Object.freeze new Quality()
+        library[id] = instantiator quality
         return this # Allow Chaining
       resolve: (q) ->
         if q instanceof Quality
