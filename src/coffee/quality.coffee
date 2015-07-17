@@ -1,12 +1,12 @@
 class Quality
   constructor: (@name, @description, @defaultValue, @defaultProgress, @maxProgress) ->
 
-angular.module 'qbn.quality', []
-  .factory 'qualityLibrary', () ->
+angular.module 'qbn.quality', ['qbn.instantiator']
+  .factory 'qualityLibrary', (instantiator) ->
     library = {}
     api =
       register: (id, name, options) ->
-        quality = new Quality()
+        quality = instantiator new Quality()
         library[id] = Object.freeze(quality)
         return this # Allow Chaining
       resolve: (q) ->
