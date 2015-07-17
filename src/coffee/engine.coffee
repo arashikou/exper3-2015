@@ -1,4 +1,5 @@
 angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet']
+
   .factory 'instantiator', () ->
     # The immutable objects that make up the game itself serve as prototypes for the objects that
     # make up the mutable game state. This function takes a game definition object and makes a state
@@ -14,5 +15,6 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet']
         newName = first.toLowerCase() + rest
         instance[newName] = value
       return instance
+
   .controller 'QbnEngine', ($scope, qualityLibrary, storyletLibrary, instantiator) ->
     return
