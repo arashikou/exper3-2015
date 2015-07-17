@@ -17,8 +17,8 @@ html
       #chooser(ng-hide="currentStorylet")
         #qualities
           .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
-        #storylets
-          a.storylet(ng-repeat="storylet in storylets" href="") {{storylet.title}}
+        #frontalChoices
+          a.choice(ng-repeat="choice in choices" href="") {{choice.title}}
       #player(ng-show="currentStorylet")
         #event-text {{currentStorylet.text}}
         a.choice(ng-repeat="choice in currentStorylet.choices")
