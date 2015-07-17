@@ -11,13 +11,15 @@ angular.module 'gameDefinition', ['qbn.edsl']
 
     return
   .run (qbnEdsl) ->
-    {storylet, choice} = qbnEdsl
+    {storylet, choice, frontFacing} = qbnEdsl
 
     storylet 'harrowing-carriage', 'A Harrowing Carriage-Voyage',
       '''
       Insert purple prose here.
-      ''',
-      [],
-      frontFacingChoice: choice 'A Harrowing Carriage-Voyage', 'Well, this is unpleasant…'
+      '''
+
+    frontFacing choice 'A Harrowing Carriage-Voyage',
+      'Well, this is unpleasant…',
+      'harrowing-carriage'
 
     return
