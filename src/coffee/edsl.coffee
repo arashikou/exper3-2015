@@ -17,7 +17,7 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         {frontFacingChoice} = args
         storylets.register id, title, text, choices, frontFacingChoice
         return
-      choice: (title, text, next, args) ->
+      choice: (title, text, next, args = {}) ->
         {visibleReqs, activeReqs} = args
         visibleReqs ?= {}
         activeReqs ?= {}
