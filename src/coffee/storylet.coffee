@@ -8,12 +8,12 @@ class Storylet
 
   isVisibleWith: (qualities) -> frontFacingChoice?.isVisibleWith(qualities)
 
-  class Choice
-    constructor: (@title, @text, @visibleReqs, @activeReqs, @next) ->
+class Choice
+  constructor: (@title, @text, @visibleReqs, @activeReqs, @next) ->
 
-    isVisibleWith: (qualities) ->
+  isVisibleWith: (qualities) ->
 
-    isActiveWith: (qualities) ->
+  isActiveWith: (qualities) ->
 
 angular.module 'qbn.storylet', []
   .factory 'storyletLibrary', () ->
@@ -31,3 +31,5 @@ angular.module 'qbn.storylet', []
       filterVisible: (qualities) ->
         storylet for _, storylet of library when storylet.isVisibleWith(qualities)
     return Object.freeze api
+  .factory 'choiceFactory', () ->
+    (args...) -> new Choice(args...)
