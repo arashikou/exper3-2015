@@ -16,12 +16,12 @@ html
     #outer-frame(ng-controller="QbnEngine")
       #chooser(ng-hide="currentStorylet")
         #qualities
-          .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
+          .quality(ng-repeat="quality in qualities track by quality.id") {{quality.name}} is {{quality.value}}
         #frontalChoices
-          a.choice(ng-repeat="choice in choices" href="") {{choice.title}}
+          a.choice(ng-repeat="choice in choices track by choice.id" href="") {{choice.title}}
       #player(ng-show="currentStorylet")
         #event-text {{currentStorylet.text}}
-        a.choice(ng-repeat="choice in currentStorylet.choices")
+        a.choice(ng-repeat="choice in currentStorylet.choices track by choice.id")
           .text {{choice.text}}
           .requirements {{choice.requirements}}
         #retreat.choice(ng-show="currentStorylet.canRetreat") On second thought, maybe not.
