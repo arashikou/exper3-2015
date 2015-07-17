@@ -24,7 +24,8 @@ angular.module 'gameDefinition', ['qbn.edsl']
       Insert purple prose here.
       '''
 
-    front choice 'A Harrowing Carriage-Voyage',
+    front choice 'harrowing-carriage',
+      'A Harrowing Carriage-Voyage'
       'Well, this is unpleasant…'
       'harrowing-carriage'
 

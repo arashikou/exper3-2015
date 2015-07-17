@@ -1,5 +1,5 @@
 class Choice
-  constructor: (@title, @text, @visibleReqs, @activeReqs, @next) ->
+  constructor: (@id, @title, @text, @visibleReqs, @activeReqs, @next) ->
     Object.freeze @
 
   reqsAreMet = (reqs, qualities) ->
