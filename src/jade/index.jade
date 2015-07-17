@@ -22,10 +22,10 @@ html
             .title {{choice.title}}
             .text {{choice.text}}
       #player(ng-show="currentStorylet")
-        #event-text {{currentStorylet.text}}
+        #storylet-text {{currentStorylet.text}}
         a.choice(ng-repeat="choice in currentStorylet.choices track by choice.id")
+          .title {{choice.title}}
           .text {{choice.text}}
-          .requirements {{choice.requirements}}
-        #retreat.choice(ng-show="currentStorylet.canRetreat") On second thought, maybe not.
-        #end.choice(ng-hide="currentStorylet.choices") And the story goes on…
+        a.choice#retreat(ng-show="currentStorylet.canRetreat") On second thought, maybe not.
+        a.choice#end(ng-hide="currentStorylet.choices") And the story goes on…
     .dash-banner LEVEL UP!!
