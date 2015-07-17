@@ -10,6 +10,7 @@ angular.module 'gameDefinition', ['qbn.edsl']
         visible: false
 
     return
+    
   .run (qbnEdsl) ->
     {storylet, choice, front} = qbnEdsl
 
