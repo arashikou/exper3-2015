@@ -16,6 +16,7 @@ class Quality
     while @progress > @maxProgress
       @progress -= @maxProgress
       levelUp()
+
     return
 
 angular.module 'qbn.quality', ['qbn.state']
