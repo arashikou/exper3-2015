@@ -5,7 +5,14 @@ edsl = (id, title, text, choices = [], args = {}) ->
 class Storylet
   constructor: (@id, @title, @text, @choices, @frontFacingChoice) ->
 
-  isVisibleWith: (qualities) ->
+  isVisibleWith: (qualities) -> frontFacingChoice?.isVisibleWith(qualities)
+
+  class Choice
+    constructor: (@title, @text, @visibleReqs, @activeReqs, @next) ->
+
+    isVisibleWith: (qualities) ->
+
+    isActiveWith: (qualities) ->
 
 angular.module 'qbn.storylet', []
   .factory 'storyletLibrary', () ->
