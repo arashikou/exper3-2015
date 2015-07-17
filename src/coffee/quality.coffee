@@ -1,14 +1,3 @@
-edsl = (id, name, description, args = {}) ->
-  {defaultValue, defaultProgress, maxProgress, hasProgress, progressEscalation, visible} = args
-  defaultValue ?= 0
-  defaultProgress ?= 0
-  maxProgress ?= if hasProgress then 100 else 0
-  progressEscalation ?= 0.10
-  visible ?= true
-  new Quality(id, name, description, defaultValue,
-              defaultProgress, maxProgress, progressEscalation,
-              visible)
-
 class Quality
   constructor: (@id, @name, @description, @defaultValue,
                 @defaultProgress, @maxProgress, @progressEscalation,
@@ -34,7 +23,7 @@ angular.module 'qbn.quality', ['qbn.state']
     library = {}
     api =
       register: (args...) ->
-        quality = edsl args...
+        quality = new Quality args...
         library[quality.id] = makeGameState quality # Qualities are stored in state form.
         return this # Allow Chaining
       resolve: (q) ->
