@@ -1,4 +1,4 @@
 angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet']
-  .controller 'QbnEngine', ($scope, qualityLibrary, storyletLibrary) ->
-    $scope.qualities = qualityLibrary.getAll()
+  .controller 'QbnEngine', ($scope, qualities, storylets) ->
+    $scope.qualities = qualities.getAll()
     return

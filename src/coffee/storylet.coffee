@@ -3,7 +3,7 @@ class Storylet
     Object.freeze @
 
 angular.module 'qbn.storylet', []
-  .factory 'storyletLibrary', () ->
+  .factory 'storylets', () ->
     library = {}
     api =
       register: (args...) ->

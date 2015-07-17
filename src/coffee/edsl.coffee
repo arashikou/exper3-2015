@@ -1,5 +1,5 @@
 angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
-  .factory 'qbnEdsl', (qualityLibrary, storyletLibrary, frontFacingChoiceLibrary, choiceFactory) ->
+  .factory 'qbnEdsl', (qualities, storylets, frontalChoices, choiceFactory) ->
     api =
       quality: (id, name, description, args = {}) ->
         {defaultValue, defaultProgress, maxProgress, hasProgress, progressEscalation,
@@ -9,13 +9,13 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         maxProgress ?= if hasProgress then 100 else 0
         progressEscalation ?= 0.10
         visible ?= true
-        qualityLibrary.register id, name, description, defaultValue,
+        qualities.register id, name, description, defaultValue,
                                 defaultProgress, maxProgress, progressEscalation,
                                 visible
         return
       storylet: (id, title, text, choices = [], args = {}) ->
         {frontFacingChoice} = args
-        storyletLibrary.register id, title, text, choices, frontFacingChoice
+        storylets.register id, title, text, choices, frontFacingChoice
         return
       choice: (title, text, next, args) ->
         {visibleReqs, activeReqs} = args
@@ -23,6 +23,6 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         activeReqs ?= {}
         choiceFactory title, text, visibleReqs, activeReqs, args
       front: (choice) ->
-        frontFacingChoiceLibrary.register choice
+        frontalChoices.register choice
         return
     return Object.freeze api

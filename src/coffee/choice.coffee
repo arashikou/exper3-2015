@@ -2,27 +2,27 @@ class Choice
   constructor: (@title, @text, @visibleReqs, @activeReqs, @next) ->
     Object.freeze @
 
-  reqsAreMet = (reqs, qualityLibrary) ->
+  reqsAreMet = (reqs, qualities) ->
     for qualityName, predicate of reqs
-      quality = qualityLibrary.resolve qualityName
+      quality = qualities.resolve qualityName
       return false unless predicate quality
     return true
 
-  isVisibleWith: (qualityLibrary) ->
-    reqsAreMet @visibleReqs, qualityLibrary
+  isVisibleWith: (qualities) ->
+    reqsAreMet @visibleReqs, qualities
 
-  isActiveWith: (qualityLibrary) ->
-    reqsAreMet @activeReqs, qualityLibrary
+  isActiveWith: (qualities) ->
+    reqsAreMet @activeReqs, qualities
 
 angular.module 'qbn.choice', ['qbn.quality']
-  .factory 'frontFacingChoiceLibrary', (qualityLibrary) ->
+  .factory 'frontalChoices', (qualities) ->
     library = []
     api =
       register: (choice) ->
         library.push choice # Choices are stored in immutable form
         return this # Allow Chaining
       getAll: () ->
-        library.filter (storylet) -> storylet.isVisibleWith qualityLibrary
+        library.filter (storylet) -> storylet.isVisibleWith qualities
     return Object.freeze api
   .factory 'choiceFactory', () ->
     (args...) -> new Choice args...

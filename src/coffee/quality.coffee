@@ -20,7 +20,7 @@ class Quality
     return
 
 angular.module 'qbn.quality', ['qbn.state']
-  .factory 'qualityLibrary', (makeGameState) ->
+  .factory 'qualities', (makeGameState) ->
     library = {}
     api =
       register: (args...) ->
