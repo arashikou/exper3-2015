@@ -13,7 +13,7 @@ html
   script(src="scripts/qbn.js")
 
   body(ng-app="qbn")
-    #outer-frame(ng-controller="QBN")
+    #outer-frame(ng-controller="QbnEngine")
       #chooser(ng-hide="currentStorylet")
         #qualities
           .quality(ng-repeat="quality in qualities") {{quality.name}} is {{quality.value}}
