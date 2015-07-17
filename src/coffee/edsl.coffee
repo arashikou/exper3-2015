@@ -22,7 +22,7 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         visibleReqs ?= {}
         activeReqs ?= {}
         choiceFactory title, text, visibleReqs, activeReqs, args
-      frontFacing: (choice) ->
+      front: (choice) ->
         frontFacingChoiceLibrary.register choice
         return
     return Object.freeze api
