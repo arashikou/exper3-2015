@@ -19,8 +19,8 @@ class Choice
   isActiveWith: (qualityLibrary) ->
     reqsAreMet @activeReqs, qualityLibrary
 
-angular.module 'qbn.storylet', ['qbn.quality']
-  .factory 'storyletLibrary', (qualityLibrary) ->
+angular.module 'qbn.storylet', ['qbn.state', 'qbn.quality']
+  .factory 'storyletLibrary', (makeGameState, qualityLibrary) ->
     library = {}
     api =
       register: (args...) ->
@@ -33,7 +33,10 @@ angular.module 'qbn.storylet', ['qbn.quality']
         else
           library[q.toString()]
       getAllFrontFacing: () ->
-        storylet for _, storylet of library when storylet.isVisibleWith qualityLibrary
+        for _, storylet of library when storylet.isVisibleWith qualityLibrary
+          stateStorylet = makeGameState storylet
+          stateStorylet.canRetreat = true
+          stateStorylet
     return Object.freeze api
   .factory 'choiceFactory', () ->
     (args...) -> new Choice args...
