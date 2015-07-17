@@ -1,9 +1,10 @@
 edsl = (id, title, text, choices = [], args = {}) ->
   {frontFacingChoice} = args
-  Object.freeze new Storylet(id, title, text, choices, frontFacingChoice)
+  new Storylet(id, title, text, choices, frontFacingChoice)
 
 class Storylet
   constructor: (@id, @title, @text, @choices, @frontFacingChoice) ->
+    Object.freeze @
 
   isVisibleWith: (qualities) -> frontFacingChoice?.isVisibleWith(qualities)
 

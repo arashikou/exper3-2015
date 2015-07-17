@@ -5,14 +5,15 @@ edsl = (id, name, description, args = {}) ->
   maxProgress ?= if hasProgress then 100 else 0
   progressEscalation ?= 0.10
   visible ?= true
-  Object.freeze new Quality(id, name, description, defaultValue,
-                            defaultProgress, maxProgress, progressEscalation,
-                            visible)
+  new Quality(id, name, description, defaultValue,
+              defaultProgress, maxProgress, progressEscalation,
+              visible)
 
 class Quality
   constructor: (@id, @name, @description, @defaultValue,
                 @defaultProgress, @maxProgress, @progressEscalation,
                 @visible) ->
+    Object.freeze @
 
   increase: (whole, partial = 0) ->
     levelUp = () =>
