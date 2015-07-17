@@ -9,7 +9,7 @@ angular.module 'qbn.storylet', []
     api =
       register: (id, title, text, options) ->
         storylet = new Storylet()
-        library[id] = Object.freeze(storylet)
+        library[id] = Object.freeze storylet
         return this # Allow Chaining
       resolve: (q) ->
         if q instanceof Storylet
@@ -18,4 +18,4 @@ angular.module 'qbn.storylet', []
           library[q.toString()]
       filterVisible: (qualities) ->
         storylet for _, storylet of library when storylet.isVisibleWith(qualities)
-    return Object.freeze(api)
+    return Object.freeze api
