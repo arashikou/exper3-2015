@@ -13,9 +13,8 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
                                 defaultProgress, maxProgress, progressEscalation,
                                 visible
         return
-      storylet: (id, title, text, choices = [], args = {}) ->
-        {frontFacingChoice} = args
-        storylets.register id, title, text, choices, frontFacingChoice
+      storylet: (id, title, text, choices...) ->
+        storylets.register id, title, text, choices
         return
       choice: (id, title, text, next, args = {}) ->
         {visibleReqs, activeReqs} = args
