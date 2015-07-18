@@ -2,8 +2,8 @@ class Storylet
   constructor: (@id, @title, @text, @choices) ->
     Object.freeze @
 
-angular.module 'qbn.storylet', []
-  .factory 'storylets', () ->
+angular.module 'qbn.storylet', ['qbn.state']
+  .factory 'storylets', (makeGameState) ->
     library = {}
     api =
       register: (args...) ->
@@ -14,5 +14,5 @@ angular.module 'qbn.storylet', []
         if q instanceof Storylet
           q
         else
-          library[q.toString()]
+          makeGameState library[q.toString()]
     return Object.freeze api
