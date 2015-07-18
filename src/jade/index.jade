@@ -19,13 +19,13 @@ html
           .quality(ng-repeat="quality in qualities track by quality.id") {{quality.name}} is {{quality.value}}
         #frontalChoices
           a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)")
-            .title {{choice.title}}
-            .text {{choice.text}}
+            .title {{choice.title | resolve}}
+            .text {{choice.text | resolve}}
       #player(ng-show="storylet")
         #storylet-text
-          .title {{storylet.title}}
-          .text {{storylet.text}}
+          .title {{storylet.title | resolve}}
+          .text {{storylet.text | resolve}}
         a.choice(ng-repeat="choice in storylet.choices track by choice.id" href="" ng-click="choose(choice)")
-          .title {{choice.title}}
-          .text {{choice.text}}
+          .title {{choice.title | resolve}}
+          .text {{choice.text | resolve}}
     .dash-banner LEVEL UP!!

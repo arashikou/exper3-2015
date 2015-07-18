@@ -1,4 +1,5 @@
 angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
+
   .controller 'QbnEngine', ($scope, qualities, storylets, frontalChoices, choiceFactory) ->
     $scope.qualities = qualities.getAll()
 
@@ -28,3 +29,9 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
       $scope.storylet = storylet
       return
     return
+
+  .filter 'resolve', (qualities) ->
+    (v) ->
+      while typeof v == 'function'
+        v = v qualities
+      return v
