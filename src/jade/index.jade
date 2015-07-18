@@ -22,7 +22,9 @@ html
             .title {{choice.title}}
             .text {{choice.text}}
       #player(ng-show="storylet")
-        #storylet-text {{storylet.text}}
+        #storylet-text
+          .title {{storylet.title}}
+          .text {{storylet.text}}
         a.choice(ng-repeat="choice in storylet.choices track by choice.id" href="" ng-click="choose(choice)")
           .title {{choice.title}}
           .text {{choice.text}}
