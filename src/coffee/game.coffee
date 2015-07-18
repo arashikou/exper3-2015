@@ -5,12 +5,12 @@ angular.module 'gameDefinition', ['qbn.edsl']
     quality 'punchiness',
       'Punchiness'
       'One\'s capability for punching.'
-      defaultValue: 7
+      value: 7
 
     quality 'luck',
       'Luck'
       'This text should never display.'
-      defaultValue: -2
+      value: -2
       visible: false
 
     return
