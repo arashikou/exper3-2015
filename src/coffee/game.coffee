@@ -20,8 +20,8 @@ angular.module 'gameDefinition', ['qbn.edsl']
 
     storylet 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
-      (qualities) ->
-        desc = if qualities.lookup('punchiness').value > 5 then 'sexy beast' else 'blob'
+      (punchiness) ->
+        desc = if punchiness > 5 then 'sexy beast' else 'blob'
         """
         Insert purple prose here, you #{desc}.
         """

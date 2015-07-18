@@ -30,8 +30,10 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
       return
     return
 
-  .filter 'resolve', (qualities) ->
+  .filter 'resolve', ($injector, qualities) ->
     (v) ->
-      while typeof v == 'function'
-        v = v qualities
+      while typeof v == 'function' || Array.isArray v
+        qualityNames = $injector.annotate v
+        qualityValues = qualityNames.map (name) -> qualities.lookup(name)?.value
+        v = v qualityValues...
       return v
