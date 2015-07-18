@@ -14,18 +14,16 @@ html
 
   body(ng-app="qbn")
     #outer-frame(ng-controller="QbnEngine")
-      #chooser(ng-hide="currentStorylet")
+      #chooser(ng-hide="storylet")
         #qualities
           .quality(ng-repeat="quality in qualities track by quality.id") {{quality.name}} is {{quality.value}}
         #frontalChoices
-          a.choice(ng-repeat="choice in choices track by choice.id" href="")
+          a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)")
             .title {{choice.title}}
             .text {{choice.text}}
-      #player(ng-show="currentStorylet")
-        #storylet-text {{currentStorylet.text}}
-        a.choice(ng-repeat="choice in currentStorylet.choices track by choice.id")
+      #player(ng-show="storylet")
+        #storylet-text {{storylet.text}}
+        a.choice(ng-repeat="choice in storylet.choices track by choice.id" href="" ng-click="choose(choice)")
           .title {{choice.title}}
           .text {{choice.text}}
-        a.choice#retreat(ng-show="currentStorylet.canRetreat") On second thought, maybe not.
-        a.choice#end(ng-hide="currentStorylet.choices") And the story goes on…
     .dash-banner LEVEL UP!!
