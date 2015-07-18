@@ -69,7 +69,11 @@ html {
 a.choice {
   .a-div();
   .inner-frame();
+
   margin-bottom: @spacing;
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   .title {
     font-weight: 700;
