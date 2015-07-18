@@ -31,7 +31,7 @@ angular.module 'qbn.quality', ['qbn.state']
         if q instanceof Quality
           q
         else
-          library[q.toString()]
+          library[q?.toString()]
       getAll: () ->
         quality for _, quality of library when quality.visible
     return Object.freeze api

@@ -14,6 +14,6 @@ angular.module 'qbn.storylet', ['qbn.state']
         if q instanceof Storylet
           q
         else
-          storylet = library[q.toString()]
+          storylet = library[q?.toString()]
           if storylet? then makeGameState storylet else undefined
     return Object.freeze api
