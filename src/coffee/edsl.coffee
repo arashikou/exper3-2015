@@ -2,8 +2,7 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
   .factory 'qbnEdsl', (qualities, storylets, frontalChoices, choiceFactory) ->
     api =
       quality: (id, name, description, args = {}) ->
-        {value, progress, maxProgress, hasProgress, progressEscalation,
-         visible} = args
+        {value, progress, maxProgress, hasProgress, progressEscalation, visible} = args
         value ?= 0
         progress ?= 0
         maxProgress ?= if hasProgress then 100 else 0
@@ -17,10 +16,10 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         storylets.register id, title, text, choices
         return
       choice: (id, title, text, next, args = {}) ->
-        {visibleReqs, activeReqs} = args
-        visibleReqs ?= {}
-        activeReqs ?= {}
-        choiceFactory id, title, text, visibleReqs, activeReqs, next
+        {visible, active} = args
+        visible ?= {}
+        active ?= {}
+        choiceFactory id, title, text, visible, active, next
       front: (choice) ->
         frontalChoices.register choice
         return
