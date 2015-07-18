@@ -4,7 +4,7 @@ class Choice
 
   reqsAreMet = (reqs, qualities) ->
     for qualityName, predicate of reqs
-      quality = qualities.resolve qualityName
+      quality = qualities.lookup qualityName
       return false unless predicate quality
     return true
 

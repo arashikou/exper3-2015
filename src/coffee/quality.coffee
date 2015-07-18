@@ -27,7 +27,7 @@ angular.module 'qbn.quality', ['qbn.state']
         quality = new Quality args...
         library[quality.id] = makeGameState quality # Qualities are stored in state form.
         return this # Allow Chaining
-      resolve: (q) ->
+      lookup: (q) ->
         if q instanceof Quality
           q
         else

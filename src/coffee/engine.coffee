@@ -17,7 +17,7 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
       '', {}, {}, undefined
 
     $scope.choose = (choice) ->
-      storylet = storylets.resolve choice.next
+      storylet = storylets.lookup choice.next
       if storylet?
         unless $scope.storylet?
           storylet.choices = storylet.choices.concat retreat

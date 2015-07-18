@@ -10,7 +10,7 @@ angular.module 'qbn.storylet', ['qbn.state']
         storylet = new Storylet args...
         library[storylet.id] = storylet # Storylets are stored in immutable form
         return this # Allow Chaining
-      resolve: (q) ->
+      lookup: (q) ->
         if q instanceof Storylet
           q
         else
