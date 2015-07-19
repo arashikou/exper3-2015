@@ -1,5 +1,5 @@
 class Quality
-  constructor: (@id, @name, @description, @defaultValue,
+  constructor: (@id, @name, @format, @description, @defaultValue,
                 @defaultProgress, @defaultMaxProgress, @progressEscalation,
                 @visible) ->
     Object.freeze @

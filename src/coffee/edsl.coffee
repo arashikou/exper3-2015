@@ -1,14 +1,18 @@
 angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
   .factory 'qbnEdsl', (qualities, storylets, frontalChoices, choiceFactory) ->
     api =
-      quality: (id, name, description, args = {}) ->
+      qualityType: Object.freeze
+        stat: () -> "#{@name} is #{@value}"
+        item: () -> "#{@value} x #{@name}"
+        unique: () -> "You have a #{@name}"
+      quality: (id, type, name, description, args = {}) ->
         {value, progress, maxProgress, hasProgress, progressEscalation, visible} = args
         value ?= 0
         progress ?= 0
         maxProgress ?= if hasProgress then 100 else 0
         progressEscalation ?= 0.10
         visible ?= true
-        qualities.register id, name, description, value,
+        qualities.register id, name, type, description, value,
                            progress, maxProgress, progressEscalation,
                            visible
         return
