@@ -17,9 +17,31 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
                            visible
         return
 
-      storylet: (id, title, text, choices...) ->
-        storylets.register id, title, text, choices
+      storylet: (id, title, text, args = {}) ->
+        {choices, consequences} = args
+        choices ?= []
+        consequences ?= {}
+        storylets.register id, title, text, choices, consequences
         return
+      consq: Object.freeze
+        increase: (amount) ->
+          (quality) ->
+            changedBy = quality.increase amount
+            if not changedBy?
+              "#{quality.name} increased by #{amount}."
+            else if changedBy == 0
+              "#{quality.name} progressed by #{amount}. Only #{quality.maxProgress - quality.progress} to go!"
+            else
+              "#{quality.name} progressed by #{amount}, increasing it to #{quality.value}! Only #{quality.maxProgress - quality.progress} to go."
+        decrease: (amount) ->
+          (quality) ->
+            changedBy = quality.increase -amount
+            if not changedBy?
+              "#{quality.name} decreased by #{amount}."
+            else if changedBy == 0
+              "#{quality.name} regressed by #{amount}. Now there's #{quality.maxProgress - quality.progress} to go!"
+            else
+              "#{quality.name} regressed by #{amount}, reducing it to #{quality.value}! Now there's #{quality.maxProgress - quality.progress} to go."
 
       choice: (id, title, text, args = {}) ->
         {next, visible, active} = args
@@ -43,13 +65,4 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         exists:
           (quality) -> if quality.value then true else
             "Requires #{quality.name}, which you do not have."
-      increase: (qualityName, major, minor) ->
-        quality = qualities.lookup(qualityName)
-        if quality?
-          hasProgress = quality.maxProgress != 0
-          if hasProgress
-            quality.increase(minor, major)
-          else
-            quality.increase(major, 0)
-        return
     return Object.freeze api

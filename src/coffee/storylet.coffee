@@ -1,5 +1,5 @@
 class Storylet
-  constructor: (@id, @title, @text, @defaultChoices) ->
+  constructor: (@id, @title, @text, @defaultChoices, @consequences) ->
     Object.freeze @
 
 angular.module 'qbn.storylet', ['qbn.state']

@@ -26,7 +26,7 @@ angular.module 'gameDefinition', ['qbn.edsl']
     return
 
   .run (qbnEdsl) ->
-    {storylet, choice, front, reqs, increase} = qbnEdsl
+    {storylet, choice, front, reqs, consq} = qbnEdsl
 
     front choice 'body-building',
       'Bodybuilding Class'
@@ -39,29 +39,31 @@ angular.module 'gameDefinition', ['qbn.edsl']
       """
       You work out!
       """
-      choice 'body-hard',
-        'Hard!'
-        'Let no muscle be spared!'
-      choice 'body-soft',
-        'Lightly'
-        'I don\'t want to muss my moustache.'
-      choice 'to-the-death',
-        'To the death!',
-        'Wait, actually, that sounds like a terrible idea.'
-        active:
-          deathWish: reqs.exists
+      choices: [
+        choice 'body-hard',
+          'Hard!'
+          'Let no muscle be spared!'
+        choice 'body-soft',
+          'Lightly'
+          'I don\'t want to muss my moustache.'
+        choice 'to-the-death',
+          'To the death!',
+          'Wait, actually, that sounds like a terrible idea.'
+          active:
+            deathWish: reqs.exists
+      ]
 
     storylet 'body-hard',
       'You work out hard'
-      () ->
-        increase 'punchiness', 4
-        'You ache, but it was worth it.'
+      'You ache, but it was worth it.'
+      consequences:
+        punchiness: consq.increase 4
 
     storylet 'body-soft',
       'You work out softly'
-      () ->
-        increase 'punchiness', 1
-        'You don\'t even need to shower, but did it do anything?'
+      'You don\'t even need to shower, but did it do anything?'
+      consequences:
+        punchiness: consq.increase 1
 
     front choice 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
@@ -72,17 +74,20 @@ angular.module 'gameDefinition', ['qbn.edsl']
       """
       This looks unsafe in a profound and painful way.
       """
-      choice 'ride-carriage',
-        'Do It'
-        'And damn the consequences!'
+      choices: [
+        choice 'ride-carriage',
+          'Do It'
+          'And damn the consequences!'
+      ]
 
     storylet 'ride-carriage',
       'A Harrowing Carriage-Voyage'
       (punchiness) ->
         desc = if punchiness > 5 then 'sexy beast' else 'blob'
-        increase 'punchiness', -1
         """
         Insert purple prose here, you #{desc}.
         """
+      consequences:
+        punchiness: consq.decrease 1
 
     return
