@@ -23,6 +23,8 @@ html
           a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
             .title {{choice.title | resolve}}
             .text {{choice.text | resolve}}
+            hr(ng-hide="choice.isActive()")
+            .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
       #player(ng-show="storylet")
         #storylet-text
           .title {{storylet.title | resolve}}
@@ -30,4 +32,6 @@ html
         a.choice(ng-repeat="choice in storylet.choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
           .title {{choice.title | resolve}}
           .text {{choice.text | resolve}}
+          hr(ng-hide="choice.isActive()")
+          .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
     .dash-banner LEVEL UP!!
