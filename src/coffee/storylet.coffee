@@ -1,9 +1,15 @@
-class Storylet
-  constructor: (@id, @title, @text, @defaultChoices) ->
-    Object.freeze @
+angular.module 'qbn.storylet', ['qbn.state', 'qbn.quality']
+  .factory 'storylets', (makeGameState, qualities) ->
+    class Storylet
+      constructor: (@id, @title, @text, @defaultChoices, @consequences) ->
+        Object.freeze @
 
-angular.module 'qbn.storylet', ['qbn.state']
-  .factory 'storylets', (makeGameState) ->
+      performConsequences: () ->
+          @consequenceReports =
+            for qualityName, performer of @consequences
+              quality = qualities.lookup qualityName
+              performer quality
+
     library = {}
     api =
       register: (args...) ->

@@ -20,6 +20,7 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.
         next = resolveFilter choice.next
         storylet = storylets.lookup next
         if storylet?
+          storylet.performConsequences()
           unless $scope.storylet?
             storylet.choices = storylet.choices.concat retreat
           unless storylet.choices.length > 0

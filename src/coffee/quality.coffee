@@ -4,7 +4,7 @@ class Quality
                 @visible) ->
     Object.freeze @
 
-  increase: (whole, partial) ->
+  increase: (amount) ->
     up = 1
     down = -1
     level = (direction) =>
@@ -16,15 +16,20 @@ class Quality
           @maxProgress / (1 + @progressEscalation)
       return
 
-    level(if whole >= 0 then up else down) for [0...whole]
-
-    @progress += partial
-    while @progress > @maxProgress
-      @progress -= @maxProgress
-      level(up)
-    while @progress < 0
-      level(down)
-      @progress += @maxProgress
+    if @maxProgress == 0
+      level(if amount >= 0 then up else down) for [0...amount]
+    else
+      counter = 0
+      @progress += amount
+      while @progress > @maxProgress
+        @progress -= @maxProgress
+        level(up)
+        counter++
+      while @progress < 0
+        level(down)
+        @progress += @maxProgress
+        counter++
+      return counter
 
     return
 
