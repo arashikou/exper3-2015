@@ -32,13 +32,17 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         return
       reqs: Object.freeze
         gt: (req) ->
-          (quality) -> (quality.value > req) || "Requires #{quality.name} greater than #{req}."
+          (quality) -> (quality.value > req) ||
+            "Requires #{quality.name} greater than #{req}. You have #{quality.value}."
         lt: (req) ->
-          (quality) -> (quality.value < req) || "Requires #{quality.name} less than #{req}."
+          (quality) -> (quality.value < req) ||
+            "Requires #{quality.name} less than #{req}. You have #{quality.value}."
         range: (low, high) ->
-          (quality) -> (low < quality.value < high) || "Requires #{quality.name} between #{low} and #{high}."
+          (quality) -> (low < quality.value < high) ||
+            "Requires #{quality.name} between #{low} and #{high}. You have #{quality.value}."
         exists:
-          (quality) -> if quality.value then true else "Requires #{quality.name}."
+          (quality) -> if quality.value then true else
+            "Requires #{quality.name}, which you do not have."
       increase: (qualityName, major, minor) ->
         quality = qualities.lookup(qualityName)
         if quality?
