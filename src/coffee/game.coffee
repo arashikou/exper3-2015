@@ -7,6 +7,11 @@ angular.module 'gameDefinition', ['qbn.edsl']
       'One\'s capability for punching.'
       value: 2
 
+    quality 'deathWish',
+      'Death Wish'
+      'Has existence become a burden?'
+      value: false
+
     quality 'luck',
       'Luck'
       'This text should never display.'
@@ -37,6 +42,11 @@ angular.module 'gameDefinition', ['qbn.edsl']
         'Lightly'
         'I don\'t want to muss my moustache.'
         'body-soft'
+      choice 'to-the-death',
+        'To the death!',
+        'Wait, actually, that sounds like a terrible idea.'
+        'to-the-death'
+        active: (deathWish) -> deathWish
 
     storylet 'body-hard',
       'You work out hard'
