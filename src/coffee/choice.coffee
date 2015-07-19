@@ -1,4 +1,4 @@
-angular.module 'qbn.choice', ['qbn.resolve']
+angular.module 'qbn.choice', ['qbn.quality']
   .factory 'frontalChoices', () ->
     library = []
     api =
@@ -8,13 +8,21 @@ angular.module 'qbn.choice', ['qbn.resolve']
       getAll: () ->
         library.filter (choice) -> choice.isVisible()
     return Object.freeze api
-  .factory 'choiceFactory', (resolveFilter) ->
+  .factory 'choiceFactory', (qualities) ->
+    validateReqs = (reqs) ->
+      validations =
+        for qualityName, chattyPredicate of reqs
+          quality = qualities.lookup qualityName
+          chattyPredicate quality
+      validations.filter (v) -> v != true
     class Choice
       constructor: (@id, @title, @text, @visibleReqs, @activeReqs, @next) ->
         Object.freeze @
 
-      isVisible: () -> resolveFilter @visibleReqs
+      isVisible: () -> (validateReqs @visibleReqs).length == 0
 
-      isActive: () -> resolveFilter @activeReqs
+      isActive: () -> @unsatisfiedActiveReqs().length == 0
+
+      unsatisfiedActiveReqs: () -> validateReqs @activeReqs
 
     (args...) -> new Choice args...

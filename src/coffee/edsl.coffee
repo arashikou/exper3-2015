@@ -4,7 +4,7 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
       qualityType: Object.freeze
         stat: () -> "#{@name} is #{@value}"
         item: () -> "#{@value} x #{@name}"
-        unique: () -> "You have a #{@name}"
+        unique: () -> "You have #{@name}"
       quality: (id, type, name, description, args = {}) ->
         {value, progress, maxProgress, hasProgress, escalation, visible} = args
         value ?= 0
@@ -16,18 +16,29 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
                            progress, maxProgress, escalation,
                            visible
         return
+
       storylet: (id, title, text, choices...) ->
         storylets.register id, title, text, choices
         return
+
       choice: (id, title, text, args = {}) ->
         {next, visible, active} = args
         next ?= id
-        visible ?= true
-        active ?= true
+        visible ?= {}
+        active ?= {}
         choiceFactory id, title, text, visible, active, next
       front: (choice) ->
         frontalChoices.register choice
         return
+      reqs: Object.freeze
+        gt: (req) ->
+          (quality) -> (quality.value > req) || "Requires #{quality.name} greater than #{req}."
+        lt: (req) ->
+          (quality) -> (quality.value < req) || "Requires #{quality.name} less than #{req}."
+        range: (low, high) ->
+          (quality) -> (low < quality.value < high) || "Requires #{quality.name} between #{low} and #{high}."
+        exists:
+          (quality) -> if quality.value then true else "Requires #{quality.name}."
       increase: (qualityName, major, minor) ->
         quality = qualities.lookup(qualityName)
         if quality?

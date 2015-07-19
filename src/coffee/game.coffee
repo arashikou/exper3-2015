@@ -8,7 +8,7 @@ angular.module 'gameDefinition', ['qbn.edsl']
       value: 2
 
     quality 'deathWish', qualityType.unique,
-      'Death Wish'
+      'a Death Wish'
       'Has existence become a burden?'
       value: false
 
@@ -26,12 +26,13 @@ angular.module 'gameDefinition', ['qbn.edsl']
     return
 
   .run (qbnEdsl) ->
-    {storylet, choice, front, increase} = qbnEdsl
+    {storylet, choice, front, reqs, increase} = qbnEdsl
 
     front choice 'body-building',
       'Bodybuilding Class'
       'Well, this is unpleasant…'
-      visible: (punchiness) -> punchiness <= 5
+      visible:
+        punchiness: reqs.lt 6
 
     storylet 'body-building',
       'Bodybuilding Class'
@@ -47,7 +48,8 @@ angular.module 'gameDefinition', ['qbn.edsl']
       choice 'to-the-death',
         'To the death!',
         'Wait, actually, that sounds like a terrible idea.'
-        active: (deathWish) -> deathWish
+        active:
+          deathWish: reqs.exists
 
     storylet 'body-hard',
       'You work out hard'
