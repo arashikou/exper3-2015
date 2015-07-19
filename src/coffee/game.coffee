@@ -18,6 +18,14 @@ angular.module 'gameDefinition', ['qbn.edsl']
   .run (qbnEdsl) ->
     {storylet, choice, front, increase} = qbnEdsl
 
+    storylet 'body-building',
+      'Bodybuilding Class'
+      () ->
+        increase 'punchiness', 1
+        """
+        You work out!
+        """
+
     storylet 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
       (punchiness) ->
@@ -31,5 +39,11 @@ angular.module 'gameDefinition', ['qbn.edsl']
       'A Harrowing Carriage-Voyage'
       'Well, this is unpleasant…'
       'harrowing-carriage'
+
+    front choice 'body-building',
+      'Bodybuilding Class'
+      'Well, this is unpleasant…'
+      'body-building'
+      visible: (punchiness) -> punchiness <= 5
 
     return
