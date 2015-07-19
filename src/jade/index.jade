@@ -16,7 +16,9 @@ html
     #outer-frame(ng-controller="QbnEngine")
       #chooser(ng-hide="storylet")
         #qualities
-          .quality(ng-repeat="quality in qualities track by quality.id") {{quality.name}} is {{quality.value}}
+          .quality(ng-repeat="quality in qualities track by quality.id")
+            .name {{quality.format()}}
+            .description {{quality.description}}
         #frontal-choices
           a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
             .title {{choice.title | resolve}}
