@@ -17,7 +17,7 @@ html
       #chooser(ng-hide="storylet")
         #qualities
           .quality(ng-repeat="quality in qualities track by quality.id") {{quality.name}} is {{quality.value}}
-        #frontalChoices
+        #frontal-choices
           a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)")
             .title {{choice.title | resolve}}
             .text {{choice.text | resolve}}
