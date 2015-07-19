@@ -18,6 +18,12 @@ angular.module 'gameDefinition', ['qbn.edsl']
   .run (qbnEdsl) ->
     {storylet, choice, front, increase} = qbnEdsl
 
+    front choice 'body-building',
+      'Bodybuilding Class'
+      'Well, this is unpleasant…'
+      'body-building'
+      visible: (punchiness) -> punchiness <= 5
+
     storylet 'body-building',
       'Bodybuilding Class'
       () ->
@@ -25,6 +31,11 @@ angular.module 'gameDefinition', ['qbn.edsl']
         """
         You work out!
         """
+
+    front choice 'harrowing-carriage',
+      'A Harrowing Carriage-Voyage'
+      'Well, this is unpleasant…'
+      'harrowing-carriage'
 
     storylet 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
@@ -34,16 +45,5 @@ angular.module 'gameDefinition', ['qbn.edsl']
         """
         Insert purple prose here, you #{desc}.
         """
-
-    front choice 'harrowing-carriage',
-      'A Harrowing Carriage-Voyage'
-      'Well, this is unpleasant…'
-      'harrowing-carriage'
-
-    front choice 'body-building',
-      'Bodybuilding Class'
-      'Well, this is unpleasant…'
-      'body-building'
-      visible: (punchiness) -> punchiness <= 5
 
     return
