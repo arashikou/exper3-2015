@@ -17,8 +17,8 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         return
       choice: (id, title, text, next, args = {}) ->
         {visible, active} = args
-        visible ?= {}
-        active ?= {}
+        visible ?= true
+        active ?= true
         choiceFactory id, title, text, visible, active, next
       front: (choice) ->
         frontalChoices.register choice
