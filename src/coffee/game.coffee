@@ -1,18 +1,23 @@
 angular.module 'gameDefinition', ['qbn.edsl']
   .run (qbnEdsl) ->
-    {quality} = qbnEdsl
+    {quality, qualityType} = qbnEdsl
 
-    quality 'punchiness',
+    quality 'punchiness', qualityType.stat,
       'Punchiness'
       'One\'s capability for punching.'
       value: 2
 
-    quality 'deathWish',
+    quality 'deathWish', qualityType.unique,
       'Death Wish'
       'Has existence become a burden?'
       value: false
 
-    quality 'luck',
+    quality 'unsingableSong', qualityType.item,
+      'Unsingable Song'
+      'Because it is terrible or because it is forbidden?'
+      value: 3
+
+    quality 'luck', qualityType.stat,
       'Luck'
       'This text should never display.'
       value: -2
