@@ -29,6 +29,8 @@ html
         #storylet-text
           .title {{storylet.title | resolve}}
           .text {{storylet.text | resolve}}
+          hr(ng-show="storylet.consequenceReports.length")
+          .consequence(ng-repeat="message in storylet.consequenceReports") {{message}}
         a.choice(ng-repeat="choice in storylet.choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
           .title {{choice.title | resolve}}
           .text {{choice.text | resolve}}
