@@ -5,7 +5,7 @@ angular.module 'gameDefinition', ['qbn.edsl']
     quality 'punchiness',
       'Punchiness'
       'One\'s capability for punching.'
-      value: 7
+      value: 2
 
     quality 'luck',
       'Luck'
@@ -26,11 +26,29 @@ angular.module 'gameDefinition', ['qbn.edsl']
 
     storylet 'body-building',
       'Bodybuilding Class'
+      """
+      You work out!
+      """
+      choice 'body-hard',
+        'Hard!'
+        'Let no muscle be spared!'
+        'body-hard'
+      choice 'body-soft',
+        'Lightly'
+        'I don\'t want to muss my moustache.'
+        'body-soft'
+
+    storylet 'body-hard',
+      'You work out hard'
+      () ->
+        increase 'punchiness', 4
+        'You ache, but it was worth it.'
+
+    storylet 'body-soft',
+      'You work out softly'
       () ->
         increase 'punchiness', 1
-        """
-        You work out!
-        """
+        'You don\'t even need to shower, but did it do anything?'
 
     front choice 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
