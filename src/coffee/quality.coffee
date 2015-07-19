@@ -1,21 +1,30 @@
 class Quality
   constructor: (@id, @name, @description, @defaultValue,
-                @defaultProgress, @maxProgress, @progressEscalation,
+                @defaultProgress, @defaultMaxProgress, @progressEscalation,
                 @visible) ->
     Object.freeze @
 
   increase: (whole, partial) ->
-    levelUp = () =>
-      @value++
-      @maxProgress += @maxProgress * @progressEscalation
+    up = 1
+    down = -1
+    level = (direction) =>
+      @value += direction
+      @maxProgress =
+        if direction == up
+          @maxProgress * (1 + @progressEscalation)
+        else
+          @maxProgress / (1 + @progressEscalation)
       return
 
-    levelUp() for [1..whole]
+    level(if whole >= 0 then up else down) for [0...whole]
 
     @progress += partial
     while @progress > @maxProgress
       @progress -= @maxProgress
-      levelUp()
+      level(up)
+    while @progress < 0
+      level(down)
+      @progress += @maxProgress
 
     return
 
