@@ -26,6 +26,7 @@ html
             .text {{choice.text | resolve}}
             hr(ng-hide="choice.isActive()")
             .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
+            .arrow
       #player(ng-show="storylet")
         #storylet-text
           .title {{storylet.title | resolve}}
@@ -37,4 +38,5 @@ html
           .text {{choice.text | resolve}}
           hr(ng-hide="choice.isActive()")
           .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
+          .arrow
     .dash-banner LEVEL UP!!
