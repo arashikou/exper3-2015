@@ -16,12 +16,13 @@ angular.module 'gameDefinition', ['qbn.edsl']
     return
 
   .run (qbnEdsl) ->
-    {storylet, choice, front} = qbnEdsl
+    {storylet, choice, front, increase} = qbnEdsl
 
     storylet 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
       (punchiness) ->
         desc = if punchiness > 5 then 'sexy beast' else 'blob'
+        increase 'punchiness', -1
         """
         Insert purple prose here, you #{desc}.
         """
