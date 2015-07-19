@@ -23,7 +23,7 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.
         if storylet?
           unless $scope.storylet?
             storylet.choices = storylet.choices.concat retreat
-          unless storylet.choices?
+          unless storylet.choices.length > 0
             storylet.choices = [onwards]
         else
           updateFrontalChoices()
