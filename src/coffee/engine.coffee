@@ -1,12 +1,11 @@
 angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.resolve']
   .controller 'QbnEngine',
     ($scope, qualities, storylets, frontalChoices, choiceFactory, resolveFilter) ->
-      $scope.qualities = qualities.getAll()
-
-      updateFrontalChoices = () ->
+      updateFrontalValues = () ->
+        $scope.qualities = qualities.getAll()
         $scope.choices = frontalChoices.getAll()
         return
-      updateFrontalChoices()
+      updateFrontalValues()
 
       retreat = choiceFactory '!!retreat!!',
         'On second thought, maybe not…'
@@ -26,7 +25,7 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.
           unless storylet.choices.length > 0
             storylet.choices = [onwards]
         else
-          updateFrontalChoices()
+          updateFrontalValues()
         $scope.storylet = storylet
         return
       return

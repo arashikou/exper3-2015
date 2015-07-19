@@ -42,5 +42,5 @@ angular.module 'qbn.quality', ['qbn.state']
         else
           library[q?.toString()]
       getAll: () ->
-        quality for _, quality of library when quality.visible
+        quality for _, quality of library when quality.visible && quality.value
     return Object.freeze api
