@@ -57,6 +57,16 @@ angular.module 'gameDefinition', ['qbn.edsl']
 
     storylet 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
+      """
+      This looks unsafe in a profound and painful way.
+      """
+      choice 'ride-carriage',
+        'Do It'
+        'And damn the consequences!'
+        'ride-carriage'
+
+    storylet 'ride-carriage',
+      'A Harrowing Carriage-Voyage'
       (punchiness) ->
         desc = if punchiness > 5 then 'sexy beast' else 'blob'
         increase 'punchiness', -1
