@@ -1,7 +1,15 @@
 angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
 
+  .filter 'resolve', ($injector, qualities) ->
+    (v) ->
+      while typeof v == 'function' || Array.isArray v
+        qualityNames = $injector.annotate v
+        qualityValues = qualityNames.map (name) -> qualities.lookup(name)?.value
+        v = v qualityValues...
+      return v
+
   .controller 'QbnEngine',
-    ($scope, qualities, storylets, frontalChoices, choiceFactory, resolve) ->
+    ($scope, qualities, storylets, frontalChoices, choiceFactory, resolveFilter) ->
       $scope.qualities = qualities.getAll()
 
       updateFrontalChoices = () ->
@@ -19,7 +27,7 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         '', {}, {}, undefined
 
       $scope.choose = (choice) ->
-        next = resolve choice.next
+        next = resolveFilter choice.next
         storylet = storylets.lookup next
         if storylet?
           unless $scope.storylet?
@@ -31,11 +39,3 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         $scope.storylet = storylet
         return
       return
-
-  .filter 'resolve', ($injector, qualities) ->
-    (v) ->
-      while typeof v == 'function' || Array.isArray v
-        qualityNames = $injector.annotate v
-        qualityValues = qualityNames.map (name) -> qualities.lookup(name)?.value
-        v = v qualityValues...
-      return v
