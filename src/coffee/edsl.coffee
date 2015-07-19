@@ -6,14 +6,14 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         item: () -> "#{@value} x #{@name}"
         unique: () -> "You have a #{@name}"
       quality: (id, type, name, description, args = {}) ->
-        {value, progress, maxProgress, hasProgress, progressEscalation, visible} = args
+        {value, progress, maxProgress, hasProgress, escalation, visible} = args
         value ?= 0
         progress ?= 0
         maxProgress ?= if hasProgress then 100 else 0
-        progressEscalation ?= 0.10
+        escalation ?= 0.10
         visible ?= true
         qualities.register id, name, type, description, value,
-                           progress, maxProgress, progressEscalation,
+                           progress, maxProgress, escalation,
                            visible
         return
       storylet: (id, title, text, choices...) ->
