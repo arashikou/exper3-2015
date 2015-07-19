@@ -1,13 +1,4 @@
-angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
-
-  .filter 'resolve', ($injector, qualities) ->
-    (v) ->
-      while typeof v == 'function' || Array.isArray v
-        qualityNames = $injector.annotate v
-        qualityValues = qualityNames.map (name) -> qualities.lookup(name)?.value
-        v = v qualityValues...
-      return v
-
+angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.resolve']
   .controller 'QbnEngine',
     ($scope, qualities, storylets, frontalChoices, choiceFactory, resolveFilter) ->
       $scope.qualities = qualities.getAll()
