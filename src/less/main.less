@@ -21,12 +21,21 @@ html {
 @border: 1px;
 @bold: 700;
 
+#game-title {
+  font-size: 3rem;
+  font-weight: @bold;
+  color: @edge;
+  text-align: center;
+  line-height: 1;
+  margin: @spacing auto;
+}
+
 #outer-frame {
   width: 50rem;
-  margin: 2rem auto;
+  margin: @spacing auto;
   padding: @spacing;
   background-color: @fill;
-  border: (@border * 3) solid @edge;
+  border: (@border * 4) solid @edge;
   border-radius: @spacing;
   box-shadow: @spacing @spacing @edge;
 }
