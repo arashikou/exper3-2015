@@ -4,6 +4,7 @@
 @edge: black;
 @fill: white;
 @text-bg: rgb(255, 250, 230);
+@text-bg-disabled: rgb(230, 230, 230);
 @text-fg: rgb(0, 50, 0);
 
 html {
@@ -73,6 +74,11 @@ a.choice {
   margin-bottom: @spacing;
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background: @text-bg-disabled;
   }
 
   .title {
