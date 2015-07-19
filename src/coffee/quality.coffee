@@ -36,6 +36,7 @@ class Quality
 angular.module 'qbn.quality', ['qbn.state']
   .factory 'qualities', (makeGameState) ->
     library = {}
+    window.qualities = library # DEBUG ONLY
     api =
       register: (args...) ->
         quality = new Quality args...
