@@ -26,7 +26,6 @@ angular.module 'gameDefinition', ['qbn.edsl']
     front choice 'body-building',
       'Bodybuilding Class'
       'Well, this is unpleasant…'
-      'body-building'
       visible: (punchiness) -> punchiness <= 5
 
     storylet 'body-building',
@@ -37,15 +36,12 @@ angular.module 'gameDefinition', ['qbn.edsl']
       choice 'body-hard',
         'Hard!'
         'Let no muscle be spared!'
-        'body-hard'
       choice 'body-soft',
         'Lightly'
         'I don\'t want to muss my moustache.'
-        'body-soft'
       choice 'to-the-death',
         'To the death!',
         'Wait, actually, that sounds like a terrible idea.'
-        'to-the-death'
         active: (deathWish) -> deathWish
 
     storylet 'body-hard',
@@ -63,7 +59,6 @@ angular.module 'gameDefinition', ['qbn.edsl']
     front choice 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
       'Well, this is unpleasant…'
-      'harrowing-carriage'
 
     storylet 'harrowing-carriage',
       'A Harrowing Carriage-Voyage'
@@ -73,7 +68,6 @@ angular.module 'gameDefinition', ['qbn.edsl']
       choice 'ride-carriage',
         'Do It'
         'And damn the consequences!'
-        'ride-carriage'
 
     storylet 'ride-carriage',
       'A Harrowing Carriage-Voyage'

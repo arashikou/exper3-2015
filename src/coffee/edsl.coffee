@@ -15,8 +15,9 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
       storylet: (id, title, text, choices...) ->
         storylets.register id, title, text, choices
         return
-      choice: (id, title, text, next, args = {}) ->
-        {visible, active} = args
+      choice: (id, title, text, args = {}) ->
+        {next, visible, active} = args
+        next ?= id
         visible ?= true
         active ?= true
         choiceFactory id, title, text, visible, active, next
