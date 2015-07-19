@@ -4,7 +4,7 @@ class Quality
                 @visible) ->
     Object.freeze @
 
-  increase: (whole, partial = 0) ->
+  increase: (whole, partial) ->
     levelUp = () =>
       @value++
       @maxProgress += @maxProgress * @progressEscalation

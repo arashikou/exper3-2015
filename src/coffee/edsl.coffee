@@ -23,4 +23,13 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
       front: (choice) ->
         frontalChoices.register choice
         return
+      increase: (qualityName, major, minor) ->
+        quality = qualities.lookup(qualityName)
+        if quality?
+          hasProgress = quality.maxProgress != 0
+          if hasProgress
+            quality.increase(minor, major)
+          else
+            quality.increase(major, 0)
+        return
     return Object.freeze api
