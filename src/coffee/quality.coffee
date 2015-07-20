@@ -33,6 +33,17 @@ class Quality
 
     return
 
+  save: () ->
+    id: @id
+    value: @value
+    progress: @progress
+    maxProgress: @maxProgress
+
+  load: (saved) ->
+    @value = saved.value
+    @progress = saved.progress
+    @maxProgress = saved.maxProgress
+
 angular.module 'qbn.quality', ['qbn.state']
   .factory 'qualities', (makeGameState) ->
     library = {}
@@ -49,4 +60,6 @@ angular.module 'qbn.quality', ['qbn.state']
           library[q?.toString()]
       getAll: () ->
         quality for _, quality of library when quality.visible && quality.value
+      saveAll: () ->
+        quality.save() for _, quality of library
     return Object.freeze api
