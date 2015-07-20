@@ -30,3 +30,9 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.
         $scope.storylet = storylet
         return
       return
+  .directive 'choiceList', () ->
+    templateUrl: 'choiceList'
+    restrict: 'E'
+    scope:
+      choices: '='
+      choose: '='

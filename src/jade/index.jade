@@ -20,23 +20,20 @@ html
           .quality(ng-repeat="quality in qualities track by quality.id")
             .name {{quality.format()}}
             .description {{quality.description}}
-        #frontal-choices
-          a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
-            .title {{choice.title | resolve}}
-            .text {{choice.text | resolve}}
-            hr(ng-hide="choice.isActive()")
-            .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
-            .arrow
+        choice-list#frontal-choices(choices="choices" choose="choose")
       #player(ng-show="storylet")
         #storylet-text
           .title {{storylet.title | resolve}}
           .text {{storylet.text | resolve}}
           hr(ng-show="storylet.consequenceReports.length")
           .consequence(ng-repeat="message in storylet.consequenceReports") {{message}}
-        a.choice(ng-repeat="choice in storylet.choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
-          .title {{choice.title | resolve}}
-          .text {{choice.text | resolve}}
-          hr(ng-hide="choice.isActive()")
-          .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
-          .arrow
+        choice-list#storylet-choices(choices="storylet.choices" choose="choose")
     .dash-banner LEVEL UP!!
+
+    script(id="choiceList" type="text/ng-template")
+      a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
+        .title {{choice.title | resolve}}
+        .text {{choice.text | resolve}}
+        hr(ng-hide="choice.isActive()")
+        .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
+        .arrow
