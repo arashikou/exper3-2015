@@ -5,6 +5,7 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         stat: () -> "#{@name} is #{@value}"
         item: () -> "#{@value} x #{@name}"
         unique: () -> "You have #{@name}"
+        string: () -> "You are #{@value}"
       quality: (id, type, name, description, args = {}) ->
         {value, progress, maxProgress, hasProgress, escalation, visible} = args
         value ?= 0
