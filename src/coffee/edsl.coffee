@@ -52,6 +52,12 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
       front: (choice) ->
         frontalChoices.register choice
         return
+      retreat: (choice) ->
+        frontalChoices.setRetreat choice
+        return
+      onwards: (choice) ->
+        frontalChoices.setOnwards choice
+        return
       reqs: Object.freeze
         gt: (req) ->
           (quality) -> (quality.value > req) ||

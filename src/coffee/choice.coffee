@@ -1,10 +1,20 @@
 angular.module 'qbn.choice', ['qbn.quality']
   .factory 'frontalChoices', () ->
     library = []
+    retreat = undefined
+    onwards = undefined
     api =
       register: (choice) ->
         library.push choice # Choices are stored in immutable form
-        return this # Allow Chaining
+        return @ # Allow Chaining
+      setRetreat: (choice) ->
+        retreat = choice
+        return @
+      getRetreat: () -> retreat
+      setOnwards: (choice) ->
+        onwards = choice
+        return @
+      getOnwards: () -> onwards
       getAll: () ->
         library.filter (choice) -> choice.isVisible()
     return Object.freeze api
@@ -15,6 +25,7 @@ angular.module 'qbn.choice', ['qbn.quality']
           quality = qualities.lookup qualityName
           chattyPredicate quality
       validations.filter (v) -> v != true
+
     class Choice
       constructor: (@id, @title, @text, @visibleReqs, @activeReqs, @next) ->
         Object.freeze @

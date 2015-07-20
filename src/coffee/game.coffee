@@ -26,7 +26,14 @@ angular.module 'gameDefinition', ['qbn.edsl']
     return
 
   .run (qbnEdsl) ->
-    {storylet, choice, front, reqs, consq} = qbnEdsl
+    {storylet, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
+
+    retreat choice 'retreat',
+      'On second thought, maybe not…'
+      'Return to the previous screen.'
+
+    onwards choice 'onwards',
+      'The story continues…'
 
     front choice 'body-building',
       'Bodybuilding Class'

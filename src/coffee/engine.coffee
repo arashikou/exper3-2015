@@ -6,25 +6,16 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.
         $scope.choices = frontalChoices.getAll()
         return
       updateFrontalValues()
-
-      retreat = choiceFactory '!!retreat!!',
-        'On second thought, maybe not…'
-        'Return to the previous screen.'
-        {}, {}, undefined
-
-      onwards = choiceFactory '!!onwards!!',
-        'The story continues…'
-        '', {}, {}, undefined
-
+      
       $scope.choose = (choice) ->
         next = resolveFilter choice.next
         storylet = storylets.lookup next
         if storylet?
           storylet.performConsequences()
           unless $scope.storylet?
-            storylet.choices = storylet.choices.concat retreat
+            storylet.choices = storylet.choices.concat frontalChoices.getRetreat()
           unless storylet.choices.length > 0
-            storylet.choices = [onwards]
+            storylet.choices = [frontalChoices.getOnwards()]
         else
           updateFrontalValues()
         $scope.storylet = storylet
