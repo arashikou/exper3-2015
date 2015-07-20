@@ -126,7 +126,8 @@ a.choice {
 
   position: relative;
   .arrow {
-    .triangle(3em, 3em, fade(@dominant, 40%));
+    @triangle-size: 3rem;
+    .triangle(@triangle-size, @triangle-size, fade(@dominant, 40%));
 
     position: absolute;
     .valign();
