@@ -20,6 +20,7 @@ html
           .quality(ng-repeat="quality in qualities track by quality.id")
             .name {{quality.format()}}
             .description {{quality.description}}
+            hr
         choice-list#frontal-choices(choices="choices" choose="choose")
       #player(ng-show="storylet")
         #storylet-text
