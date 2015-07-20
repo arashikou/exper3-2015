@@ -5,10 +5,12 @@ angular.module 'qbn.storylet', ['qbn.state', 'qbn.quality']
         Object.freeze @
 
       performConsequences: () ->
-          @consequenceReports =
+          reports =
             for qualityName, performer of @consequences
               quality = qualities.lookup qualityName
-              performer quality
+              report = performer quality
+              report if quality.visible
+          @consequenceReports = reports.filter (x) -> x?
 
     library = {}
     api =
