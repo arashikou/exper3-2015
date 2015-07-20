@@ -105,6 +105,14 @@ html {
   flex: 3;
 }
 
+.arrow {
+  @triangle-size: 3rem;
+  .triangle(@triangle-size, @triangle-size, fade(@dominant, 40%));
+  [disabled] & {
+    .triangle(@triangle-size, @triangle-size, fade(@edge, 15%));
+  }
+}
+
 a.choice {
   .a-div();
   .inner-frame();
@@ -124,14 +132,13 @@ a.choice {
     font-size: 1.2rem;
   }
 
-  position: relative;
-  .arrow {
-    @triangle-size: 3rem;
-    .triangle(@triangle-size, @triangle-size, fade(@dominant, 40%));
-
-    position: absolute;
-    .valign();
-    right: @spacing;
+  .main {
+    position: relative;
+    .arrow {
+      position: absolute;
+      .valign();
+      right: 0;
+    }
   }
 
   hr {

@@ -32,8 +32,9 @@ html
 
     script(id="choiceList" type="text/ng-template")
       a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
-        .title {{choice.title | resolve}}
-        .text {{choice.text | resolve}}
+        .main
+          .title {{choice.title | resolve}}
+          .text {{choice.text | resolve}}
+          .arrow
         hr(ng-hide="choice.isActive()")
         .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
-        .arrow(ng-show="choice.isActive()")
