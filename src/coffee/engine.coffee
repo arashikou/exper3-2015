@@ -33,6 +33,12 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.
         $scope.storylet = storylet
         savedGame.save(storylet?.id, storylet?.isFrontal)
         return
+
+      $scope.resetSave = () ->
+        if confirm 'This will erase all your progress and start you over from the beginning. Are you sure?'
+          savedGame.erase()
+          location.reload()
+        return
       return
   .directive 'choiceList', () ->
     templateUrl: 'choiceList'

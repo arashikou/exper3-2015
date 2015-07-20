@@ -28,6 +28,7 @@ html
           hr(ng-show="storylet.consequenceReports.length")
           .consequence(ng-repeat="message in storylet.consequenceReports") {{message}}
         choice-list#storylet-choices(choices="storylet.choices" choose="choose")
+      a#reset-save(href="" ng-click="resetSave()") Reset Game
     .dash-banner LEVEL UP!!
 
     script(id="choiceList" type="text/ng-template")

@@ -18,4 +18,7 @@ angular.module 'qbn.save', ['qbn.quality']
             isFrontal: isFrontal
         localStorage.setItem storageName, JSON.stringify save
         return
+      erase: () ->
+        localStorage.clear()
+        return
     return Object.freeze api
