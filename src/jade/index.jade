@@ -36,4 +36,4 @@ html
         .text {{choice.text | resolve}}
         hr(ng-hide="choice.isActive()")
         .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
-        .arrow
+        .arrow(ng-show="choice.isActive()")
