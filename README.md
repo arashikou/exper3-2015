@@ -1,4 +1,4 @@
-# EXPER3 2015 - "Name Not Yet Decided"
+# EXPER3 2015 - "The Disillusionist"
 
 Last year, my wife gave me the best 30th birthday present I could have asked for by challenging me to make some real progress on my dream of making video games. She organized a themed video game jam, which she dubbed EXPER3, for which I had to make either a game a week for four weeks or one game in a month. You can read more about that and check out the results at [the GitHub repository where I checked in my entry](https://github.com/arashikou/exper3-2014).
 
