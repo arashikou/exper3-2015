@@ -52,3 +52,5 @@ gulp serve
 to serve up the results from a local webserver that can be connected to on [localhost:8080](http://localhost:8080/). Note that this task will not terminate on its own and must be terminated (usually with CTRL-C or your OS's variant) when you are done.
 
 Lastly, the default gulp task will build all sources and then serve them up while also watching for changes and rebuilding as necessary. Very useful for development, not so useful for just trying out the game.
+
+Note that this game is designed with modern web standards. As such, it is only guaranteed to work on the few most recent versions of browsers. In particular, it will not work on versions of Internet Explorer lower than 11. It has only been tested on a recent version of Chrome, though I hope to also test it with Firefox before this is over. This game is not optimized for mobile and probably will not work well on your phone or tablet. My apologies, but I have to spend my limited time during EXPER3 wisely, and redesigning the UI for a new platform was not high on my list.
