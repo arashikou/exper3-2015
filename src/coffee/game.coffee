@@ -11,7 +11,7 @@ angular.module 'gameDefinition', ['qbn.edsl']
 
     quality 'hours', qualityType.item,
       'Hours Remaining'
-      'After this, there will be no stopping the Duke.'
+      'After this, there will be no stopping the Khanduke.'
       value: 72
 
     quality 'stealth', qualityType.stat,
@@ -59,12 +59,25 @@ angular.module 'gameDefinition', ['qbn.edsl']
     storylet 'lets-begin',
       'August 14th'
       '''
-
+      The night that the city was taken, you awoke just after three in the morning to the sound of
+      thunder in the hills. You almost turned over in your sleep, as so many others did, and
+      ignored the coming storm. But your window was open to let the night breeze in, and…
       '''
       choices: [
-        choice 'lets-begin2'
-          'OK, and then what?'
+        choice 'begin-sorcery',
+          '…and I recognized the smell of magic.'
+        choice 'begin-strength',
+          '…and I recognized the sound of combat.'
+        choice 'begin-stealth',
+          '…and I recognized the coded signals of the city guard.'
       ]
+
+    storylet 'begin-sorcery',
+      'August 14th'
+      '''
+      The acrid smell of spellcraft was in the air, something you rarely enoucntered outside your
+      own home.
+      '''
 
     return
 
