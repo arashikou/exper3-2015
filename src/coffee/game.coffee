@@ -57,23 +57,41 @@ angular.module 'gameDefinition', ['qbn.edsl']
       'Begin the Story'
 
     storylet 'lets-begin',
-      'August 14th'
+      'It was a dark and stormy decade…'
       '''
-      The night that the city was taken, you awoke just after three in the morning to the sound of
-      thunder in the hills. You almost turned over in your sleep, as so many others did, and
-      ignored the coming storm. But your window was open to let the night breeze in, and…
+      The years that followed the commoditization of sorcery were tumultous and difficult. People
+      were faced with an ever-expanding array of new possibilities for their lives. The social
+      order was shaken like an uptown Old Fashioned. There was, naturally, a war. You came out of it
+      with a few interesting scars to share with lovers and one very uninteresting scar on your
+      psyche that left you permanently unable to access the sorceric warpweave ever again. It was a
+      shame, too. You'd had such a promising career before that, studying… Which branch of magic was
+      it again?
       '''
       choices: [
-        choice 'begin-sorcery',
-          '…and I recognized the smell of magic.'
-        choice 'begin-strength',
-          '…and I recognized the sound of combat.'
-        choice 'begin-stealth',
-          '…and I recognized the coded signals of the city guard.'
+        choice 'begin-illusion',
+          'Illusion'
+          'The magic of making one thing appear to be another thing.'
+        choice 'begin-hallucination',
+          'Hallucination'
+          'The magic of making things appear to exist which do not.'
+        choice 'begin-hypnotism',
+          'Hypnotism'
+          'The magic of making people believe things they do not.'
       ]
 
-    storylet 'begin-sorcery',
-      'August 14th'
+    beginSnippet =
+      '''
+      Ah, yes, that was it. Anyway, that's all over now. The war left you without a scrap of magic
+      to your name, just a strange itch whenever you were in the presence of your old field of work.
+      But you, you were enterprising. You parleyed that subliminal itch, that instinct about magic,
+      into a career as a detective. When people have problems that seem magical in nature, they come
+      to you. You are The Disillusionist.
+      '''
+    beginChoice =
+      choice 'begin-case'
+
+    storylet 'begin-illusion',
+      'Ah, Illusion'
       '''
       The acrid smell of spellcraft was in the air, something you rarely enoucntered outside your
       own home.
