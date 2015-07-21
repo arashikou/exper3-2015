@@ -25,7 +25,7 @@ html
       #player(ng-show="storylet")
         #storylet-text
           .title {{storylet.title | resolve}}
-          .text {{storylet.text | resolve}}
+          .text(ng-show="storylet.text") {{storylet.text | resolve}}
           hr(ng-show="storylet.consequenceReports.length")
           .consequence(ng-repeat="message in storylet.consequenceReports") {{message}}
         choice-list#storylet-choices(choices="storylet.choices" choose="choose")
@@ -36,7 +36,7 @@ html
       a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
         .main
           .title {{choice.title | resolve}}
-          .text {{choice.text | resolve}}
+          .text(ng-show="choice.text") {{choice.text | resolve}}
           .arrow
         hr(ng-hide="choice.isActive()")
         .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
