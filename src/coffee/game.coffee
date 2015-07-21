@@ -1,27 +1,43 @@
+locations =
+  home:      "in the residential district"
+  market:    "in the market"
+  slums:     "in the slums"
+  palace:    "in the royal palace"
+  outskirts: "in the outskirts"
+
 angular.module 'gameDefinition', ['qbn.edsl']
   .run (qbnEdsl) ->
     {quality, qualityType} = qbnEdsl
 
-    quality 'punchiness', qualityType.stat,
-      'Punchiness'
-      'One\'s capability for punching.'
-      value: 2
+    quality 'hours', qualityType.item,
+      'Hours Remaining'
+      'After this, there will be no stopping the Duke.'
+      value: 72
 
-    quality 'deathWish', qualityType.unique,
-      'a Death Wish'
-      'Has existence become a burden?'
+    quality 'stealth', qualityType.stat,
+      'Stealth'
+      'Hiding, Sneaking, Smuggling'
+      value: 1
+
+    quality 'sorcery', qualityType.stat,
+      'Sorcery'
+      'Casting, Blasting, Conjuring'
+      value: 1
+
+    quality 'strength', qualityType.stat,
+      'Strength'
+      'Action, Power, Combat'
+      value: 1
+
+    quality 'discovered', qualityType.unique,
+      'Been Discovered'
+      'That\'s not good.'
       value: false
 
-    quality 'unsingableSong', qualityType.item,
-      'Unsingable Song'
-      'Because it is terrible or because it is forbidden?'
-      value: 3
-
-    quality 'luck', qualityType.stat,
-      'Luck'
-      'This text should never display.'
-      value: -2
-      visible: false
+    quality 'location', qualityType.string,
+      '!!ERROR!!'
+      undefined
+      value: null
 
     return
 
@@ -34,6 +50,23 @@ angular.module 'gameDefinition', ['qbn.edsl']
 
     onwards choice 'onwards',
       'The story continues…'
+
+    ## Intro
+
+    front choice 'lets-begin',
+      'Begin the Story'
+
+    storylet 'lets-begin',
+      'August 14th'
+      '''
+
+      '''
+      choices: [
+        choice 'lets-begin2'
+          'OK, and then what?'
+      ]
+
+    return
 
     front choice 'body-building',
       'Bodybuilding Class'
