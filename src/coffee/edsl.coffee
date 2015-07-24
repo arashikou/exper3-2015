@@ -43,6 +43,10 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
               "#{quality.name} regressed by #{amount}. Now there's #{quality.maxProgress - quality.progress} to go!"
             else
               "#{quality.name} regressed by #{amount}, reducing it to #{quality.value}! Now there's #{quality.maxProgress - quality.progress} to go."
+        set: (value) ->
+          (quality) ->
+            quality.value = value
+            "#{quality.name} is now \"#{value}.\""
 
       choice: (id, title, text, args = {}) ->
         {next, visible, active} = args
