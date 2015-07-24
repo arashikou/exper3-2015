@@ -21,13 +21,13 @@ html
         #qualities
           .quality(ng-repeat="quality in qualities track by quality.id")
             .name {{quality.format() | resolve}}
-            .description {{quality.description | resolve}}
+            .description(ng-bind-html="quality.description | resolve | markdown")
             hr
         choice-list#frontal-choices(choices="choices" choose="choose")
       #player(ng-show="storylet")
         #storylet-text
           .title {{storylet.title | resolve}}
-          .text(ng-show="storylet.text") {{storylet.text | resolve}}
+          .text(ng-show="storylet.text" ng-bind-html="storylet.text | resolve | markdown")
           hr(ng-show="storylet.consequenceReports.length")
           .consequence(ng-repeat="message in storylet.consequenceReports") {{message}}
         choice-list#storylet-choices(choices="storylet.choices" choose="choose")
@@ -38,7 +38,7 @@ html
       a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
         .main
           .title {{choice.title | resolve}}
-          .text(ng-show="choice.text") {{choice.text | resolve}}
+          .text(ng-show="choice.text" ng-bind-html="choice.text | resolve | markdown")
           .arrow
         hr(ng-hide="choice.isActive()")
         .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
