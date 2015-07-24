@@ -1,1 +1,1 @@
-angular.module 'qbn', ['ngSanitize', 'qbn.engine', 'gameDefinition']
+angular.module 'qbn', ['ngSanitize', 'qbn.engine', 'markdown', 'gameDefinition']
