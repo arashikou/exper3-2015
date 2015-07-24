@@ -1,48 +1,70 @@
-locations =
-  home:      "in the residential district"
-  market:    "in the market"
-  slums:     "in the slums"
-  palace:    "in the royal palace"
-  outskirts: "in the outskirts"
+origins =
+  illusionist: 'an illusionist'
+  hallucinist: 'a hallucinist'
+  hypnotist: 'a hypnotist'
 
 angular.module 'gameDefinition', ['qbn.edsl']
   .run (qbnEdsl) ->
     {quality, qualityType} = qbnEdsl
 
-    quality 'hours', qualityType.item,
-      'Hours Remaining'
-      'After this, there will be no stopping the Khanduke.'
-      value: 72
-
-    quality 'stealth', qualityType.stat,
-      'Stealth'
-      'Hiding, Sneaking, Smuggling'
-      value: 1
-
-    quality 'sorcery', qualityType.stat,
-      'Sorcery'
-      'Casting, Blasting, Conjuring'
-      value: 1
-
-    quality 'strength', qualityType.stat,
-      'Strength'
-      'Action, Power, Combat'
-      value: 1
-
-    quality 'discovered', qualityType.unique,
-      'Been Discovered'
-      'That\'s not good.'
-      value: false
-
-    quality 'location', qualityType.string,
-      '!!ERROR!!'
+    quality 'day',
+      () -> "Day #{@value} of the Investigation"
+      'Day'
       undefined
-      value: null
+      value: 1
+
+    quality 'bother',
+      () -> "You have already bothered your client today"
+      'Bother'
+      'If you want to trouble her again, you\'ll have to try tomorrow.'
+
+    quality 'illusionHunch', qualityType.item,
+      'Illusion Hunch'
+      'Regenerates at the start of each day.'
+      value: 1
+
+    quality 'hallucinationHunch', qualityType.item,
+      'Hallucination Hunch'
+      'Regenerates at the start of each day.'
+      value: 1
+
+    quality 'hypnotismHunch', qualityType.item,
+      'Hypnotism Hunch'
+      'Regenerates at the start of each day.'
+      value: 1
+
+    quality 'blueback', qualityType.item,
+      'Blueback'
+      'Magical counterfeit-proof bills. They\'re actually more of an iridescent black.'
+
+    quality 'cantripUp', qualityType.item,
+      'Cantrip-Up'
+      'The beverage of mages. Contains concentrated warpweft that mildly enhances magical powers.'
+
+    quality 'rumor', qualityType.item,
+      'Rumor'
+      'Good, old-fashioned gossip. Juicy secrets that lose their value once spread.'
+
+    quality 'cagedDemon', qualityType.item,
+      'Caged Demon'
+      'Demonology is illegal, but harvesting these from old battlefields is a public service.'
+
+    quality 'origin',
+      () -> "You were #{@value}"
+      'Origin'
+      (origin) ->
+        switch origin
+          when origins.illusionist
+            'Gives you 1 more Illusion Hunch each day.'
+          when origins.hallucinist
+            'Gives you 1 more Hallucination Hunch each day.'
+          when origins.hypnotist
+            'Gives you 1 more Hypnotism Hunch each day.'
 
     return
 
   .run (qbnEdsl) ->
-    {storylet, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
+    {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
 
     retreat choice 'retreat',
       'On second thought, maybe not…'
@@ -52,9 +74,7 @@ angular.module 'gameDefinition', ['qbn.edsl']
       'The story continues…'
 
     ## Intro
-
-    front choice 'lets-begin',
-      'Begin the Story'
+    start 'lets-begin'
 
     storylet 'lets-begin',
       'It was a dark and stormy decade…'
@@ -81,20 +101,44 @@ angular.module 'gameDefinition', ['qbn.edsl']
 
     beginSnippet =
       '''
-      Ah, yes, that was it. Anyway, that's all over now. The war left you without a scrap of magic
-      to your name, just a strange itch whenever you were in the presence of your old field of work.
+      Yes, that was it. Anyway, that's all over now. The war left you without a scrap of magic
+      to your name, just a strange itch whenever you're in the presence of your old field of work.
       But you, you were enterprising. You parleyed that subliminal itch, that instinct about magic,
       into a career as a detective. When people have problems that seem magical in nature, they come
       to you. You are The Disillusionist.
       '''
     beginChoice =
-      choice 'begin-case'
+      choice 'begin-case',
+        'Tell me about my latest case.'
 
     storylet 'begin-illusion',
       'Ah, Illusion'
+      beginSnippet
+      consequences:
+        origin: consq.set origins.illusionist
+      choices: [beginChoice]
+
+    storylet 'begin-hallucination',
+      'Ah, Hallucination'
+      beginSnippet
+      consequences:
+        origin: consq.set origins.hallucinist
+      choices: [beginChoice]
+
+    storylet 'begin-hypnotism',
+      'Ah, Hypnotism'
+      beginSnippet
+      consequences:
+        origin: consq.set origins.hypnotist
+      choices: [beginChoice]
+
+    storylet 'begin-case',
+      'It Was Late on a Tuesday…'
       '''
-      The acrid smell of spellcraft was in the air, something you rarely enoucntered outside your
-      own home.
+      It was late on a Tuesday when Mrs. Abigail Brown walked into your office. Immediately, you
+      knew this wasn't the usual cheating-husband job. There was a tear to her eye before she even
+      got in your door, not the mixture of determination and shame that eventually gave way to
+      either sobbing or rage.
       '''
 
     return
