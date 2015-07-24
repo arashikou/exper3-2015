@@ -1,6 +1,12 @@
 angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.save',  'qbn.resolve']
+  .factory 'startingPoint', () ->
+    startingStorylet = undefined
+    api =
+      set: (value) -> startingStorylet = value
+      get: () -> startingStorylet
+    return Object.freeze api
   .controller 'QbnEngine',
-    ($scope, qualities, storylets, frontalChoices, savedGame, resolveFilter) ->
+    ($scope, startingPoint, qualities, storylets, frontalChoices, savedGame, resolveFilter) ->
       updateFrontalValues = () ->
         $scope.qualities = qualities.getAll()
         $scope.choices = frontalChoices.getAll()
@@ -13,11 +19,15 @@ angular.module 'qbn.engine', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.
           storylet.choices = [frontalChoices.getOnwards()]
         return
 
-      [storyletName, isFrontal] = savedGame.load()
-      $scope.storylet = storylets.lookup storyletName
-      if $scope.storylet?
-        $scope.storylet.isFrontal = isFrontal
-        addDefaultsToChoices $scope.storylet
+      loaded = savedGame.load()
+      if loaded?
+        [storyletName, isFrontal] = loaded
+        $scope.storylet = storylets.lookup storyletName
+        if $scope.storylet?
+          $scope.storylet.isFrontal = isFrontal
+          addDefaultsToChoices $scope.storylet
+      else
+        $scope.storylet = storylets.lookup startingPoint.get()
 
       updateFrontalValues()
 

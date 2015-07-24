@@ -1,5 +1,5 @@
-angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
-  .factory 'qbnEdsl', (qualities, storylets, frontalChoices, choiceFactory) ->
+angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.engine']
+  .factory 'qbnEdsl', (qualities, storylets, frontalChoices, choiceFactory, startingPoint) ->
     api =
       qualityType: Object.freeze
         stat: () -> "#{@name} is #{@value}"
@@ -23,6 +23,9 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice']
         choices ?= []
         consequences ?= {}
         storylets.register id, title, text, choices, consequences
+        return
+      start: (storylet) ->
+        startingPoint.set(storylet)
         return
       consq: Object.freeze
         increase: (amount) ->
