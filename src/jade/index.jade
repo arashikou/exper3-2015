@@ -18,8 +18,8 @@ html
       #chooser(ng-hide="storylet")
         #qualities
           .quality(ng-repeat="quality in qualities track by quality.id")
-            .name {{quality.format()}}
-            .description {{quality.description}}
+            .name {{quality.format() | resolve}}
+            .description {{quality.description | resolve}}
             hr
         choice-list#frontal-choices(choices="choices" choose="choose")
       #player(ng-show="storylet")
