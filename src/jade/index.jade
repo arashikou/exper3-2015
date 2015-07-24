@@ -37,8 +37,9 @@ html
     script(id="choiceList" type="text/ng-template")
       a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
         .main
-          .title {{choice.title | resolve}}
-          .text(ng-show="choice.text" ng-bind-html="choice.text | resolve | markdown")
+          .textContainer
+            .title {{choice.title | resolve}}
+            .text(ng-show="choice.text" ng-bind-html="choice.text | resolve | markdown")
           .arrow
         hr(ng-hide="choice.isActive()")
         .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}

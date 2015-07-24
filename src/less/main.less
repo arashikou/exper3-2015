@@ -138,11 +138,12 @@ a.choice {
   }
 
   .main {
-    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
     .arrow {
-      position: absolute;
-      .valign();
-      right: 0;
+      margin-left: @spacing;
     }
   }
 
