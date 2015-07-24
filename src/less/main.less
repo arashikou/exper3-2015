@@ -100,6 +100,10 @@ html {
   .description {
     font-size: 0.8rem;
   }
+
+  hr {
+    margin: (2 * @spacing / 3) 0;
+  }
 }
 
 #frontal-choices {
@@ -168,10 +172,6 @@ a.choice {
   font-variant: small-caps;
 }
 
-.text {
-  margin-top: 0.25rem;
-}
-
 hr {
   border: 0;
   height: @border;
@@ -196,4 +196,9 @@ a#reset-save {
   display: none;
   z-index: 2;
   background-clip: padding-box; // Fix jagged edges in WebKit/Blink
+}
+
+p {
+  margin: 0.5em 0 0 0;
+  padding: 0;
 }
