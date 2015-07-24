@@ -4,11 +4,11 @@ angular.module 'qbn.save', ['qbn.quality']
     api =
       load: () ->
         save = JSON.parse localStorage.getItem storageName
-        if save?
-          for savedQuality in save.qualities
-            quality = qualities.lookup savedQuality.id
-            quality.load savedQuality
-        return [save?.storylet?.id, save?.storylet?.isFrontal]
+        return undefined if not save?
+        for savedQuality in save.qualities
+          quality = qualities.lookup savedQuality.id
+          quality.load savedQuality
+        return [save.storylet?.id, save.storylet?.isFrontal]
       save: (storylet, isFrontal) ->
         save =
           qualities: qualities.saveAll()
