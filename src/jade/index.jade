@@ -35,7 +35,7 @@ html
     .dash-banner LEVEL UP!!
 
     script(id="choiceList" type="text/ng-template")
-      a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-disabled="!choice.isActive()")
+      a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-show="choice.isVisible()" ng-disabled="!choice.isActive()")
         .main
           .textContainer
             .title {{choice.title | resolve}}
