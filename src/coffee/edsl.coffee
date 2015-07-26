@@ -85,4 +85,7 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.en
         exists:
           (quality) -> if quality.value then true else
             "Requires #{quality.name}, which you do not have."
+        notexists:
+          (quality) -> if not quality.value then true else
+            "Forbidden by #{quality.name}, which you have."
     return Object.freeze api
