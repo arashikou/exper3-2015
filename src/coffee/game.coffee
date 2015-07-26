@@ -39,6 +39,10 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       '''
       value: 1
 
+    quality 'evidence', qualityType.item,
+      'Evidence'
+      'Gather enough of this to solve the case!'
+
     quality 'bluebacks', qualityType.item,
       'Bluebacks'
       'Magical counterfeit-proof bills. They\'re actually more of an iridescent black.'
@@ -75,10 +79,11 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
 
     retreat choice 'retreat',
       'On second thought, maybe not…'
-      '_Return to the previous screen._'
+      '_Return to the main screen._'
 
     onwards choice 'onwards',
       'The story continues…'
+      '_Return to the main screen._'
 
     ## Intro
     start 'lets-begin'
@@ -263,32 +268,32 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           'Find warehouse cover-ups'
           'Search warehouses for faked shipments.'
           active:
-            illusionHunch: reqs.gt 0
+            illusionHunch: reqs.gte 1
         choice 'partyStraight',
           'Clean up after a party'
           'The students from the Department of Illusory Arts don\'t just throw regular parties.'
           active:
-            illusionHunch: reqs.gt 0
+            illusionHunch: reqs.gte 1
         choice 'antiqueStraight',
           'Filter an antiquarian\'s collection'
           'Unscrupulous types often sell fake antiques to unsuspecting shops.'
           active:
-            hallucinationHunch: reqs.gt 0
+            hallucinationHunch: reqs.gte 1
         choice 'beatWalkStraight',
           'Search for public menaces'
           'Walk a police beat looking for hallucinatory graffiti.'
           active:
-            hallucinationHunch: reqs.gt 0
+            hallucinationHunch: reqs.gte 1
         choice 'dealsStraight',
           'Notarize business deals'
           'It\'s important to make sure no one signing a contract is under an enchantment.'
           active:
-            hallucinationHunch: reqs.gt 0
+            hallucinationHunch: reqs.gte 1
         choice 'securityStraight',
           'Provide building security'
           'Check each employee before they enter to make sure they haven\'t been compromised.'
           active:
-            hallucinationHunch: reqs.gt 0
+            hallucinationHunch: reqs.gte 1
       ]
 
     storylet 'warehouseStraight',
@@ -361,5 +366,56 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       consequences:
         hypnotismHunch: consq.decrease 1
         bluebacks: consq.increase 2
+
+    ## The Client
+    storylet 'botherClient',
+      'Visit the client'
+      '''
+      Mrs. Brown is at home when you arrive. A servant offers to fetch her. Are you here to see her
+      or to investigate the crime scene?
+      '''
+      choices: [
+        choice 'solveEvidence',
+          'Solve the case with evidence'
+          '''
+          But if this… Then that… Which means…
+          '''
+          active:
+            evidence: reqs.gte 10
+        choice 'solveHunch',
+          'Solve the case with pure gumption'
+          '''
+          Something about this situation doesn't seem right. Damn collecting evidence; with enough
+          hunches, you could blow this case wide open!
+          '''
+          active:
+            illusionHunch: reqs.gte 3
+            hallucinationHunch: reqs.gte 3
+            hypnotismHunch: reqs.gte 3
+        choice 'advanceAsk',
+          'Ask for an advance'
+          '''
+          This case is taking a while, and the retainer's running thin. It's time to hit up the
+          client for more money.
+          '''
+          visible:
+            day: reqs.gte 3
+        choice 'askClient1',
+          'Ask for more info'
+          '''
+          You feel like maybe there's something she hasn't told you yet.
+          '''
+        choice 'askClient2',
+          'Ask what\'s wrong'
+          '''
+          When you arrive, the sound of Mrs. Brown's sobbing fills the house. Something is
+          definitely up.
+          '''
+          visible:
+            day: reqs.gte 5
+        choice 'crimeScene',
+          'Inspect the crime scene'
+          'There are bound to be clues the police\'s half-hearted investigation missed.'
+      ]
 
     return
