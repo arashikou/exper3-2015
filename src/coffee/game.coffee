@@ -7,6 +7,11 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
   .run (qbnEdsl) ->
     {quality, qualityType} = qbnEdsl
 
+    quality 'keyOfDreams', qualityType.item,
+      'Key of Dreams' # Shamelessly stealing this name from Storynexus
+      'An item that does not exist yet is necessary to access unimplemented content.'
+      value: 0
+
     ## Primary Stats
 
     quality 'day',
@@ -404,6 +409,7 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           '''
           active:
             evidence: reqs.gte 10
+            keyOfDreams: reqs.exists
         choice 'solveHunch',
           'Solve the case with pure gumption'
           '''
@@ -414,6 +420,7 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
             illusionHunch: reqs.gte 3
             hallucinationHunch: reqs.gte 3
             hypnotismHunch: reqs.gte 3
+            keyOfDreams: reqs.exists
         choice 'advanceAsk',
           'Ask for an advance'
           '''
@@ -580,5 +587,70 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       consequences:
         cantripUp: consq.increase 3
         bother: setBothered
+
+    ## Leads
+
+    storylet 'storylines',
+      'Track down a lead'
+      '''
+      You sit down at your desk and pool all your possible leads. Someone out there has to
+      know something about what happened. The question is: Who?
+
+      _If you successfully start a lead, you will be committed to that lead and unable to follow up
+      any others until you see your current lead through._
+      '''
+      choices: [
+        choice 'jackieStart',
+          'Jackie, old-school detective'
+          'Mr. Brown hired Jackie to do something. What? And why?'
+          visible:
+            jackieReceipt: reqs.gte 1
+          active:
+            keyOfDreams: reqs.exists
+        choice 'roxyStart',
+          'Roxy Malone, big-time gangster'
+          'Roxy is trying to intimidate Mrs. Brown. But why?'
+          visible:
+            roxyThugDescription: reqs.gte 1
+          active:
+            keyOfDreams: reqs.exists
+        choice 'businessStart',
+          'Mr. Brown\'s last employer'
+          '''
+          Mr. Brown was doing work for hire for the offices of Kimble, Battherwhite, and Smith when
+          he disappeared.
+          Someone there might know something.
+          '''
+          active:
+            keyOfDreams: reqs.exists
+        choice 'clubEntry',
+          'The Salamander Club'
+          '''
+          Ever since you lost your magical abilities, you've lost touch with the magical community
+          in the city.
+          The Salamander Club is a favorite watering hole of the sorcerous set and your best bet to
+          make contact with anyone who might know Mr. Brown.
+          '''
+          active:
+            cantripUp: reqs.gte 6
+            keyOfDreams: reqs.exists
+        choice 'pressStart',
+          'The press'
+          '''
+          The disappearance of someone as high-profile as Horace Brown should be all over the news.
+          But Mrs. Brown was the first you heard of it. Who is keeping the bloggers quiet? Maybe one
+          of your contacts knows.
+          '''
+          active:
+            keyOfDreams: reqs.exists
+        choice 'copStart',
+          'A crooked cop'
+          '''
+          Officer Dentley is a lousy cop, but a great informant. For the right fee, he'll tell you
+          everything the police know.
+          '''
+          active:
+            keyOfDreams: reqs.exists
+      ]
 
     return
