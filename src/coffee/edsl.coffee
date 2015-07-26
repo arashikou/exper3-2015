@@ -70,9 +70,15 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.en
         gt: (req) ->
           (quality) -> (quality.value > req) ||
             "Requires #{quality.name} greater than #{req}. You have #{quality.value}."
+        gte: (req) ->
+          (quality) -> (quality.value >= req) ||
+            "Requires #{quality.name} at least #{req}. You have #{quality.value}."
         lt: (req) ->
           (quality) -> (quality.value < req) ||
             "Requires #{quality.name} less than #{req}. You have #{quality.value}."
+        lte: (req) ->
+          (quality) -> (quality.value <= req) ||
+            "Requires #{quality.name} no more than #{req}. You have #{quality.value}."
         range: (low, high) ->
           (quality) -> (low < quality.value < high) ||
             "Requires #{quality.name} between #{low} and #{high}. You have #{quality.value}."
