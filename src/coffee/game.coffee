@@ -67,6 +67,10 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       'Receipt from Jackie'
       'Proof that Mr. Brown hired a private detective before his death.'
 
+    quality 'roxyThugDescription', qualityType.item,
+      'Description of Roxy\'s Thugs'
+      'Roxy wants Mrs. Brown out of town.'
+
     ## Incidental Deatails
 
     quality 'bother',
@@ -94,9 +98,10 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
   .run (qbnEdsl, qualities) ->
     {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
 
-    retreat choice 'retreat',
+    retreatChoice = choice 'retreat',
       'On second thought, maybe not…'
       '_Return to the main screen._'
+    retreat retreatChoice
 
     onwards choice 'onwards',
       'The story continues…'
@@ -229,7 +234,7 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       '''
       It's been a long day. Perhaps it's time to go back to your apartment and get some shuteye.
 
-      _This will advance the day by one and regenerate you to full hunches._
+      _This will advance the day by one and reset your hunches._
       '''
 
     ## Rest
@@ -242,7 +247,7 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       choices: [
         choice 'endOfDay',
           (day) -> "End day #{day} of the investigation"
-          '_This will advance the day by one and regenerate you to full hunches._'
+          '_This will advance the day by one and reset your hunches._'
       ]
 
     storylet 'endOfDay',
@@ -305,12 +310,12 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           'Notarize business deals'
           'It\'s important to make sure no one signing a contract is under an enchantment.'
           active:
-            hallucinationHunch: reqs.gte 1
+            hypnotismHunch: reqs.gte 1
         choice 'securityStraight',
           'Provide building security'
           'Check each employee before they enter to make sure they haven\'t been compromised.'
           active:
-            hallucinationHunch: reqs.gte 1
+            hypnotismHunch: reqs.gte 1
       ]
 
     storylet 'warehouseStraight',
@@ -433,6 +438,7 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           '''
           visible:
             day: reqs.gte 5
+            roxyThugDescription: reqs.lte 0
         choice 'crimeScene',
           'Inspect the crime scene'
           'There are bound to be clues the police\'s half-hearted investigation missed.'
@@ -479,18 +485,100 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       '''
       consequences:
         jackieReceipt: consq.increase 1
-      bother: setBothered
+        bother: setBothered
 
-    choice 'askClient2',
+    storylet 'askClient2',
       'Ask what\'s wrong'
       '''
-      When you arrive, the sound of Mrs. Brown's sobbing fills the house. Something is
-      definitely up.
+      "Oh, it's horrible! You just missed them! Two thugs were here, making threats! Warning
+      me to stop the investigation! Telling me to leave town!"
+
+      After you calm Mrs. Brown down, you get a description of the thugs. The purple carnation
+      lapel pins make them
+      easy to identify. These boys belonged to Roxy Malone, one of the three biggest gangsters in
+      the city. What Roxy's stake in this is, you have no idea, but you aim to ask her.
+
+      You make a point of not asking if Mrs. Brown wants the investigation called off, and she
+      doesn't make a point of telling you. This one is too juicy to let slip away.
       '''
-      visible:
-        day: reqs.gte 5
-    choice 'crimeScene',
+      consequences:
+        roxyThugDescription: consq.increase 1
+        bother: setBothered
+
+    storylet 'crimeScene',
       'Inspect the crime scene'
-      'There are bound to be clues the police\'s half-hearted investigation missed.'
+      '''
+      Mrs. Brown has a servant let you into the witching parlor. She can't bear to look at it
+      herself. What are you looking for?
+      '''
+      choices: [
+        choice 'crimeSceneIllusion',
+          'Evidence of illusions'
+        choice 'crimeSceneHallucination',
+          'Evidence of hallucinations'
+        choice 'crimeSceneHypnotism',
+          'Evidence of hypnotisms'
+        choice 'crimeSceneRumor',
+          'Information in Horace Brown\'s files'
+        choice 'crimeSceneDrink',
+          'Actually, I\'m here to raid the liquor cabinet'
+        retreatChoice
+      ]
+
+    storylet 'crimeSceneIllusion',
+      'Evidence of illusions'
+      '''
+      Someone on the house staff has been using illusions to hide subpar housework. It's amateur
+      stuff, but it confounds your search. Nonetheless, there has definitely been a more
+      competent illusionist
+      at work here as well. But was it Brown or someone else?
+      '''
+      consequences:
+        illusionHunch: consq.increase 1
+        bother: setBothered
+
+    storylet 'crimeSceneHallucination',
+      'Evidence of hallucinations'
+      '''
+      If there were any hallucinations here, they've been cleaned up. But sometimes a hallucination
+      is telling by its absence. There are three suspicious gaps in the decor on the wall opposite
+      the windows. By the looks of it, there were hallucinations here for quite some time; the
+      staff had been cleaning around them. Were they Brown's work? Or somehow related to his
+      disappearance?
+      '''
+      consequences:
+        hallucinationHunch: consq.increase 1
+        bother: setBothered
+
+    storylet 'crimeSceneHypnotism',
+      'Evidence of hypnotisms'
+      '''
+      Your brain is on fire. Here, by the workbench. Judging by the height, the person was in the
+      process of standing up. And over here, by the window. But this one, it was a different person
+      than the first…
+      '''
+      consequences:
+        hypnotismHunch: consq.increase 1
+        bother: setBothered
+
+    storylet 'crimeSceneRumor',
+      'Information in Horace Brown\'s files'
+      '''
+      You don't turn up any evidence relevant to the case, but you do turn up some juicy tidbits
+      that you're pretty sure aren't public knowledge.
+      '''
+      consequences:
+        rumor: consq.increase 3
+        bother: setBothered
+
+    storylet 'crimeSceneDrink',
+      'Raiding the liquor cabinet'
+      '''
+      Alas, the liquor has been removed, perhaps against just such an eventuality. But you are
+      able to snag a few Cantrip-Ups that you don't imagine will be missed.
+      '''
+      consequences:
+        cantripUp: consq.increase 3
+        bother: setBothered
 
     return
