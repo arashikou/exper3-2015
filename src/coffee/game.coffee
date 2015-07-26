@@ -7,16 +7,13 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
   .run (qbnEdsl) ->
     {quality, qualityType} = qbnEdsl
 
+    ## Primary Stats
+
     quality 'day',
       () -> "Day #{@value} of the Investigation"
       'Day'
       undefined
       value: 1
-
-    quality 'bother',
-      () -> "You have already bothered your client today"
-      'Bother'
-      'If you want to trouble her again, you\'ll have to try tomorrow.'
 
     quality 'illusionHunch', qualityType.item,
       'Illusion Hunch'
@@ -43,6 +40,8 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       'Evidence'
       'Gather enough of this to solve the case!'
 
+    ## Primary Resources
+
     quality 'bluebacks', qualityType.item,
       'Bluebacks'
       'Magical counterfeit-proof bills. They\'re actually more of an iridescent black.'
@@ -56,9 +55,27 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       'Rumor'
       'Good, old-fashioned gossip. Juicy secrets that lose their value once spread.'
 
+    ## Secondary Resources
+
     quality 'cagedDemon', qualityType.item,
       'Caged Demon'
       'Demonology is illegal, but harvesting these from old battlefields is a public service.'
+
+    ## Special Items
+
+    quality 'jackieReceipt', qualityType.item,
+      'Receipt from Jackie'
+      'Proof that Mr. Brown hired a private detective before his death.'
+
+    ## Incidental Deatails
+
+    quality 'bother',
+      () -> "You have already bothered your client today"
+      'Bother'
+
+    quality 'advance',
+      () -> "You have gotten an advance on your payment"
+      'Advance'
 
     quality 'origin',
       () -> "You were #{@value}"
@@ -400,11 +417,14 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           '''
           visible:
             day: reqs.gte 3
+            advance: reqs.notexists
         choice 'askClient1',
           'Ask for more info'
           '''
           You feel like maybe there's something she hasn't told you yet.
           '''
+          visible:
+            jackieReceipt: reqs.lte 0
         choice 'askClient2',
           'Ask what\'s wrong'
           '''
@@ -417,5 +437,60 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           'Inspect the crime scene'
           'There are bound to be clues the police\'s half-hearted investigation missed.'
       ]
+
+    # TODO: storylet 'solveEvidence'
+
+    # TODO: storylet 'solveHunch'
+
+    setBothered = (bothered) ->
+      bothered.value = true
+      'Mrs. Brown does not wish to see you again today.'
+
+    storylet 'advanceAsk',
+      'Ask for an advance'
+      '''
+      Mrs. Brown is a little less free with her funds this time. Perhaps she expected the case to
+      be resolved by now, in which case she's a fool. Or perhaps she showed the contract to one of
+      her accountants, in which case she's less-so. Nonetheless, you are able to draw a little blood
+      from the stone before being sent on your way with a reminder to earn that money.
+      '''
+      consequences:
+        bluebacks: consq.increase 6
+        bother: setBothered
+        advance: (quality) ->
+          quality.value = true
+          'You will not be able to ask for an advance again.'
+
+    storylet 'askClient1',
+      'Ask for more info'
+      '''
+      "Actually, there is something new," she purrs. "While I was going through Horry's old things,
+      I came across this receipt."
+
+      She hands you a receipt almost identical to the one you made out for her in your office.
+
+      "It seems I wasn't the first one to employ a private detective. Though what he hired this
+      'Jackie' for, I couldn't say."
+
+      You know Jackie. He's one of the old guard. He was in this business before the war, before
+      magic. Hell, maybe before you were even born. The new world hasn't been kind to him, though,
+      and word is he fell on hard times recently. Maybe hard enough to get him to parley with the
+      competition? It's not much, but it's a start.
+      '''
+      consequences:
+        jackieReceipt: consq.increase 1
+      bother: setBothered
+
+    choice 'askClient2',
+      'Ask what\'s wrong'
+      '''
+      When you arrive, the sound of Mrs. Brown's sobbing fills the house. Something is
+      definitely up.
+      '''
+      visible:
+        day: reqs.gte 5
+    choice 'crimeScene',
+      'Inspect the crime scene'
+      'There are bound to be clues the police\'s half-hearted investigation missed.'
 
     return
