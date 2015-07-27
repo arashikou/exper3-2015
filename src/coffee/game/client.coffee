@@ -200,3 +200,5 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl', 'gameDefinition.enum
       consequences:
         cantripUp: consq.increase 3
         bother: setBothered
+
+    return
