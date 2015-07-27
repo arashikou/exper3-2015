@@ -22,3 +22,6 @@ angular.module 'qbn.save', ['qbn.quality']
         localStorage.clear()
         return
     return Object.freeze api
+
+window.emergencySaveClear = () ->
+  localStorage.clear()
