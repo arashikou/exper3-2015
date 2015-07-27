@@ -10,10 +10,9 @@ angular.module 'gameDefinition', [
     {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
     {leads, origins} = enums
 
-    retreatChoice = choice 'retreat',
+    retreat choice 'retreat',
       'On second thought, maybe not…'
       '_Return to the main screen._'
-    retreat retreatChoice
 
     onwards choice 'onwards',
       'The story continues…'
