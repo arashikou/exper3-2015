@@ -1,6 +1,5 @@
 angular.module 'gameDefinition', [
   'qbn.edsl'
-  'gameDefinition.enums'
   'gameDefinition.qualities'
   'gameDefinition.frontChoices'
   'gameDefinition.introStories'
@@ -10,9 +9,8 @@ angular.module 'gameDefinition', [
   'gameDefinition.leadStories'
   'gameDefinition.jackieStories'
 ]
-  .run (qbnEdsl, enums) ->
-    {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
-    {leads, origins} = enums
+  .run (qbnEdsl) ->
+    {choice, retreat, onwards} = qbnEdsl
 
     retreat choice 'retreat',
       'On second thought, maybe not…'

@@ -1,6 +1,6 @@
 angular.module 'gameDefinition.frontChoices', ['qbn.edsl', 'gameDefinition.enums']
   .run (qbnEdsl, enums) ->
-    {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
+    {storylet, choice, front, reqs, consq} = qbnEdsl
     {leads} = enums
 
     front choice 'botherClient',

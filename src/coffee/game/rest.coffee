@@ -1,7 +1,7 @@
 angular.module 'gameDefinition.restStories', ['qbn.edsl', 'gameDefinition.enums', 'qbn.quality']
   .run (qbnEdsl, enums, qualities) ->
-    {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
-    {leads, origins} = enums
+    {storylet, choice, reqs, consq} = qbnEdsl
+    {origins} = enums
 
     storylet 'rest',
       'Return home to rest'

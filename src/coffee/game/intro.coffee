@@ -1,7 +1,7 @@
 angular.module 'gameDefinition.introStories', ['qbn.edsl', 'gameDefinition.enums']
   .run (qbnEdsl, enums) ->
-    {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
-    {leads, origins} = enums
+    {storylet, start, choice, reqs, consq} = qbnEdsl
+    {origins} = enums
 
     start 'lets-begin'
 

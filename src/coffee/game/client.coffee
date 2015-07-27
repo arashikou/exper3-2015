@@ -1,7 +1,6 @@
-angular.module 'gameDefinition.clientStories', ['qbn.edsl', 'gameDefinition.enums']
-  .run (qbnEdsl, enums) ->
-    {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
-    {leads, origins} = enums
+angular.module 'gameDefinition.clientStories', ['qbn.edsl']
+  .run (qbnEdsl) ->
+    {storylet, choice, reqs, consq} = qbnEdsl
 
     storylet 'botherClient',
       'Visit the client'
