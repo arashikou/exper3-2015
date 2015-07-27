@@ -82,6 +82,9 @@ angular.module 'qbn.edsl', ['qbn.quality', 'qbn.storylet', 'qbn.choice', 'qbn.en
         range: (low, high) ->
           (quality) -> (low < quality.value < high) ||
             "Requires #{quality.name} between #{low} and #{high}. You have #{quality.value}."
+        eq: (value) ->
+          (quality) -> (quality.value == value) ||
+            "Requires #{quality.name} of #{value}, but you have #{quality.value}."
         exists:
           (quality) -> if quality.value then true else
             "Requires #{quality.name}, which you do not have."
