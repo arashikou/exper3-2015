@@ -1,7 +1,7 @@
 angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
   .run (qbnEdsl, enums) ->
     {quality, qualityType} = qbnEdsl
-    {leads} = enums
+    {origins, leads} = enums
 
     quality 'keyOfDreams', qualityType.item,
       'Key of Dreams' # Shamelessly stealing this name from Storynexus
