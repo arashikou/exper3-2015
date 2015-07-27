@@ -65,17 +65,4 @@ angular.module 'gameDefinition.jackieStories', ['qbn.edsl', 'gameDefinition.enum
           quality.value++
           'Jackie has asked you to find his partner.'
 
-    ## The Salamander Club
-    storylet 'clubEntry',
-      'The Salamander Club'
-      '''
-      Downing an entire case of Cantrip-Up won't restore your magic in any way, but it will give you
-      enough of a glow to trick the bouncer into letting you in.
-
-      Once inside, you take up a position in the corner closest to the kitchen and watch the
-      crowd. There are countless magical types in here, but do any catch your eye?
-      '''
-      consequences:
-        cantripUp: consq.decrease 6
-
     return
