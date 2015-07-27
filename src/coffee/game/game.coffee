@@ -1,15 +1,7 @@
-origins =
-  illusionist: 'an illusionist'
-  hallucinist: 'a hallucinist'
-  hypnotist: 'a hypnotist'
-
-leads =
-  none: undefined
-  jackie: 'Jackie'
-
-angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
-  .run (qbnEdsl) ->
+angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality', 'gameDefinition.enums']
+  .run (qbnEdsl, enums) ->
     {quality, qualityType} = qbnEdsl
+    {leads} = enums
 
     quality 'keyOfDreams', qualityType.item,
       'Key of Dreams' # Shamelessly stealing this name from Storynexus
@@ -113,8 +105,9 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
 
     return
 
-  .run (qbnEdsl, qualities) ->
+  .run (qbnEdsl, enums, qualities) ->
     {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
+    {leads, origins} = enums
 
     retreatChoice = choice 'retreat',
       'On second thought, maybe not…'
