@@ -1,5 +1,5 @@
 angular.module 'gameDefinition.jackieStories', ['qbn.edsl', 'gameDefinition.enums']
-  .run (qbnEdsl, enums, qualities) ->
+  .run (qbnEdsl, enums) ->
     {storylet, start, choice, front, retreat, onwards, reqs, consq} = qbnEdsl
     {leads, origins} = enums
 
