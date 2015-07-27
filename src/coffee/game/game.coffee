@@ -14,10 +14,12 @@ angular.module 'gameDefinition', [
     retreat choice 'retreat',
       'On second thought, maybe not…'
       '_Return to the main screen._'
+      next: false
 
     onwards choice 'onwards',
       'The story continues…'
       '_Return to the main screen._'
+      next: false
 
     ## Front Categories
     front choice 'botherClient',

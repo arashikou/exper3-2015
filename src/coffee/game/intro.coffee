@@ -103,6 +103,7 @@ angular.module 'gameDefinition.introStories', ['qbn.edsl', 'gameDefinition.enums
         choice 'returnForward',
           'The story continues…'
           '_Go to the main screen._'
+          next: false
       ]
 
     return
