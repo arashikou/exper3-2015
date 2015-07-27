@@ -3,6 +3,10 @@ origins =
   hallucinist: 'a hallucinist'
   hypnotist: 'a hypnotist'
 
+leads =
+  none: undefined
+  jackie: 'Jackie'
+
 angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
   .run (qbnEdsl) ->
     {quality, qualityType} = qbnEdsl
@@ -19,6 +23,12 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       'Day'
       undefined
       value: 1
+
+    quality 'lead',
+      () -> "Current Lead: #{@value}"
+      'Your current lead'
+      undefined
+      value: leads.none
 
     quality 'illusionHunch', qualityType.item,
       'Illusion Hunch'
@@ -68,9 +78,12 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
 
     ## Special Items
 
-    quality 'jackieReceipt', qualityType.item,
-      'Receipt from Jackie'
-      'Proof that Mr. Brown hired a private detective before his death.'
+    quality 'jackie',
+      () ->
+        switch @value
+          when 1 then 'Mr. Brown hired a private eye before his disappearance'
+          when 2 then 'Jackie has asked you to find his partner'
+      '!!ERROR!!', undefined
 
     quality 'roxyThugDescription', qualityType.item,
       'Description of Roxy\'s Thugs'
@@ -233,6 +246,8 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       '''
       You know a few places to start looking for info.
       '''
+      visible:
+        lead: reqs.notexists
 
     front choice 'rest',
       'Return home to rest'
@@ -436,7 +451,7 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           You feel like maybe there's something she hasn't told you yet.
           '''
           visible:
-            jackieReceipt: reqs.lte 0
+            jackie: reqs.lte 0
         choice 'askClient2',
           'Ask what\'s wrong'
           '''
@@ -491,7 +506,9 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       competition? It's not much, but it's a start.
       '''
       consequences:
-        jackieReceipt: consq.increase 1
+        jackie: (quality) ->
+          quality.value++
+          'You have received a receipt from Mrs. Brown.'
         bother: setBothered
 
     storylet 'askClient2',
@@ -604,7 +621,7 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
           'Jackie, old-school detective'
           'Mr. Brown hired Jackie to do something. What? And why?'
           visible:
-            jackieReceipt: reqs.gte 1
+            jackie: reqs.gte 1
         choice 'roxyStart',
           'Roxy Malone, big-time gangster'
           'Roxy is trying to intimidate Mrs. Brown. But why?'
@@ -709,6 +726,11 @@ angular.module 'gameDefinition', ['qbn.edsl', 'qbn.quality']
       detective-client confidentiality for a bit as regards the quite-likely-late Mr. Brown and his
       concerns."
       '''
+      consequences:
+        lead: consq.set leads.jackie
+        jackie: (quality) ->
+          quality.value++
+          'Jackie has asked you to find his partner.'
 
     ## The Salamander Club
     storylet 'clubEntry',
