@@ -28,6 +28,15 @@ angular.module 'gameDefinition.frontChoices', ['qbn.edsl', 'gameDefinition.enums
       visible:
         lead: reqs.notexists
 
+    front choice 'jackie',
+      'Search for Jackie\'s missing partner'
+      'She left for "greener pastures."'
+      visible:
+        lead: reqs.eq leads.jackie
+      next: (jackie) ->
+        switch jackie
+          when 2 then 'jackie1'
+
     front choice 'rest',
       'Return home to rest'
       '''

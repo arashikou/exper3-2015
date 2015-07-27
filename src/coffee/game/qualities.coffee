@@ -22,6 +22,12 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
       undefined
       value: leads.none
 
+    quality 'progress',
+      () -> "Lead Progress: #{@value}"
+      'Your progress on your lead'
+      undefined
+      value: 0
+
     quality 'illusionHunch', qualityType.item,
       'Illusion Hunch'
       '''

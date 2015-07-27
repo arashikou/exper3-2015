@@ -52,7 +52,6 @@ angular.module 'gameDefinition.jackieStories', ['qbn.edsl', 'gameDefinition.enum
       she had to seek 'greener pastures,' whatever that means. That doesn't sound like her at all,
       though. Something's not right."
 
-
       "I've tried to find her, but she's fallen off the map so well, I can't even get a whiff of
       her. But then, she knows all my techniques; she's better-qualified than anyone to avoid me.
       But you! You, she isn't so well-equipped to avoid. Find her for me, and I'll forget about
@@ -64,5 +63,65 @@ angular.module 'gameDefinition.jackieStories', ['qbn.edsl', 'gameDefinition.enum
         jackie: (quality) ->
           quality.value++
           'Jackie has asked you to find his partner.'
+        progress: consq.set 0
+
+    storylet 'jackie1',
+      'Search for Jackie\'s missing partner'
+      '''
+      She's gone to ground, or maybe left the city entirely. You need to pick up her trail.
+      '''
+      choices: [
+        choice 'jackie1Rumor',
+          'Hit the streets'
+          'Ask around. Try not to be too obvious. Someone must have seen _something_.'
+          visible:
+            progress: reqs.lt 5
+          active:
+            rumor: reqs.gte 3
+        choice 'jackie1Hunch',
+          'See if you get any hunches'
+          '''
+          She wasn\'t a mage, but then, neither is Jackie. Maybe she\'s using magic to cover her
+          tracks from him.
+          '''
+          visible:
+            progress: reqs.lt 5
+          active:
+            hallucinationHunch: reqs.gte 1
+        choice 'jackie1Solve',
+          'Aha!'
+          'You\'ve pieced together enough to find her!'
+          active:
+            progress: reqs.gte 5
+      ]
+
+    storylet 'jackie1Rumor',
+      'Hit the streets'
+      '''
+      You don\'t get any info on her directly, but the omissions in the stories are almost as
+      telling as the stories themselves.
+      '''
+      consequences:
+        rumor: consq.decrease 3
+        progress: consq.increase 1
+
+    storylet 'jackie1Hunch',
+      'See if you get any hunches'
+      '''
+      There's traces of it all over the building where Jackie's office is. Little scraps of
+      store-bought hallucinations, nothing elaborate. But telltale signs that she's been trying
+      to keep him off her trail.
+      '''
+      consequences:
+        hallucinationHunch: consq.decrease 1
+        progress: consq.increase 1
+
+    storylet 'jackie1Solve',
+      'Out of the city, but not far'
+      '''
+      It looks like she's left the 
+      '''
+      active:
+        progress: reqs.gte 5
 
     return
