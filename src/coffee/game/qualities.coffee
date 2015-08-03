@@ -81,6 +81,8 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
         switch @value
           when 1 then 'Mr. Brown hired a private eye before his disappearance'
           when 2 then 'Jackie has asked you to find his partner'
+          when 3 then 'You found Jackie\'s partner for him'
+          when 4 then 'You found Jackie\'s partner but decided to keep it quiet'
       '!!ERROR!!', undefined
 
     quality 'roxyThugDescription', qualityType.item,
@@ -108,5 +110,9 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
             'Gives you 1 more Hallucination Hunch each day.'
           when origins.hypnotist
             'Gives you 1 more Hypnotism Hunch each day.'
+
+    quality 'sealboneTrinket', qualityType.item,
+      'Sealbone Trinket'
+      'Gives you 1 more Hallucination Hunch each day.'
 
     return

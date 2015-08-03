@@ -49,7 +49,7 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           'The press'
           '''
           The disappearance of someone as high-profile as Horace Brown should be all over the news.
-          But Mrs. Brown was the first you heard of it. Who is keeping the bloggers quiet? Maybe one
+          But Mrs. Brown was the first you heard of it. Who's keeping the papers quiet? Maybe one
           of your contacts knows.
           '''
           active:
