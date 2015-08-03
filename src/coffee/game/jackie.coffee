@@ -51,7 +51,7 @@ angular.module 'gameDefinition.jackieStories', ['qbn.edsl', 'gameDefinition.enum
       Come to think of it, where _is_ his partner? "Just up and stormed out a few weeks ago. Said
       she had to seek 'greener pastures,' whatever that means.
 
-      "I'm nothing without her, Dis. I may be the sandpaper skin and muscle of this outfit, but she
+      "I'm nothing without her, Dis. I may be the sandpaper skin and muscle of this team, but she
       was the brains. This outfit was on hard times before, but it's falling apart without her.
 
       "I've tried to find her, but she's fallen off the map so well, I can't even get a whiff of
@@ -190,7 +190,7 @@ angular.module 'gameDefinition.jackieStories', ['qbn.edsl', 'gameDefinition.enum
           'You found Jackie\'s partner for him.'
         progress: consq.set 0
 
-    choice 'jackieFinalPartner',
+    storylet 'jackieFinalPartner',
       'Take Her Offer'
       '''
       You accept the trinket. It's a small figurine — sealbone, if you're any judge — carved in the

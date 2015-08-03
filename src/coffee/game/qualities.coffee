@@ -114,5 +114,6 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
     quality 'sealboneTrinket', qualityType.item,
       'Sealbone Trinket'
       'Gives you 1 more Hallucination Hunch each day.'
+      value: 0
 
     return

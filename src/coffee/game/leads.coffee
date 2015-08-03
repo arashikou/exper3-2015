@@ -17,7 +17,7 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           'Jackie, old-school detective'
           'Mr. Brown hired Jackie to do something. What? And why?'
           visible:
-            jackie: reqs.gte 1
+            jackie: reqs.eq 1
         choice 'roxyStart',
           'Roxy Malone, big-time gangster'
           'Roxy is trying to intimidate Mrs. Brown. But why?'
