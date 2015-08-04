@@ -78,5 +78,33 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
       '''
       consequences:
         cantripUp: consq.decrease 6
+      choices: [
+        choice 'clubDealer',
+          'A dealer in rarities'
+          'He\'s doing a brisk trade from his booth.'
+        choice 'clubStudent',
+          'A nervous-looking student'
+          '''
+          She looks liable to explode at any second. Whether literally or figuratively, you're not
+          sure.
+          '''
+        choice 'clubQuit',
+          'Cut your losses'
+          '''
+          This sounded like a better plan before you drank all that Cantrip-Up.
+
+          _This will allow you to leave and restore some, but not all, of the resources you expended
+          to get in here._
+          '''
+      ]
+
+    storylet 'clubQuit',
+      'Cut your losses'
+      '''
+      You slip through the kitchen on your way out and grab a nearly-full case of Cantrip-Up.
+      They probably won't miss it.
+      '''
+      consequences:
+        cantripUp: consq.increase 5
 
     return
