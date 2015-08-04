@@ -118,14 +118,16 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
           when origins.hypnotist
             'Gives you 1 more Hypnotism Hunch each day.'
 
+    quality 'inscribedRibbon', qualityType.item,
+      'Inscribed Ribbon'
+      'Gives you 1 more Illusion Hunch each day.'
+
     quality 'sealboneTrinket', qualityType.item,
       'Sealbone Trinket'
       'Gives you 1 more Hallucination Hunch each day.'
-      value: 0
 
     quality 'veinyCarnelian', qualityType.item,
       'Veiny Carnelian'
       'Gives you 1 more Hypnotism Hunch each day.'
-      value: 0
 
     return
