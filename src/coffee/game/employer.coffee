@@ -13,39 +13,39 @@ angular.module 'gameDefinition.employerStories', ['qbn.edsl', 'gameDefinition.en
       rumored to have hired him for that the clerk begins to sweat.
 
       He is about start on his third
-      and shakiest round of not commenting on rumors when the house phone rings. Poor guy. He did
+      and shakiest round of not commenting on rumors when the door opens. Poor guy. He did
       better than most would have. You hope the higher-ups are lenient with him.
 
-      You are unsurprised to know that your conversation was being seceretly surveiled. But who,
-      precisely, was doing the surveiling catches you off-guard for a moment. The clerk is relieved
-      and sent on his way by Battherwhite, Esq. herself.
+      That your conversation was being seceretly surveiled is no surprise. The clerk
+      is relieved and sent on his way by a man in a sharp suit. You hope that he can prove more
+      useful than his predecessor.
 
-      She sizes you up for a moment. "OK, you'll do." She sits at the table where the clerk had been
-      before and picks up the phone. "James, you can stop listening in now. In fact, shut down all
-      surveilance of this room. Yes, _all_ of it. Don't question me again on this." She jams the
-      receiver down.
+      He sizes you up for a moment. "OK, you'll do." He sits at the table where the clerk had been
+      before. "James, you can stop listening in now. In fact, cancel all
+      surveilance of this room."
 
-      "First of all, I have to thank you for bringing to our attention the public perception of
-      our relationship with Mr. Brown. It is rare to get such candid and comprehensive perspective,"
-      she says without actually looking at you. "Unfortunately, that thanks doesn't come with
-      payment, so don't get excited, Disillusionist."
+      He regards you for a moment before speaking. "I know who you are, and I know who you work for,
+      and I would usually be sent down here to tell you that we have nothing to do with any of it
+      and kick you on your merry way. However…" He coughs. "Mr. Brown left a great deal of very
+      important work undone before he disappeared. We here at Kimble, Battherwhite, and Smith have
+      tired of waiting for him to return and are prepared to recontract out that work."
 
-      She smirks and finally regards you. "Yes, I know who you are. I know who you're working for.
-      It would be bad for business not to know, given this company's relationship with the
-      deceased." You raise an eyebrow. "Oh, I don't _know_ that he's dead. But it's the only
-      reasonable expectation at this point. I'm sure even you suspect as much."
+      "Problem is, we do not have a ready pool of sufficiently mystical candidates. And time is of
+      the essence. Whereas you have connections in magical society and know many of the players
+      there, but you need something we have.
+      So here's what we are willing to do: You find us replacements for Mr. Brown and
+      we will be willing to share our info on what he was doing here."
 
-      "Look." she folds her hands. "I'm here to cut a deal for you. What Mr. Brown was doing was…
-      not officially for the company. It was a project of a personal nature. For me. "
+      He scoots a folder across the table at you. "We'll need people with all these specialties,
+      and they _must_ be used to working together. We don't have time for hellos and tea and cakes."
+
+      You glance over the list. A snake charmer? A hallucinist with an ML3 license? A
+      transmutationist of foreign citizenship? What could they possibly need all these for?
       '''
-      choices: [
-        choice 'bribeJackie',
-          'Try to bribe him'
-          'Jackie looks like he could use the money, and principles won\'t pay the rent.'
-          active:
-            bluebacks: reqs.gte 6
-        choice 'dontBribeJackie',
-          'Get lost'
-          'Looks like this is a dead end.'
-          next: false
-      ]
+      consequences:
+        rumor: consq.decrease 10
+        lead: consq.set leads.employer
+        kbs: (quality) ->
+          quality.value++
+          'Kimble, Battherwhite, and Smith have employed you as a headhunter.'
+        progress: consq.set 0

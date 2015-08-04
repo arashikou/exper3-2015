@@ -85,6 +85,13 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
           when 4 then 'You found Jackie\'s partner but decided to keep it quiet'
       '!!ERROR!!', undefined
 
+    quality 'kbs',
+      () ->
+        switch @value
+          when 1 then 'You are headhunting for KB&S'
+          when 2 then 'You found an ecclectic crew for KB&S'
+      '!!ERROR!!', undefined
+
     quality 'roxyThugDescription', qualityType.item,
       'Description of Roxy\'s Thugs'
       'Roxy wants Mrs. Brown out of town.'
