@@ -115,16 +115,21 @@ angular.module 'gameDefinition.employerStories', ['qbn.edsl', 'gameDefinition.en
       he turns back to you. "And don't think I've forgotten your payment. Let me tell you exactly
       what they'll be doing."
 
-      You learn things you wish perhaps you had never known. About ancient religions given new
+      You learn less of use than you'd hoped, and several things you wish perhaps you had never
+      known. About ancient religions given new
       relevance in this magical age. About a grand ceremony in the planning. Mr. Brown was not
       actually working for KB&S, _per se_. Rather, he had been employed by Battherwhite, Esq.
       herself to prepare an elaborate ritual basement. You're quite sure she's completely mad, but
       as the sharp-suited man reminds you as he steers you towards the exit, "As you can see, Mr.
       Brown's disappearance puts us at rather a disadvantage, so we couldn't possibly have been
       involved. It's been a great burden on us, until you came along."
+
+      As consolation, he pressed a small gemstone on you. "We have dozens, and I think
+      someone in your line of work will find it eminently useful."
       '''
       consequences:
-        evidence: consq.increase 2
+        evidence: consq.increase 1
+        veinyCarnelian: consq.increase 1
         lead: (quality) ->
           quality.value = undefined
           'Your current lead has ended.'

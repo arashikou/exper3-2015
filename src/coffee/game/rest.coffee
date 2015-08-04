@@ -32,6 +32,7 @@ angular.module 'gameDefinition.restStories', ['qbn.edsl', 'gameDefinition.enums'
         hypnotismHunch: (quality) ->
           hunches = 1
           hunches++ if qualities.lookup('origin').value == origins.hypnotist
+          hunches++ for [0...qualities.lookup('veinyCarnelian').value]
           quality.value = hunches
           "You now have #{hunches} Hypnotism Hunches."
         bother: (quality) ->

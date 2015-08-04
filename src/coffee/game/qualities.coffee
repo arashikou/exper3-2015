@@ -123,4 +123,9 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
       'Gives you 1 more Hallucination Hunch each day.'
       value: 0
 
+    quality 'veinyCarnelian', qualityType.item,
+      'Veiny Carnelian'
+      'Gives you 1 more Hypnotism Hunch each day.'
+      value: 0
+
     return
