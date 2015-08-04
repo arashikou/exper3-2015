@@ -32,6 +32,8 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           he disappeared.
           Someone there might know something.
           '''
+          visible:
+            kbs: reqs.eq 0
           active:
             rumor: reqs.gte 10
         choice 'clubEntry',

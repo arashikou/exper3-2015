@@ -37,6 +37,15 @@ angular.module 'gameDefinition.frontChoices', ['qbn.edsl', 'gameDefinition.enums
         switch jackie
           when 2 then 'jackie1'
 
+    front choice 'employer',
+      'Headhunt for KB&S'
+      'They have some very specific needs.'
+      visible:
+        lead: reqs.eq leads.employer
+      next: (kbs) ->
+        switch kbs
+          when 1 then 'employer1'
+
     front choice 'rest',
       'Return home to rest'
       '''
