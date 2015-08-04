@@ -25,7 +25,7 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
             roxyThugDescription: reqs.gte 1
           active:
             keyOfDreams: reqs.exists
-        choice 'businessStart',
+        choice 'employerStart',
           'Mr. Brown\'s last employer'
           '''
           Mr. Brown was doing work for hire for the offices of Kimble, Battherwhite, and Smith when
@@ -34,7 +34,6 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           '''
           active:
             rumor: reqs.gte 10
-            keyOfDreams: reqs.exists
         choice 'clubEntry',
           'The Salamander Club'
           '''

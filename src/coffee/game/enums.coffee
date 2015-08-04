@@ -7,3 +7,4 @@ angular.module 'gameDefinition.enums', []
     leads:
       none: undefined
       jackie: 'Jackie'
+      employer: 'KB&S'
