@@ -23,19 +23,19 @@ angular.module 'gameDefinition.restStories', ['qbn.edsl', 'gameDefinition.enums'
           hunches++ if qualities.lookup('origin').value == origins.illusionist
           hunches++ for [0...qualities.lookup('inscribedRibbon').value]
           quality.value = hunches
-          "You now have #{hunches} Illusion Hunches."
+          "You now have **#{hunches}** Illusion Hunches."
         hallucinationHunch: (quality) ->
           hunches = 1
           hunches++ if qualities.lookup('origin').value == origins.hallucinist
           hunches++ for [0...qualities.lookup('sealboneTrinket').value]
           quality.value = hunches
-          "You now have #{hunches} Hallucination Hunches."
+          "You now have **#{hunches}** Hallucination Hunches."
         hypnotismHunch: (quality) ->
           hunches = 1
           hunches++ if qualities.lookup('origin').value == origins.hypnotist
           hunches++ for [0...qualities.lookup('veinyCarnelian').value]
           quality.value = hunches
-          "You now have #{hunches} Hypnotism Hunches."
+          "You now have **#{hunches}** Hypnotism Hunches."
         bother: (quality) ->
           if quality.value
             quality.value = false
