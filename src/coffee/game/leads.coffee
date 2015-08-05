@@ -80,15 +80,17 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
       consequences:
         cantripUp: consq.decrease 6
       choices: [
-        choice 'clubDealer',
-          'A dealer in rarities'
-          'He\'s doing a brisk trade from his booth.'
         choice 'clubStudent',
           'A nervous-looking student'
           '''
           She looks liable to explode at any second. Whether literally or figuratively, you're not
           sure.
           '''
+        choice 'clubDealer',
+          'A dealer in rarities'
+          'He\'s doing a brisk trade from his booth.'
+          active:
+            cagedDemon: reqs.gte 1
         choice 'clubQuit',
           'Cut your losses'
           '''
