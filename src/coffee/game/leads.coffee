@@ -61,9 +61,10 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           Officer Dentley is a lousy cop, but a great informant. For the right fee, he'll tell you
           everything the police know about anything.
           '''
+          visible:
+            cop: reqs.eq 0
           active:
             bluebacks: reqs.gte 10
-            keyOfDreams: reqs.exists
       ]
 
     ## The Salamander Club

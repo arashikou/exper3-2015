@@ -92,6 +92,13 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
           when 2 then 'You found an ecclectic crew for KB&S'
       '!!ERROR!!', undefined
 
+    quality 'cop',
+      () ->
+        switch @value
+          when 1 then 'You are searching for a body'
+          when 2 then 'You found a body, but whose?'
+      '!!ERROR!!', undefined
+
     quality 'roxyThugDescription', qualityType.item,
       'Description of Roxy\'s Thugs'
       'Roxy wants Mrs. Brown out of town.'

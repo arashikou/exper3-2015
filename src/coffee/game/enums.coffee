@@ -8,3 +8,4 @@ angular.module 'gameDefinition.enums', []
       none: undefined
       jackie: 'Jackie'
       employer: 'KB&S'
+      cop: 'Officer Dentley'
