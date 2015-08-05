@@ -58,7 +58,7 @@ angular.module 'gameDefinition.employerStories', ['qbn.edsl', 'gameDefinition.en
       with.
       '''
       choices: [
-        choice 'employer1Rumor',
+        choice 'employer1CantripUp',
           'Buy a round of drinks'
           'Being liberal with Cantrip-Up always brings people running.'
           visible:
@@ -82,7 +82,7 @@ angular.module 'gameDefinition.employerStories', ['qbn.edsl', 'gameDefinition.en
             progress: reqs.gte 7
       ]
 
-    storylet 'employer1Rumor',
+    storylet 'employer1CantripUp',
       'Buy a round of drinks'
       '''
       You meet many interesting people working the crowd. Some seem like they have potential. Others
@@ -124,7 +124,7 @@ angular.module 'gameDefinition.employerStories', ['qbn.edsl', 'gameDefinition.en
       Brown's disappearance puts us at rather a disadvantage, so we couldn't possibly have been
       involved. It's been a great burden on us, until you came along."
 
-      As consolation, he pressed a small gemstone on you. "We have dozens, and I think
+      As consolation, he presses a small gemstone on you. "We have dozens, and I think
       someone in your line of work will find it eminently useful."
       '''
       consequences:
