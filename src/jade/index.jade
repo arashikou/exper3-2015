@@ -29,7 +29,8 @@ html
           .title {{storylet.title | resolve}}
           .text(ng-show="storylet.text" ng-bind-html="storylet.text | resolve | markdown")
           hr(ng-show="storylet.consequenceReports.length")
-          .consequence(ng-repeat="message in storylet.consequenceReports") {{message}}
+          .consequence(ng-repeat="message in storylet.consequenceReports")
+            span(ng-bind-html="message | resolve | markdown")
         choice-list#storylet-choices(choices="storylet.choices" choose="choose")
       a#reset-save(href="" ng-click="resetSave()") Reset Game
     .dash-banner LEVEL UP!!
@@ -42,4 +43,5 @@ html
             .text(ng-show="choice.text" ng-bind-html="choice.text | resolve | markdown")
           .arrow
         hr(ng-hide="choice.isActive()")
-        .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()") {{message}}
+        .unsatisfied-req(ng-repeat="message in choice.unsatisfiedActiveReqs()")
+          span(ng-bind-html="message | resolve | markdown")
