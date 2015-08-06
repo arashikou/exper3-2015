@@ -120,6 +120,10 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
       () -> "You have gotten an advance on your payment"
       'Advance'
 
+    quality 'dealer', qualityType.item,
+      'Dealer Card'
+      'It gives an address and a password to contact the Rarities Dealer with.'
+
     quality 'origin',
       () -> "You were #{@value}"
       'Origin'

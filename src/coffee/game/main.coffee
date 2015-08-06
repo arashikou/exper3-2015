@@ -11,6 +11,7 @@ angular.module 'gameDefinition', [
   'gameDefinition.employerStories'
   'gameDefinition.copStories'
   'gameDefinition.studentStories'
+  'gameDefinition.dealerStories'
 ]
   .run (qbnEdsl) ->
     {choice, retreat, onwards} = qbnEdsl

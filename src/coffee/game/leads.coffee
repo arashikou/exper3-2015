@@ -91,6 +91,8 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
         choice 'clubDealer',
           'A dealer in rarities'
           'He\'s doing a brisk trade from his booth.'
+          visible:
+            dealer: reqs.notexists
           active:
             cagedDemon: reqs.gte 1
         choice 'clubQuit',

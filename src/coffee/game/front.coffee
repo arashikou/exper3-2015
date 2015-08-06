@@ -64,6 +64,12 @@ angular.module 'gameDefinition.frontChoices', ['qbn.edsl', 'gameDefinition.enums
         switch student
           when 1 then 'student1'
 
+    front choice 'dealerFront',
+      'Visit the Rarities Dealer'
+      'Perhaps you have something he\'d like to trade.'
+      visible:
+        dealer: reqs.gte 1
+
     front choice 'rest',
       'Return home to rest'
       '''
