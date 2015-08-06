@@ -9,3 +9,4 @@ angular.module 'gameDefinition.enums', []
       jackie: 'Jackie'
       employer: 'KB&S'
       cop: 'Officer Dentley'
+      student: 'Ms. Denotto'

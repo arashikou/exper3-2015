@@ -99,6 +99,13 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
           when 2 then 'You found a body, but whose?'
       '!!ERROR!!', undefined
 
+    quality 'student',
+      () ->
+        switch @value
+          when 1 then 'You are helping a student survive'
+          when 2 then 'You helped a student survive the seasonal symposium'
+      '!!ERROR!!', undefined
+
     quality 'roxyThugDescription', qualityType.item,
       'Description of Roxy\'s Thugs'
       'Roxy wants Mrs. Brown out of town.'

@@ -86,6 +86,8 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           She looks liable to explode at any second. Whether literally or figuratively, you're not
           sure.
           '''
+          visible:
+            student: reqs.eq 0
         choice 'clubDealer',
           'A dealer in rarities'
           'He\'s doing a brisk trade from his booth.'
