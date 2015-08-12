@@ -17,6 +17,7 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl']
           active:
             evidence: reqs.gte 10
             keyOfDreams: reqs.exists
+          next: 'solve1'
         choice 'solveHunch',
           'Solve the case with pure gumption'
           '''
@@ -28,6 +29,7 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl']
             hallucinationHunch: reqs.gte 3
             hypnotismHunch: reqs.gte 3
             keyOfDreams: reqs.exists
+          next: 'solve1'
         choice 'advanceAsk',
           'Ask for an advance'
           '''
@@ -57,10 +59,6 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl']
           'Inspect the crime scene'
           'There are bound to be clues the police\'s half-hearted investigation missed.'
       ]
-
-    # TODO: storylet 'solveEvidence'
-
-    # TODO: storylet 'solveHunch'
 
     setBothered = (bothered) ->
       bothered.value = true
