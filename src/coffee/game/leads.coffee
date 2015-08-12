@@ -53,7 +53,7 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           But Mrs. Brown was the first you heard of it. Who's keeping the papers quiet? Maybe one
           of your contacts knows.
           '''
-          active:
+          visible:
             keyOfDreams: reqs.exists
         choice 'copStart',
           'A crooked cop'
