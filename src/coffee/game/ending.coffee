@@ -86,7 +86,10 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       him down before he could escape was a risk.
 
       It wasn't Mr. Brown that disappeared that night. It was Mrs. Abigail Brown. You never actually
-      met her. With evidence of her infidelity in hand, Horace had confronted her. There'd been a
+      met her because she was already dead before you got involved.
+
+      She'd been cheating on Mr.
+      Brown. With evidence of her infidelity in hand, Horace had confronted her. There'd been a
       fight. A fight that got physical. A fight that got magical.
       And at a clear disadvantage in that situation, Abigail Brown had died, and her body had ended
       up in the river. Mr. Brown used his connections to shush the police from investigating.
@@ -123,21 +126,20 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       '''
       "Why?!? Because he took something beautiful and wonderful away! Because she
       deserved to be in this world and he didn't anymore! So I made him disappear and tried to bring
-      her back. I made him into her, body and mind. But—" There's a sound like a sob being
-      strangled deep in a chest. "It wasn't enough. It wasn't the same. I couldn't forget who was
+      her back. I made him into her, body and mind. But—" There's a frustrated growl.
+      "It wasn't enough. It wasn't the same. I couldn't forget who was
       underneath her skin. It was torture to be around him. But I couldn't bring myself to undo the
       illusion; it would be like killing her all over again myself.
       So I erased myself from her memory and
       tried to scare her out of town. Out of sight, and someday out of mind.
 
       "Surely you understand, Dis.
-
-      "Just as I'm sure you know you can't just take him to the police now. They don't have the
-      chops to put him away. A master sorcerer like him? Even if they convict him, they'll never
-      hold him!"
+      Just as I'm sure you know you can't just take him to the police now. He's got them in his
+      pocket. And a master sorcerer like him? Even if they convicted him, they'd never
+      hold him."
 
       She steps where you can see her and levels her gun at Mr. Brown. "The only way to ensure that
-      she gets justice is to end him myself."
+      Abigail gets justice is to end him myself."
       '''
       choices: [
         choice 'solve7-roxy',
@@ -163,12 +165,14 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       around, you see your wizard knocked out. There's footsteps rushing towars the door, but Roxy
       is already gone. There's just a twinkling of blue light where she once stood.
 
-      The next week is hell for you anxd your companions. With Mr. Brown dead, the police no longer
-      have an incentive to overlook this case and they launch a full investigation. Eventually,
+      The next week is hell for you and your companions. With Mr. Brown dead, the police no longer
+      have an incentive to overlook this case and launch a full investigation. Eventually,
       though, they have to let you go. Your gun wasn't fired that night, and it doesn't match the
       bullet's caliber anyway. Your partners weren't
       packing. Besides, the idea that a notorious gangland master did the killing isn't a hard sell.
-      They dismiss your wild stories about illusory women and broken hearts and end up pinning her
+
+      They dismiss your wild stories about illusory women and broken hearts, though.
+      Instead, they pin Roxy
       with the blame for Mrs. Brown's death as well. If the police ever catch up with her, it'll be
       a very bitter day.
       '''
@@ -185,14 +189,14 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
 
       But there's no one to aim at. Behind you, you hear a thump, and you feel the magical
       pressure return to the room. Turning
-      around, you see your wizard knocked out. And next to him is a twinkling of blue light in the
-      shape of Mr. Brown which slowly fades away.
+      around, you see your wizard knocked out. For a moment, you see Mr. Brown standing over him,
+      but then there is only a twinkling of blue light.
 
       "I'll get you, Horace Brown! You can't run from me!" And moments later, Roxy is gone in a
       similar twinkling.
 
       The police aggressively ignore your attempts to explain the whole incident. With Mr. Brown
-      potentially still alive, they're still under the gun to keep this secret. You and your
+      potentially alive, they're still under the gun to keep this secret. You and your
       companions are released after a day of cursory interviewing with an unsubtle warning to keep
       your mouths shut.
 
@@ -201,7 +205,9 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       her quarry, you don't know. But Roxy never returns to lead her gang, and eventually they
       succumb to internal
       strife between those warring for her position. The police get significant portions of her
-      gang, and others still are killed in the conflict. All told, the city is a little safer.
+      gang, and others still are killed in the conflict.
+
+      All told, the city is a little safer.
       For now.
       '''
       choices: [
@@ -240,13 +246,16 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       Roxy laughs. "You still fancy yourself as some kind of hero?" Her gun is
       suddenly in her hand. "Listen, Dis. That vengeance was mine and mine alone. You don't get to
       take that from me." There is a tense moment before she continues. "So unless you want to end
-      up very dead, you are going to agree that I shot him first and then— Well, your heart was in
-      the right place. Just this once, you can go."
+      up very dead, you are going to agree that I shot him first and then—" She shoves the gun
+      towards you. "_Never_ cross me again. But your did it for Abigail, so this one time, I'll let
+      you leave alive."
 
       It leaves a bitter taste in your mouth, but you consent to her version of events.
       As you're opening the door to the stairs, you hear Roxy say
       "You know, if you want a place to hide out now that you're a wanted criminal, my
-      organization could use a person like you, Dis." It's an offer you may have to consider.
+      organization could use a person like you, Dis."
+
+      It's an offer you may have to consider.
       '''
       choices: [
         epilogue
@@ -274,8 +283,11 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       been dealt with. Mrs. Brown's murderer is dead, and so is the woman who took Mr. Brown's
       identity away from him.
 
-      Solemnly, you walk over and take her gun. It's going to take every bullet
+      Solemnly, you walk over to Roxy's body and take her gun. It's going to take every bullet
       you have and a fair bit of luck to get out of here alive.
+
+      But at least you can be sure that
+      justice, as far as you're concerned, was served today.
       '''
       choices: [
         epilogue
@@ -287,8 +299,7 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       Thank you for playing **The Disillusionist**, my entry in the 2015 EXPER3 challenge. I hope
       you enjoyed the experience. Perhaps, if you did not get the ending you wanted or if there are
       leads you haven't followed up on, you may want to hit that reset button in the corner and try
-      again. And if you hated the experience, you can get a full refund for the $0 you paid for this
-      game.
+      again.
 
       Writing this game has been eye-opening for me and a great challenge. I won't pretend it isn't
       without its flaws, but I'm proud of it considering it's my first fiction writing in over a
