@@ -22,9 +22,7 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
           'Roxy Malone, big-time gangster'
           'Roxy is trying to intimidate Mrs. Brown. But why?'
           visible:
-            roxyThugDescription: reqs.gte 1
-          active:
-            keyOfDreams: reqs.exists
+            roxy: reqs.eq 1
         choice 'employerStart',
           'Mr. Brown\'s last employer'
           '''

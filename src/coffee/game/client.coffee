@@ -52,7 +52,7 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl']
           '''
           visible:
             day: reqs.gte 5
-            roxyThugDescription: reqs.lte 0
+            roxy: reqs.lte 0
         choice 'crimeScene',
           'Inspect the crime scene'
           'There are bound to be clues the police\'s half-hearted investigation missed.'
@@ -114,7 +114,9 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl']
       doesn't make a point of telling you. This one is too juicy to let slip away.
       '''
       consequences:
-        roxyThugDescription: consq.increase 1
+        roxy: (quality) ->
+          quality.value++
+          'You have received a description of some thugs from Mrs. Brown.'
         bother: setBothered
 
     storylet 'crimeScene',
