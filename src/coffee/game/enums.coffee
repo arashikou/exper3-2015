@@ -4,9 +4,11 @@ angular.module 'gameDefinition.enums', []
       illusionist: 'an illusionist'
       hallucinist: 'a hallucinist'
       hypnotist: 'a hypnotist'
+
     leads:
       none: undefined
       jackie: 'Jackie'
       employer: 'KB&S'
       cop: 'Officer Dentley'
       student: 'Ms. Denotto'
+      roxy: 'Roxy'
