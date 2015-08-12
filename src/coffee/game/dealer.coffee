@@ -138,3 +138,5 @@ angular.module 'gameDefinition.dealerStories', ['qbn.edsl', 'gameDefinition.enum
       consequences:
         veinyCarnelian: consq.decrease 1
         sealboneTrinket: consq.increase 1
+
+    return

@@ -317,3 +317,5 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
           visible:
             keyOfDreams: reqs.exists
       ]
+
+    return

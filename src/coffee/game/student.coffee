@@ -178,3 +178,5 @@ angular.module 'gameDefinition.studentStories', ['qbn.edsl', 'gameDefinition.enu
           quality.value++
           'Your help has been invaluable to Ms. Denotto'
         progress: consq.set 0
+
+    return

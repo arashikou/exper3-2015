@@ -124,3 +124,5 @@ angular.module 'gameDefinition.copStories', ['qbn.edsl', 'gameDefinition.enums']
           quality.value++
           'You found a body, or at least what\'s left of it.'
         progress: consq.set 0
+
+    return

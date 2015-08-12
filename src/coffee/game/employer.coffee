@@ -137,3 +137,5 @@ angular.module 'gameDefinition.employerStories', ['qbn.edsl', 'gameDefinition.en
           quality.value++
           'Kimble, Battherwhite, and Smith no longer require your services.'
         progress: consq.set 0
+
+    return
