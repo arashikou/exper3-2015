@@ -111,7 +111,7 @@ angular.module 'gameDefinition.endingStories', ['qbn.edsl', 'gameDefinition.enum
       "Dis. I can't believe you were really fool enough to undo it. To bring that monster back into
       this world. What the hell do you think you're doing?!?"
 
-      Ah, Roxy. Roxy the gang leader. Roxy the sorceress. As you suspected, she was Mrs. Brown's
+      Ah, Roxy. Roxy the gangster. Roxy the sorceress. As you suspected, she was Mrs. Brown's
       lover. She found Mr. Brown with the body and transformed him into the simulacrum that has been
       living as Mrs. Brown for the last few weeks. The one that hired you to look for the missing
       husband that was right under her nose the whole time.
