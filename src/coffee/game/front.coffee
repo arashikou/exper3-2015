@@ -64,6 +64,15 @@ angular.module 'gameDefinition.frontChoices', ['qbn.edsl', 'gameDefinition.enums
         switch student
           when 1 then 'student1'
 
+    front choice 'roxy',
+      'Pursue Roxy the gang leader'
+      'She wants Mrs. Brown out of town. But why?'
+      visible:
+        lead: reqs.eq leads.roxy
+      next: (roxy) ->
+        switch roxy
+          when 2 then 'roxy1'
+
     front choice 'dealerFront',
       'Visit the Rarities Dealer'
       'Perhaps you have something he\'d like to trade.'
