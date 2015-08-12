@@ -4,43 +4,39 @@ angular.module 'gameDefinition.roxyStories', ['qbn.edsl', 'gameDefinition.enums'
     {leads} = enums
 
     storylet 'roxyStart',
-      'roxy, old-school detective'
+      'Roxy Malone, big-time gangster'
       '''
-      roxy is in his office when you find him. It's never a good sign if roxy is in his
-      office. It means he's too out of work to be busy and too despondent to be drinking. Judging
-      by his state, times are even tougher than you thought.
+      There are three big gangs in the city. North of the river belongs to Mac Turleigh's boys.
+      The financial district is under the watchful eye of Ambrose Beard. And everything else?
+      Everything else belongs to Roxy Malone's gang.
 
-      "Oh god, it's you," he mutters as you enter. "And to what do I owe the pleasure of the great
-      Disillusionist's presence?"
+      Roxy appeared during the war, already leading a small gang of street toughs. While the old
+      gangs had their eyes turned to war profiteering, she was qietly eating away at their
+      territory back home. While the old gangs were trying to understand how to get mages to work
+      for them, she was already an accomplished sorceress in her own right. Roxy was a native of
+      the new world. And one by one, the old gangs fell before her or joined her outright. Smart
+      money says she won't rest until she owns the whole city.
 
-      You explain about Horace Brown.
+      So why is she concerning herself with Mrs. Brown? What does she have to gain from driving a
+      grieving woman from her home? There's more going on here than meets the eye.
 
-      "What? Is that all? You know what I'm going to say. Same thing you would if I came to you,
-      Dis. 'Screw off!' What kind of detective would I be if I didn't respect my clients'
-      confidentiality? People come here for all sorts of private stuff. I'd be out of work in no
-      time if I started spilling their beans."
-
-      You suppress the urge to argue that, point of fact, it doesn't look like anyone has been
-      coming here for _any_ sort of stuff lately. Instead, you appeal to the point that Mr. Brown
-      is missing, possibly dead, and this could help lead to his rescue.
-
-      "That just makes it worse. If he's dead, he can't tell anyone whether he'd give a damn about
-      my secrecy, can he? Get lost, pal. These lips are sealed."
+      This won't be the first time you two have crossed paths, but you don't know where she's
+      operating out of these days. You'll need to get a bead on Roxy before you can confront her.
       '''
       choices: [
-        choice 'briberoxy',
-          'Try to bribe him'
-          'roxy looks like he could use the money, and principles won\'t pay the rent.'
+        choice 'findRoxy',
+          'Begin searching for her'
+          'You\'re going to need to do some investigation just to find a place to start looking.'
           active:
-            bluebacks: reqs.gte 6
-        choice 'dontBriberoxy',
-          'Get lost'
-          'Looks like this is a dead end.'
+            rumor: reqs.gte 6
+        choice 'dontFindRoxy',
+          'No good'
+          'Roxy is still giving you the slip.'
           next: false
       ]
 
-    storylet 'briberoxy',
-      'Try to bribe him'
+    storylet 'findRoxy',
+      'Begin searching for her'
       '''
       For a long moment, roxy hungrily eyes the bills in your hand. But just when you think he's
       going to take your offer—
