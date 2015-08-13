@@ -20,21 +20,6 @@ This game runs in a web browser. It has been tested in recent versions of Chrome
 
 This game is designed to be played on a computer. It is not optimized for mobile and may fail to work or work poorly on your phone or tablet. My apologies, but I had to spend my limited time during EXPER3 wisely, and redesigning the UI for a second platform was not high on my list.
 
-# Technologies at Work
-
-The game is written in the following languages:
-
-* [CoffeeScript](http://coffeescript.org/)
-* [Jade](http://jade-lang.com/)
-* [Less](http://lesscss.org/)
-
-It uses the following libraries:
-
-* [AngularJS 1.4](https://angularjs.org/)
-* [normalize.css 3.0.3](https://necolas.github.io/normalize.css/)
-
-Dependency management is handled by [npm](https://www.npmjs.com/) and task running is handled by [gulp](http://gulpjs.com/), which both run on [node.js](https://nodejs.org/).
-
 # How Can I Build It?
 
 If you want to build the code for yourself, you'll need to have [node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), and [gulp](http://gulpjs.com/) installed globally. (or at least somewhere your PATH can find them) All other dependencies will be downloaded to the project folder by npm and will not affect your system configuration. These steps should work on any operating system that has a node.js implementation.
@@ -60,3 +45,18 @@ gulp serve
 to serve up the results from a local webserver that can be connected to on [localhost:8080](http://localhost:8080/). Note that this task will not terminate on its own and must be terminated (usually with CTRL-C or your OS's variant) when you are done.
 
 Lastly, the default gulp task will build all sources and then serve them up while also watching for changes and rebuilding as necessary. Very useful for development, not so useful for just trying out the game.
+
+# Technologies at Work
+
+The game is written in the following languages:
+
+* [CoffeeScript](http://coffeescript.org/)
+* [Jade](http://jade-lang.com/)
+* [Less](http://lesscss.org/)
+
+It uses the following libraries:
+
+* [AngularJS 1.4](https://angularjs.org/)
+* [normalize.css 3.0.3](https://necolas.github.io/normalize.css/)
+
+Dependency management is handled by [npm](https://www.npmjs.com/) and task running is handled by [gulp](http://gulpjs.com/), which both run on [node.js](https://nodejs.org/).
