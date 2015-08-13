@@ -1,4 +1,14 @@
-# EXPER3 2015 - "The Disillusionist"
+# The Disillusionist
+
+_The Disillusionist_ is a web-based, narrative-heavy video game about a detective in a world where magic exists. If that sounds like your cup of tea, the most recent release is always hosted at [this project's GitHub.io page](http://arashikou.github.io/exper3-2015/). Just click on that link and you'll be playing. The game will automatically save after every action, so you can close the window and come back at any time to continue. Note that the game is saved to your computer, so your saved game will not follow you if you move to a different computer.
+
+**As a noir-influenced story, this game contains content and themes that some people may find objectionable. It is not suitable for children.**
+
+This game runs in a web browser. It has been tested in recent versions of Chrome and Firefox, and these are the recommended browsers. However, it _should_ work in the most recent versions of Internet Explorer and Safari as well. It will not work on versions of Internet Explorer lower than 11.
+
+This game is designed to be played on a computer. It is not optimized for mobile and may fail to work or work poorly on your phone or tablet. My apologies, but I had to spend my limited time during EXPER3 wisely, and redesigning the UI for a second platform was not high on my list.
+
+# EXPER3 2015
 
 Last year, my wife gave me the best 30th birthday present I could have asked for by challenging me to make some real progress on my dream of making video games. She organized a themed video game jam, which she dubbed EXPER3, for which I had to make either a game a week for four weeks or one game in a month. You can read more about that and check out the results at [the GitHub repository where I checked in my entry](https://github.com/arashikou/exper3-2014).
 
@@ -11,14 +21,6 @@ This year, I have decided to make one game in a month instead of four games in f
 I've decided to make what Sam Ashwell calls a ["Floating Module" game](https://heterogenoustasks.wordpress.com/2015/01/26/standard-patterns-in-choice-based-games/) or what Alexis Kennedy calls a ["Quality-Based Narrative"](http://www.failbettergames.com/storynexus-developer-diary-2-fewer-spreadsheets-less-swearing/). I really love _Fallen London_, and I've read nearly all of Kennedy's writings about the theory behind it. I think there's a lot of potential in this relatively novel form, and I want to explore it.
 
 Unfortunately, every QBN engine out there has been formally or effectively abandoned by its creator. Even Failbetter's own [StoryNexus](http://storynexus.com/) has gone into maintenance mode after it failed to attract enough of an audience to fund its continued development. And while you can hack Twine to work, it's not a supremely user-friendly workflow. So I've decided to code my own framework for this game. I make no pretension that it will be general-purpose enough to work for other people, of course.
-
-# How Can I Run It?
-
-The most recent release is always hosted at [this project's GitHub.io page](http://arashikou.github.io/exper3-2015/). Just click on that link and you'll be playing. The game will automatically save after every action, so you can close the window and come back at any time to continue. Note that the game is saved to your computer, so your saved game will not follow you if you move to a different computer.
-
-This game runs in a web browser. It has been tested in recent versions of Chrome and Firefox, and these are the recommended browsers. However, it _should_ work in the most recent versions of Internet Explorer and Safari as well. It will not work on versions of Internet Explorer lower than 11.
-
-This game is designed to be played on a computer. It is not optimized for mobile and may fail to work or work poorly on your phone or tablet. My apologies, but I had to spend my limited time during EXPER3 wisely, and redesigning the UI for a second platform was not high on my list.
 
 # How Can I Build It?
 
