@@ -56,7 +56,7 @@ gulp.task 'coffee', ->
     .pipe coffee()
     .pipe concat 'qbn.js'
     .pipe wrap '"use strict";{%= body %}'
-    #.pipe uglify mangle: false
+    .pipe uglify mangle: false
     .pipe gulp.dest "#{RELEASE_DEST}/scripts"
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/scripts"
