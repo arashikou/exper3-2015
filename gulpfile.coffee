@@ -40,7 +40,7 @@ gulp.task 'less', ->
       'last 2 Safari versions'
     ]
     .pipe concat 'qbn.css'
-    #.pipe minifyCss()
+    .pipe minifyCss()
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/styles"
 
