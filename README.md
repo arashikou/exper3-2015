@@ -2,11 +2,11 @@
 
 _The Disillusionist_ is a web-based, narrative-heavy video game about a detective in a world where magic exists. If that sounds like your cup of tea, the most recent release is always hosted at [this project's GitHub.io page](http://arashikou.github.io/exper3-2015/). Just click on that link and you'll be playing. The game will automatically save after every action, so you can close the window and come back at any time to continue. Note that the game is saved to your computer, so your saved game will not follow you if you move to a different computer.
 
-**As a noir-influenced story, this game contains content and themes that some people may find objectionable. It is not suitable for children.**
+**As a noir-influenced story, this game contains content and themes that some people may find objectionable. It is not suitable for children, tweens, or young teens.**
 
-This game runs in a web browser. It has been tested in recent versions of Chrome and Firefox, and these are the recommended browsers. However, it _should_ work in the most recent versions of Internet Explorer and Safari as well. It will not work on versions of Internet Explorer lower than 11.
+This game runs in a web browser. It has been tested in recent versions of Chrome and Firefox, and these are the recommended browsers. However, it _should_ work in the most recent versions of Internet Explorer and Safari as well. It will _not_ work on versions of Internet Explorer lower than 11.
 
-This game is designed to be played on a computer. It is not optimized for mobile and may fail to work or work poorly on your phone or tablet. My apologies, but I had to spend my limited time during EXPER3 wisely, and redesigning the UI for a second platform was not high on my list.
+This game is designed to be played on a computer. It is not optimized for mobile and may work poorly or fail to work on your phone or tablet. My apologies, but I had to spend my limited time during EXPER3 wisely, and redesigning the UI for a second platform was not high on my list of priorities.
 
 ## EXPER3 2015
 
