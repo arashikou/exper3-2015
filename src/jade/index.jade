@@ -34,6 +34,7 @@ html
         choice-list#storylet-choices(choices="storylet.choices" choose="choose")
       a#reset-save(href="" ng-click="resetSave()") Reset Game
     .dash-banner LEVEL UP!!
+    #version-number v##VERSION##
 
     script(id="choiceList" type="text/ng-template")
       a.choice(ng-repeat="choice in choices track by choice.id" href="" ng-click="choose(choice)" ng-show="choice.isVisible()" ng-disabled="!choice.isActive()")
