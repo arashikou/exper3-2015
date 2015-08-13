@@ -38,54 +38,46 @@ angular.module 'gameDefinition.roxyStories', ['qbn.edsl', 'gameDefinition.enums'
     storylet 'findRoxy',
       'Begin searching for her'
       '''
-      For a long moment, roxy hungrily eyes the bills in your hand. But just when you think he's
-      going to take your offer—
+      There's a through-line to the stories on the street about Roxy's gang. For the last six
+      months, they've been having
+      trouble bringing enough people to bear to pressure the other gangs. And they're more focused
+      on consolidating power in the magic districts. It all adds up to one thing: Roxy must have
+      moved her base of operations east, away from downtown and towards… the Brown mansion.
 
-      "Put that away." He slumps in his chair. "This is really that important to you, huh?"
-
-      He eyes the empty desk on the opposite side of the room. "She's gone. Did you even notice?"
-      Come to think of it, where _is_ his partner? "Just up and stormed out a few weeks ago. Said
-      she had to seek 'greener pastures,' whatever that means.
-
-      "I'm nothing without her, Dis. I may be the sandpaper skin and muscle of this team, but she
-      was the brains. This outfit was on hard times before, but it's falling apart without her.
-
-      "I've tried to find her, but she's fallen off the map so well, I can't even get a whiff of
-      her. But then, she knows all my techniques; she's better-qualified than anyone to avoid me.
-      But you! You, she isn't so well-equipped to avoid. Find her for me, and I'll forget about
-      detective-client confidentiality for a bit as regards the quite-likely-late Mr. Brown and his
-      concerns."
+      Based on shakedown rates in various districts, you figure Roxy's hideout must be somewhere
+      within an area of about fifteen blocks on the east end. It's still a wide area, but it's a
+      start.
       '''
       consequences:
         lead: consq.set leads.roxy
         roxy: (quality) ->
           quality.value++
-          'roxy has asked you to find his partner.'
+          'You know where to start looking for Roxy'
         progress: consq.set 0
 
     storylet 'roxy1',
-      'Search for roxy\'s missing partner'
+      'Pursue Roxy the gangster'
       '''
-      She's gone to ground, or maybe left the city entirely. You need to pick up her trail.
+      No operation as large as Roxy's can avoid leaving a trail behind.
       '''
       choices: [
-        choice 'roxy1Rumor',
-          'Hit the streets'
-          'Ask around. Try not to be too obvious. Someone must have seen _something_.'
+        choice 'roxy1Bluebacks',
+          'Pay off low-level scum'
+          'The lowest man on the totem pole is usually the most willing to trade money for secrets.'
           visible:
             progress: reqs.lt 5
           active:
-            rumor: reqs.gte 3
+            bluebacks: reqs.gte 3
         choice 'roxy1Hunch',
-          'See if you get any hunches'
+          'Look for unusual illusions'
           '''
-          She wasn\'t a mage, but then, neither is roxy. Maybe she\'s using magic to cover her
-          tracks from him.
+          A wizard like Roxy is bound to be using huge numbers of illusions to cover up her
+          operations.
           '''
           visible:
             progress: reqs.lt 5
           active:
-            hallucinationHunch: reqs.gte 1
+            illusionHunch: reqs.gte 1
         choice 'roxy1Solve',
           'Aha!'
           'You\'ve pieced together enough to find her!'
@@ -93,88 +85,66 @@ angular.module 'gameDefinition.roxyStories', ['qbn.edsl', 'gameDefinition.enums'
             progress: reqs.gte 5
       ]
 
-    storylet 'roxy1Rumor',
-      'Hit the streets'
+    storylet 'roxy1Bluebacks',
+      'Pay off low-level scum'
       '''
-      You don\'t get any info on her directly, but the omissions in the stories are almost as
-      telling as the stories themselves.
+      None of them have been to the headquarters directly. Most of them are at least two tiers
+      removed from anyone important enough to know anything. But who they meet and where they meet
+      them tells you a lot about who to pay off next and where the orders are coming from.
       '''
       consequences:
-        rumor: consq.decrease 3
+        bluebacks: consq.decrease 3
         progress: consq.increase 1
 
     storylet 'roxy1Hunch',
-      'See if you get any hunches'
+      'Look for unusual illusions'
       '''
-      There's traces of it all over the building where roxy's office is. Little scraps of
-      store-bought hallucinations, nothing elaborate. But telltale signs that she's been trying
-      to keep him off her trail.
+      There are illusions all over this part of town, of course. When using a spell to spruce up
+      your home is so easy, why not do it? Still, a few places with an unusual number and specificty
+      of illusions catch your eye, particularly the ones with illusions in places that have nothing
+      to do with decor.
       '''
       consequences:
-        hallucinationHunch: consq.decrease 1
+        illusionHunch: consq.decrease 1
         progress: consq.increase 1
 
     storylet 'roxy1Solve',
-      'Out of the city, but not far'
+      'In a disused print shop'
       '''
-      It looks like she's left the city, but she didn't go far. Makes sense; someone had to keep
-      those glamours up, and if she trusted anyone else, it'd be a liability. You catch up with her
-      at a library. She doesn't remember you, but when you mention who you're working for, she
-      drags you into an empty reading room and shuts the door.
+      The print shop's shell only takes up a small portion of the first floor, but it's been
+      magicked to appear larger than it is, to cover up the fact that the rest of the building is
+      filled with gangsters.
 
-      "Dammit," she starts. "I can't believe roxy hired another gumshoe to hunt me down. Is he
-      really that desperate to have me back?"
+      Roxy won't deign to see you if you just walk up to the front door. Not after what happened
+      last time. So it looks like breaking and entering is your only option. You slip in a back door
+      and slide through a hallucinatory wall. You're upstairs and rifling through files without
+      anyone being the wiser. Their contents aren't very revealing, though. Nothing in here really
+      explains the link to Mr. Brown.
 
-      You lay out the situation. You explain how roxy seemed to be falling apart. She snorts.
+      You've just spotted a locked cabinet in the corner and are considering how to best open it
+      when a lowly runner wanders in and spots you. He rushes out and sounds the alarm. Cursing your
+      luck, you shoot the lock off. Inside is a stack of envelopes and a small, magical charm.
 
-      "That wasn't me leaving that did that. That stuff was why I left. roxy's been on the long
-      downward slide for years now. Couldn't wrap his thick skull around this new world we all live
-      in. Magic befuddles him more than if someone just cast some befuddling magic at him."
-
-      She purses her lips and concentrates on an empty corner of the room. "It's not the paucity of
-      jobs I minded, really. Times were always lean. The problem is—" A long pause.
-
-      "He got desperate for work. Started taking hit jobs for the mob. I won't be involved in that
-      kind of work again. He knew that, tried to keep it secret from me, but when I found out, I
-      knew it had to be over." She sets you with a hard stare. "Don't tell roxy where I am, Dis.
-      It's a complication I
-      don't want to deal with, and really, neither does he. I just want to put that past behind me."
-
-      She fishes around in her bag for a moment. "I don't have any info on the Brown
-      disappearance to offer you, but I know the fuel you operate on. Hunches, right? I'm trying
-      to get better acquainted with the magical world. I picked this thing up from a travelling
-      salesman. Helps with detecting hallucinations. If you go back and tell roxy that you
-      couldn't find me, it's all yours."
+      You're going to need a hand free to hold your gun. Which do you take?
       '''
       choices: [
-        choice 'roxyFinalroxy',
-          'Tell roxy the truth'
-          'Honesty is always the best policy, and you need the info on Mr. Brown.'
-        choice 'roxyFinalPartner',
-          'Take her offer'
+        choice 'roxyFinalLetters',
+          'Take the letters'
+          'They smell… nice?'
+        choice 'roxyFinalRibbon',
+          'Take the spell-inscribed ribbon'
           '''
-          This is messy and not your responsibility. Plus, that trinket could pay dividends in the
-          Brown case and for years to come.
+          You've seen these before. They're used to overcome illusions.
           '''
       ]
 
-    storylet 'roxyFinalroxy',
-      'Honesty is always the best policy'
+    storylet 'roxyFinalLetters',
+      'Mysterious letters'
       '''
-      You leave her screaming obscenities after you as you leave. If she's smart, she'll be packing
-      up and covering her trail again before roxy arrives.
-
-      You drive straight to roxy's and spill the beans. He almost runs out before he has time to
-      pay up. You drag him back to reality and he hurriedly dumps a huge file on your lap before
-      ushering you out and racing towards the suburb where a very awkward shouting match awaits.
-
-      The file explains that Mr. Brown's concerns were as old as time, the bread and butter of the
-      sleuthing trade: He thought his wife was cheating on him. roxy had been gathering photos and
-      info for two weeks before Mr. Brown disappeared and the whole file became worthless. And
-      judging by the contents, Mr. Brown was right to be worried. Mrs. Brown apparently has some
-      very specific interests that were going very unfulfilled by Mr. Brown. Could she be more
-      involved than she's letting on? Or, alternatively, could one of the other people pictured be
-      behind this?
+      Once safely back in your office, you peruse the letters with great curiosity. They appear to
+      be love letters. You have no idea who this Joy person is, nor who she was writing to, but
+      the smell of perfume on them is tugging at your memory, as if you've smelled it before. And
+      whoever she is, she uses the post office near Mr. Brown's mansion.
       '''
       consequences:
         evidence: consq.increase 1
@@ -183,29 +153,24 @@ angular.module 'gameDefinition.roxyStories', ['qbn.edsl', 'gameDefinition.enums'
           'Your current lead has ended.'
         roxy: (quality) ->
           quality.value = 3
-          'You found roxy\'s partner for him.'
+          'You stole some letters from Roxy Malone\'s hideout.'
         progress: consq.set 0
 
-    storylet 'roxyFinalPartner',
-      'Take Her Offer'
+    storylet 'roxyFinalRibbon',
+      'A magic ribbon'
       '''
-      You accept the trinket. It's a small figurine — sealbone, if you're any judge — carved in the
-      shape of some north sea deity you don't recognize. roxy's partner seems pleased at your
-      acceptance, but she still shoots you a warning glare before departing the library. It's the
-      last you ever see of her.
-
-      roxy is crestfallen but unsurprised to hear of your failure. He seems to sink further into
-      his chair as you close the door behind you on the way out. He wouldn't hear of your advice
-      to try and adapt to this new world. "Fat lot of good it did you in finding my partner, Dis."
+      Once safely back in your office, you confirm what you already suspected. The ribbon is a charm
+      against illusions, inscribed with a spell of protection. It isn't the evidence in the case
+      that you were looking for, but it should be very useful in continuing your investigation.
       '''
       consequences:
-        sealboneTrinket: consq.increase 1
+        inscribedRibbon: consq.increase 1
         lead: (quality) ->
           quality.value = undefined
           'Your current lead has ended.'
         roxy: (quality) ->
           quality.value = 4
-          'You did not tell roxy where his partner is.'
+          'You stole a ribbon from Roxy Malone\'s hideout.'
         progress: consq.set 0
 
     return

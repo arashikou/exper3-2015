@@ -109,10 +109,10 @@ angular.module 'gameDefinition.qualities', ['qbn.edsl', 'gameDefinition.enums']
     quality 'roxy',
       () ->
         switch @value
-          when 1 then 'Roxy wants Mrs. Brown out of town.'
-          when 2 then 'Game Afoot'
-          when 3 then 'Choice 1'
-          when 4 then 'Choice 2'
+          when 1 then 'Roxy Malone wants Mrs. Brown out of town'
+          when 2 then 'You\'ve narrowed down the places Roxy could be'
+          when 3 then 'You stole some letters from Roxy\'s hideout'
+          when 4 then 'You stole a ribbon from Roxy\'s hideout'
       '!!ERROR!!', undefined
 
     ## Incidental Deatails
