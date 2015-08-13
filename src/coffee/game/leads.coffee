@@ -34,16 +34,6 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
             kbs: reqs.eq 0
           active:
             rumor: reqs.gte 10
-        choice 'clubEntry',
-          'The Salamander Club'
-          '''
-          Ever since you lost your magical abilities, you've lost touch with the magical community
-          in the city.
-          The Salamander Club is a favorite watering hole of the sorcerous set and your best bet to
-          make contact with anyone who might know Mr. Brown.
-          '''
-          active:
-            cantripUp: reqs.gte 6
         choice 'pressStart',
           'The press'
           '''
@@ -63,6 +53,16 @@ angular.module 'gameDefinition.leadStories', ['qbn.edsl', 'gameDefinition.enums'
             cop: reqs.eq 0
           active:
             bluebacks: reqs.gte 10
+        choice 'clubEntry',
+          'The Salamander Club'
+          '''
+          Ever since you lost your magical abilities, you've lost touch with the magical community
+          in the city.
+          The Salamander Club is a favorite watering hole of the sorcerous set and your best bet to
+          make contact with anyone who might know Mr. Brown.
+          '''
+          active:
+            cantripUp: reqs.gte 6
       ]
 
     ## The Salamander Club
