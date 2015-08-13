@@ -27,11 +27,9 @@ It uses the following libraries:
 
 Dependency management is handled by [npm](https://www.npmjs.com/) and task running is handled by [gulp](http://gulpjs.com/), which both run on [node.js](https://nodejs.org/).
 
-# How Can I Run It?
+# How Can I Build It?
 
-There's not much to see right now, but if you want to try it out, you'll need to build it yourself. Eventually, once EXPER3 is over, I will host the completed project on the [GitHub Pages page for this project](http://arashikou.github.io/exper3-2015/).
-
-If you want to build the code for yourself, you'll need to have node.js, npm, and gulp installed globally. (or at least somewhere your PATH can find them) All other dependencies will be downloaded to the project folder by npm and will not affect your system configuration. These steps should work on any operating system that has a node.js implementation.
+If you want to build the code for yourself, you'll need to have [node.js](https://nodejs.org/), [npm](https://www.npmjs.com/), and [gulp](http://gulpjs.com/) installed globally. (or at least somewhere your PATH can find them) All other dependencies will be downloaded to the project folder by npm and will not affect your system configuration. These steps should work on any operating system that has a node.js implementation.
 
 After checking out the code, you'll want to use npm to install the dev-dependencies needed for compilation, which are numerous.
 
