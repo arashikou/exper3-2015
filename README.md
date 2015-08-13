@@ -2,7 +2,7 @@
 
 Last year, my wife gave me the best 30th birthday present I could have asked for by challenging me to make some real progress on my dream of making video games. She organized a themed video game jam, which she dubbed EXPER3, for which I had to make either a game a week for four weeks or one game in a month. You can read more about that and check out the results at [the GitHub repository where I checked in my entry](https://github.com/arashikou/exper3-2014).
 
-Since that went so well, except for me continuing to make any more games once the jam was over, we've decided to make this an annual event. For 2015, the theme is **ILLUSION**, and you can follow my work in this repo. EXPER3 runs from July 12<sup>th</sup> to August 12<sup>th</sup>, inclusive, so it is still going on right now.
+Since that went so well, except for me continuing to make any more games once the jam was over, we decided to make this an annual event. EXPER3 ran from July 12<sup>th</sup> to August 12<sup>th</sup>, inclusive. For 2015, the theme was **ILLUSION**. _The Disillusionist_ is my entry.
 
 # This Year's Game
 
