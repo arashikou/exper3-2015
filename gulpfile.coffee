@@ -16,6 +16,9 @@ serve       = require './serve.coffee'
 SRC = 'src'
 DEST = 'out'
 RELEASE_DEST = 'release'
+STYLES = 'styles'
+SCRIPTS = 'scripts'
+
 pathTo = (ext) -> "#{SRC}/#{ext}/**/*.#{ext}"
 JADE_PATH = pathTo 'jade'
 LESS_PATH = pathTo 'less'
@@ -46,9 +49,9 @@ gulp.task 'less', ->
     ]
     .pipe concat 'qbn.css'
     .pipe minifyCss()
-    .pipe gulp.dest "#{RELEASE_DEST}/styles"
+    .pipe gulp.dest "#{RELEASE_DEST}/#{STYLES}"
     .pipe sourcemaps.write()
-    .pipe gulp.dest "#{DEST}/styles"
+    .pipe gulp.dest "#{DEST}/#{STYLES}"
 
 gulp.task 'coffee', ->
   gulp.src COFFEE_PATH
@@ -57,9 +60,9 @@ gulp.task 'coffee', ->
     .pipe concat 'qbn.js'
     .pipe wrap '"use strict";{%= body %}'
     .pipe uglify mangle: false
-    .pipe gulp.dest "#{RELEASE_DEST}/scripts"
+    .pipe gulp.dest "#{RELEASE_DEST}/#{SCRIPTS}"
     .pipe sourcemaps.write()
-    .pipe gulp.dest "#{DEST}/scripts"
+    .pipe gulp.dest "#{DEST}/#{SCRIPTS}"
 
 gulp.task 'clean', (callback) ->
   del [DEST, RELEASE_DEST], callback
