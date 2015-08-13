@@ -33,7 +33,7 @@ html {
 
 #outer-frame {
   width: 60rem;
-  margin: @spacing auto;
+  margin: @spacing auto (@spacing * 2);
   padding: @spacing;
   background-color: @fill;
   border: (@border * 4) solid @edge;
@@ -212,4 +212,20 @@ a#reset-save {
 p {
   margin: 0.6em 0 0 0;
   padding: 0;
+}
+
+#version-number {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  padding: @spacing;
+  background-color: @fill;
+  border-bottom-right-radius: (@spacing / 2);
+
+  opacity: 0;
+  &:hover {
+    opacity: inherit;
+  }
+  transition: opacity 1s linear 2s;
 }
