@@ -12,6 +12,14 @@ I've decided to make what Sam Ashwell calls a ["Floating Module" game](https://h
 
 Unfortunately, every QBN engine out there has been formally or effectively abandoned by its creator. Even Failbetter's own [StoryNexus](http://storynexus.com/) has gone into maintenance mode after it failed to attract enough of an audience to fund its continued development. And while you can hack Twine to work, it's not a supremely user-friendly workflow. So I've decided to code my own framework for this game. I make no pretension that it will be general-purpose enough to work for other people, of course.
 
+# How Can I Run It?
+
+The most recent release is always hosted at [this project's GitHub.io page](http://arashikou.github.io/exper3-2015/). Just click on that link and you'll be playing. The game will automatically save after every action, so you can close the window and come back at any time to continue. Note that the game is saved to your computer, so your saved game will not follow you if you move to a different computer.
+
+This game runs in a web browser. It has been tested in recent versions of Chrome and Firefox, and these are the recommended browsers. However, it _should_ work in the most recent versions of Internet Explorer and Safari as well. It will not work on versions of Internet Explorer lower than 11.
+
+This game is designed to be played on a computer. It is not optimized for mobile and may fail to work or work poorly on your phone or tablet. My apologies, but I had to spend my limited time during EXPER3 wisely, and redesigning the UI for a second platform was not high on my list.
+
 # Technologies at Work
 
 The game is written in the following languages:
@@ -52,5 +60,3 @@ gulp serve
 to serve up the results from a local webserver that can be connected to on [localhost:8080](http://localhost:8080/). Note that this task will not terminate on its own and must be terminated (usually with CTRL-C or your OS's variant) when you are done.
 
 Lastly, the default gulp task will build all sources and then serve them up while also watching for changes and rebuilding as necessary. Very useful for development, not so useful for just trying out the game.
-
-Note that this game is designed with modern web standards. As such, it is only guaranteed to work on the few most recent versions of browsers. In particular, it will not work on versions of Internet Explorer lower than 11. It has only been tested on a recent version of Chrome, though I hope to also test it with Firefox before this is over. This game is not optimized for mobile and probably will not work well on your phone or tablet. My apologies, but I have to spend my limited time during EXPER3 wisely, and redesigning the UI for a new platform was not high on my list.
