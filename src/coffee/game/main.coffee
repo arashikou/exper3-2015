@@ -12,6 +12,7 @@ angular.module 'gameDefinition', [
   'gameDefinition.copStories'
   'gameDefinition.studentStories'
   'gameDefinition.dealerStories'
+  'gameDefinition.roxyStories'
   'gameDefinition.endingStories'
 ]
   .run (qbnEdsl) ->

@@ -42,7 +42,8 @@ angular.module 'gameDefinition.roxyStories', ['qbn.edsl', 'gameDefinition.enums'
       months, they've been having
       trouble bringing enough people to bear to pressure the other gangs. And they're more focused
       on consolidating power in the magic districts. It all adds up to one thing: Roxy must have
-      moved her base of operations east, away from downtown and towards… the Brown mansion.
+      moved her base of operations east, away from downtown… and right into the vicinity of
+      the Brown mansion.
 
       Based on shakedown rates in various districts, you figure Roxy's hideout must be somewhere
       within an area of about fifteen blocks on the east end. It's still a wide area, but it's a
