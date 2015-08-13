@@ -15,7 +15,7 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl']
           But if this… Then that… Which means…
           '''
           active:
-            evidence: reqs.gte 10
+            evidence: reqs.gte 4
           next: 'solve1'
         choice 'solveHunch',
           'Solve the case with pure gumption'
@@ -24,8 +24,8 @@ angular.module 'gameDefinition.clientStories', ['qbn.edsl']
           hunches, you could blow this case wide open!
           '''
           active:
-            illusionHunch: reqs.gte 3
-            hallucinationHunch: reqs.gte 3
+            illusionHunch: reqs.gte 2
+            hallucinationHunch: reqs.gte 2
             hypnotismHunch: reqs.gte 3
           next: 'solve1'
         choice 'advanceAsk',
