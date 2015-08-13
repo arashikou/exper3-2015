@@ -64,7 +64,8 @@ The game is written in the following languages:
 
 It uses the following libraries:
 
-* [AngularJS 1.4](https://angularjs.org/)
+* [AngularJS 1.4.2](https://angularjs.org/)
 * [normalize.css 3.0.3](https://necolas.github.io/normalize.css/)
+* [Showdown 1.2.1](https://github.com/showdownjs/showdown)
 
 Dependency management is handled by [npm](https://www.npmjs.com/) and task running is handled by [gulp](http://gulpjs.com/), which both run on [node.js](https://nodejs.org/).
