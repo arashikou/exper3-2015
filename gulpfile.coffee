@@ -9,7 +9,6 @@ prefixer    = require 'gulp-autoprefixer'
 minifyCss   = require 'gulp-minify-css'
 coffee      = require 'gulp-coffee'
 wrap        = require 'gulp-wrap-js'
-uglify      = require 'gulp-uglify'
 concat      = require 'gulp-concat'
 serve       = require './serve.coffee'
 
@@ -53,7 +52,6 @@ gulp.task 'coffee', ->
     .pipe coffee()
     .pipe concat 'qbn.js'
     .pipe wrap '"use strict";{%= body %}'
-    #.pipe uglify mangle: false
     .pipe sourcemaps.write()
     .pipe gulp.dest "#{DEST}/scripts"
 
