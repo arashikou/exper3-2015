@@ -2,6 +2,7 @@ gulp        = require 'gulp'
 del         = require 'del'
 deleteLines = require 'gulp-delete-lines'
 jade        = require 'gulp-jade'
+replace     = require 'gulp-replace'
 sourcemaps  = require 'gulp-sourcemaps'
 less        = require 'gulp-less'
 prefixer    = require 'gulp-autoprefixer'
@@ -22,8 +23,10 @@ COFFEE_PATH = pathTo 'coffee'
 gulp.task 'build', ['jade', 'less', 'coffee']
 
 gulp.task 'jade', ->
+  packageJson = require './package.json'
   gulp.src JADE_PATH
     .pipe deleteLines filters: [/^doctype/]
+    .pipe replace '##VERSION##', packageJson.version
     .pipe jade
       doctype: 'html'
       pretty: false
